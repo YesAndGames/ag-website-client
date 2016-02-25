@@ -15,12 +15,5 @@ nav.controller = function() {
 
 // Create the nav view.
 nav.view = function() {
-  return m("html", [
-      m("body", [
-        m("div", "Hello, world!")
-      ])
-  ]);
+  return m("div", "Hello, world!");
 }
-
-// Initialize the component.
-m.mount(document, {controller: nav.controller, view: nav.view});
