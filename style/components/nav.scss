@@ -1,0 +1,30 @@
+.title-header {
+  text-align: center;
+}
+
+.nav-header {
+
+  .nav-collapse {
+    font-family: $header-font;
+    float: none;
+
+    ul {
+      list-style:none;
+      margin:0;
+      padding:0;
+      text-align:center;
+
+      li {
+        display: inline;
+        float: none;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        a {
+          display: inline;
+          float: none;
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,9 @@ nav.controller = function() {
 // Create the nav view.
 nav.view = function() {
   return m("header", [
+    m("div", {class: "title-header"}, [
+      m("h1", "Adventure Guild")
+    ]),
     m("div", {class: "nav-header"}, [
       m("div", {class: "nav-collapse"}, [
         m("ul", [
