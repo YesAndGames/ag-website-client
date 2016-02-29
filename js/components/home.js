@@ -23,8 +23,11 @@ var callToAction = {
             m("h1", "Adventure Guild")
           ])
         ]),
-        m("div", {class: "col span_6_of_12"}, [
-
+        m("div", {class: "vertical-center col span_6_of_12"}, [
+          m("div", [
+            m("button", "Play Free", {type: "button", value:"Play Free"}),
+            m("a", "Learn More", {href: "#"})
+          ])
         ])
       ])
     ]);
