@@ -1,9 +1,15 @@
+html {
+  background-color: $dark;
+}
+
 body {
   font-family: $page-font;
+  color: $light;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
+  color: $light;
 }
 
 h1 {
@@ -16,7 +22,10 @@ h2 {
 
 .hero {
   height: $viewport-height;
-  background-color: red;
+
+  & > div {
+    height: 100%;
+  }
 }
 
 .first-hero {
@@ -25,4 +34,19 @@ h2 {
 
 .vertical-center {
   @include vertical-center;
+}
+
+@mixin darkBackground ($path, $opacity) {
+  background-color: $dark;
+  & > div:before {
+    content: "";
+    background-image: url($path);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: $opacity;
+  }
 }

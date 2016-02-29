@@ -15,15 +15,17 @@ var callToAction = {
 
   // Create the view.
   view: function() {
-    return m("section", {class: "hero first-hero"}, [
-      m("div", {class: "vertical-center col span_6_of_12"}, [
-        m("div", [
-          m("h2", "Join the"),
-          m("h1", "Adventure Guild")
-        ])
-      ]),
-      m("div", {class: "col span_6_of_12"}, [
+    return m("section", {class: "call-to-action hero first-hero"}, [
+      m("div", [
+        m("div", {class: "vertical-center col span_6_of_12"}, [
+          m("div", [
+            m("h2", "Join the"),
+            m("h1", "Adventure Guild")
+          ])
+        ]),
+        m("div", {class: "col span_6_of_12"}, [
 
+        ])
       ])
     ]);
   }
