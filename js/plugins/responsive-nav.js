@@ -232,7 +232,7 @@
 
         // If element doesn't exists, stop here.
         } else {
-          throw new Error("The nav element you are trying to select doesn't exist");
+          throw new Error("The nav element " + this.wrapperEl + " doesn't exist");
         }
 
         // Inner wrapper
