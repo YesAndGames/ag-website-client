@@ -15,16 +15,8 @@ home.controller = function() {
 
 // Create the home view.
 home.view = function() {
-  return m("html", [
-      m("head"), [
-        m("title", "Adventure Guild"),
-        m("link", {rel: "stylesheet", href: "style/main.css"})
-      ],
-      m("body"), [
-        m.component(nav)
-      ]
-  ]);
+    return m.component(nav);
 }
 
 // Initialize the home component chain.
-m.mount(document, {controller: home.controller, view: home.view});
+m.mount(document.body, {controller: home.controller, view: home.view});

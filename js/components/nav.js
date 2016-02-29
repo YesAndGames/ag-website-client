@@ -20,16 +20,16 @@ nav.view = function() {
       m("div", {class: "nav-collapse"}, [
         m("ul", [
           m("li", [
-            m("a", "Home")
+            m("a", {href: "#"}, "Home")
           ]),
           m("li", [
-            m("a", "Game")
+            m("a", {href: "#"},  "Game")
           ]),
           m("li", [
-            m("a", "Forums")
+            m("a", {href: "#"},  "Forums")
           ]),
           m("li", [
-            m("a", "Shop")
+            m("a", {href: "#"},  "Shop")
           ]),
         ])
       ])
