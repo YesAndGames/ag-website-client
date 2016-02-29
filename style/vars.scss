@@ -60,6 +60,7 @@ $viewport-height: 100vh;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  height: 100%;
 
   & > div {
     position: relative;

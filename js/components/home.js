@@ -1,3 +1,34 @@
+// Create the call to action banner component.
+var callToAction = {
+
+  // Create the view-model.
+  vm: {
+    init: function() {
+      console.log ("home call to action banner vm init");
+    }
+  },
+
+  // Create the controller.
+  controller: function() {
+    callToAction.vm.init ();
+  },
+
+  // Create the view.
+  view: function() {
+    return m("section", {class: "hero first-hero"}, [
+      m("div", {class: "vertical-center col span_6_of_12"}, [
+        m("div", [
+          m("h2", "Join the"),
+          m("h1", "Adventure Guild")
+        ])
+      ]),
+      m("div", {class: "col span_6_of_12"}, [
+
+      ])
+    ]);
+  }
+}
+
 // Create the home component.
 var home = {};
 
@@ -15,7 +46,10 @@ home.controller = function() {
 
 // Create the home view.
 home.view = function() {
-    return m.component(nav);
+    return [
+      m.component(nav),
+      m.component(callToAction)
+    ]
 }
 
 // Initialize the home component chain.

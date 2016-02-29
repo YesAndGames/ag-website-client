@@ -5,3 +5,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
 }
+
+.hero {
+  height: $viewport-height;
+  background-color: red;
+}
+
+.first-hero {
+  margin-top: $nav-height;
+}
+
+.vertical-center {
+  @include vertical-center;
+}
