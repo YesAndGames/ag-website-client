@@ -6,6 +6,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
 }
 
+h1 {
+  font-size: 36pt;
+}
+
+h2 {
+  font-size: 32pt;
+}
+
 .hero {
   height: $viewport-height;
   background-color: red;
