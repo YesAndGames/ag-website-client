@@ -26,7 +26,10 @@ nav.view = function() {
             m("a", {href: "#"}, "Home")
           ]),
           m("li", [
-            m("a", {href: "#"},  "Game")
+            m("a", {href: "#"},  "About")
+          ]),
+          m("li", [
+            m("a", {href: "#"}, "Play")
           ]),
           m("li", [
             m("a", {href: "#"},  "Forums")
