@@ -99,6 +99,7 @@ home.view = function() {
 
 // Initialize the home component chain.
 m.route(document.body, "/", {
-  "/": home
+  "/": home,
+  "/play": play
   }
 );

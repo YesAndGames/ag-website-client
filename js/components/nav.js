@@ -23,13 +23,13 @@ nav.view = function() {
       m("div", {class: "nav-collapse"}, [
         m("ul", [
           m("li", [
-            m("a", {href: "#"}, "Home")
+            m("a", {href: "#home"}, "Home")
           ]),
           m("li", [
-            m("a", {href: "#"},  "About")
+            m("a", {href: "#about"},  "About")
           ]),
           m("li", [
-            m("a", {href: "#"}, "Play")
+            m("a", {href: "#play", onclick: "m.route('/play')"}, "Play")
           ]),
           m("li", [
             m("a", {href: "#"},  "Forums")
