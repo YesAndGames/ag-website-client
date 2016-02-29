@@ -57,7 +57,8 @@ home.controller = function() {
 home.view = function() {
     return [
       m.component(nav),
-      m.component(callToAction)
+      m.component(callToAction),
+      m.component(footer)
     ]
 }
 
