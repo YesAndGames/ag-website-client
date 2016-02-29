@@ -63,4 +63,9 @@ home.view = function() {
 }
 
 // Initialize the home component chain.
-m.mount(document.body, {controller: home.controller, view: home.view});
+window.addEventListener ("load", function () {
+  m.route(document.body, "/", {
+    "/": home
+    }
+  );
+});

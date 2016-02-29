@@ -15,6 +15,7 @@ var footer = {
     // Create the view.
     view: function() {
       return m("footer", [
+        m("hr", {class: "hr-gradient"}),
         m("div", {class: "col span_5_of_12"}, [
           m("h2", "Follow Us!"),
           m("div", [
