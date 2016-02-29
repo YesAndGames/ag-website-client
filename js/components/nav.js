@@ -36,6 +36,7 @@ nav.view = function() {
           ]),
         ])
       ])
-    ])
+    ]),
+    m("hr", {class: "hr-gradient"})
   ]);
 }

@@ -20,6 +20,13 @@ h2 {
   font-size: 32pt;
 }
 
+.hr-gradient {
+  border: 0;
+  height: 2px;
+  background: #000;
+  background-image: linear-gradient(to right, #000, $guild-gold, #000);
+}
+
 .hero {
   height: $viewport-height;
 
