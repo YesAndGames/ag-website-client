@@ -38,6 +38,36 @@ var callToAction = {
   }
 }
 
+// Create the media reel component.
+var mediaReel = {
+
+  // Create the view-model.
+  vm: {
+    init: function() {
+      console.log ("home media reel banner vm init");
+    }
+  },
+
+  // Create the controller.
+  controller: function() {
+    mediaReel.vm.init ();
+  },
+
+  // Create the view.
+  view: function() {
+    return m("section", {class: "media-reel hero"}, [
+      m("div", {class: "vertical-center"}, [
+        m("div", {id: "media-reel-slick"}, [
+          m("div", "my content"),
+          m("div", "my content"),
+          m("div", "my content"),
+          m("div", "my content"),
+        ])
+      ])
+    ]);
+  }
+}
+
 // Create the home component.
 var home = {};
 
@@ -58,6 +88,7 @@ home.view = function() {
     return [
       m.component(nav),
       m.component(callToAction),
+      m.component(mediaReel),
       m.component(footer)
     ]
 }
