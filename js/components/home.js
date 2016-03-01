@@ -15,7 +15,7 @@ var callToAction = {
 
   // Create the view.
   view: function() {
-    return m("section", {class: "call-to-action hero first-hero"}, [
+    return m("section", {class: "call-to-action hero"}, [
       m("div", [
         m("div", {class: "vertical-center col span_6_of_12"}, [
           m("div", [
