@@ -39,7 +39,6 @@ var nav = {
             m("li", [
               m("a", {href: "#"},  "Forums")
             ]),
-
             */
 
             m("li", [
