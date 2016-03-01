@@ -28,6 +28,7 @@ var callToAction = {
         ]),
         m("div", {class: "vertical-center col span_6_of_12"}, [
           m("div", [
+            m("img", {class: "devices-image", src: "imgs/home/devices.png", alt: "Play Anytime, Anywhere"}),
             m("div", [
               m("button", {type: "button"}, "Play Free"),
             ]),
