@@ -102,8 +102,12 @@ home.view = function() {
 }
 
 // Initialize the home component chain.
+m.mount (document.body, home);
+
+/* routing chain doesn't work yet
 m.route(document.body, "/", {
   "/": home,
   "/play": play
   }
 );
+*/
