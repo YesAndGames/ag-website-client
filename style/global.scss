@@ -83,8 +83,8 @@ button:active {
 
 .hero {
   @include clearfix ();
-
-  height: $viewport-height;
+  @include viewport-under-nav ();
+  
   @media screen and (max-width: $tablet-break) {
     height: auto;
   }

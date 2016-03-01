@@ -74,6 +74,12 @@ $viewport-height: 100vh;
   }
 }
 
+@mixin viewport-under-nav () {
+  height: -webkit-calc(#{$viewport-height} - #{$nav-height});
+  height: -moz-calc(#{$viewport-height} - #{$nav-height});
+  height: calc(#{$viewport-height} - #{$nav-height});
+}
+
 @-webkit-viewport { width: device-width; }
 @-moz-viewport    { width: device-width; }
 @-ms-viewport     { width: device-width; }
