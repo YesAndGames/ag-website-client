@@ -1,3 +1,23 @@
 .beta-signup {
+  
   text-align: center;
+
+  & > div {
+    padding-top: $nav-height;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .platform-images {
+
+    margin-top: 10px;
+
+    img {
+      display: inline;
+      height: 80px;
+      margin: 10px;
+    }
+  }
 }
