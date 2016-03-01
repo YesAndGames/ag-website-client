@@ -1,0 +1,45 @@
+.about-features {
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+
+  h3 {
+    margin: 20px;
+  }
+
+  .about-features-overview {
+    img {
+      width: 100%;
+    }
+  }
+
+  .kickstarter-video-container {
+    position: relative;
+    height: 0;
+    overflow: visible;
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 60%;
+
+    iframe {
+      position: absolute;
+      top: 20%;
+      left: 0;
+      width: 80%;
+      height: 80%;
+      padding-left: 10%;
+    }
+  }
+
+  .platform-images {
+
+    margin-top: 10px;
+
+    img {
+      display: inline;
+      height: 80px;
+      margin: 10px;
+    }
+  }
+}
