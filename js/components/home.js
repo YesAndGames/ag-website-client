@@ -19,11 +19,7 @@ var callToAction = {
       m("div", [
         m("div", {class: "vertical-center col span_6_of_12"}, [
           m("div", [
-            m("h2", "Join the"),
-            m("h1", [
-              m("span", {class: "color-adventure-blue"}, "Adventure "),
-              m("span", {class: "color-guild-gold"}, "Guild")
-            ])
+            m("img", {class: "logo-image", src: "imgs/logos/adventure-guild.png", alt: "Adventure Guild"})
           ])
         ]),
         m("div", {class: "vertical-center col span_6_of_12"}, [
