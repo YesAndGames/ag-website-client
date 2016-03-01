@@ -36,8 +36,9 @@ var callToAction = {
               m("button", {type: "button"}, "Learn More"),
             ])
           ])
-        ])
-      ])
+        ]),
+      ]),
+      m("hr", {class: "hr-gradient"})
     ]);
   }
 }
@@ -60,11 +61,15 @@ var mediaReel = {
   // Create the view.
   view: function() {
     return m("section", {class: "media-reel hero"}, [
-      m("div", {class: "vertical-center"}, [
+      m("div", [
         m("div", {id: "media-reel-slick"}, [
           m("div", [
             m("div", {class: "embed-container"}, [
               m("iframe", {src: "https://www.youtube.com/embed/YSaL_rk1i9Y", frameborder: "0", allowfullscreen: "true"})
+            ]),
+            m("p", "Online development feature online by ", [
+              m("a", {href: "Reporter at RIT"}, "Reporter at RIT"),
+              "."
             ])
           ]),
           m("div", [
