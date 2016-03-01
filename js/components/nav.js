@@ -32,13 +32,18 @@ var nav = {
               m("a", {href: "#about"},  "About")
             ]),
             m("li", [
-              m("a", {href: "#play", onclick: "m.route('/play')"}, "Play")
+              m("a", {href: "#play"}, "Play")
             ]),
+
+            /*
             m("li", [
               m("a", {href: "#"},  "Forums")
             ]),
+
+            */
+
             m("li", [
-              m("a", {href: "#"},  "Shop")
+              m("a", {href: "#"},  "Donate")
             ]),
           ])
         ])
