@@ -67,9 +67,15 @@ var mediaReel = {
               m("iframe", {src: "https://www.youtube.com/embed/YSaL_rk1i9Y", frameborder: "0", allowfullscreen: "true"})
             ])
           ]),
-          m("div", "my content"),
-          m("div", "my content"),
-          m("div", "my content"),
+          m("div", [
+            m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+          ]),
+          m("div", [
+            m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+          ]),
+          m("div", [
+            m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+          ])
         ])
       ])
     ]);
