@@ -69,6 +69,14 @@ button:active {
   background-image: linear-gradient(to right, #000, $guild-gold, #000);
 }
 
+.color-adventure-blue {
+  color: $adventure-blue;
+}
+
+.color-guild-gold {
+  color: $guild-gold;
+}
+
 .hero {
   height: $viewport-height;
 

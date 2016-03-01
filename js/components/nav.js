@@ -17,7 +17,10 @@ nav.controller = function() {
 nav.view = function() {
   return m("header", [
     m("div", {class: "title-header"}, [
-      m("h1", "Adventure Guild")
+      m("h1", [
+        m("span", {class: "color-adventure-blue"}, "Adventure "),
+        m("span", {class: "color-guild-gold"}, "Guild")
+      ])
     ]),
     m("div", {class: "nav-header"}, [
       m("div", {class: "nav-collapse"}, [

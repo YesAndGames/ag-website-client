@@ -20,16 +20,19 @@ var callToAction = {
         m("div", {class: "vertical-center col span_6_of_12"}, [
           m("div", [
             m("h2", "Join the"),
-            m("h1", "Adventure Guild")
+            m("h1", [
+              m("span", {class: "color-adventure-blue"}, "Adventure "),
+              m("span", {class: "color-guild-gold"}, "Guild")
+            ])
           ])
         ]),
         m("div", {class: "vertical-center col span_6_of_12"}, [
           m("div", [
             m("div", [
-              m("button", "Play Free", {type: "button"}),
+              m("button", {type: "button"}, "Play Free"),
             ]),
             m("div", [
-              m("button", "Learn More", {type: "button"}),
+              m("button", {type: "button"}, "Learn More"),
             ])
           ])
         ])
