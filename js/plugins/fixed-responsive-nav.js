@@ -27,9 +27,6 @@
     // Attach FastClick to remove the 300ms tap delay
     FastClick.attach(document.body);
 
-    // Init smooth scrolling
-    smoothScroll.init();
-
     // Init Responsive Nav
     var navigation = responsiveNav(".nav-collapse", {
 
