@@ -78,7 +78,12 @@ button:active {
 }
 
 .hero {
+  @include clearfix ();
+
   height: $viewport-height;
+  @media screen and (max-width: $tablet-break) {
+    height: auto;
+  }
 
   & > div {
     height: 100%;
@@ -88,20 +93,24 @@ button:active {
 }
 
 .vertical-center {
-  @include vertical-center;
+  @media screen and (min-width: $tablet-break) {
+    @include vertical-center ();
+  }
 }
 
 @mixin darkBackground ($path, $opacity) {
-  background-color: $dark;
-  & > div:before {
-    content: "";
-    background-image: url($path);
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: $opacity;
+  @media screen and (min-width: $tablet-break) {
+    background-color: $dark;
+    & > div:before {
+      content: "";
+      background-image: url($path);
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: $opacity;
+    }
   }
 }
