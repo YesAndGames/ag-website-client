@@ -1,10 +1,10 @@
-header {
+.nav-container {
   background-color: $dark;
 }
 
 .title-header {
   text-align: center;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .nav-header {
@@ -33,6 +33,31 @@ header {
           float: none;
         }
       }
+    }
+  }
+}
+
+.nav-login-hang {
+  background: transparent;
+
+  .nav-login-module {
+    margin-right: 20px;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    float: right;
+    background-color: black;
+    border-color: $button-border;
+    border-style: solid;
+    border-width: 2px;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    button {
+      display: inline;
+      font-size: 16pt;
+      margin: 10px;
     }
   }
 }
