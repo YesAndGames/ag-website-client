@@ -26,13 +26,13 @@ var nav = {
         m("div", {class: "nav-collapse"}, [
           m("ul", [
             m("li", [
-              m("a", {href: "#home"}, "Home")
+              m("a", {href: "./index.html"}, "Home")
             ]),
             m("li", [
-              m("a", {href: "#about"},  "About")
+              m("a", {href: "./about.html"},  "About")
             ]),
             m("li", [
-              m("a", {href: "#play"}, "Play")
+              m("a", {href: "./play.html"}, "Play")
             ]),
 
             /*
