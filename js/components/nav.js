@@ -1,6 +1,9 @@
 // Create the nav component.
 var nav = {
 
+  // Currently active page.
+  activePage: m.prop(""),
+
   // Create the view-model.
   vm: {
     init: function() {
@@ -9,8 +12,9 @@ var nav = {
   },
 
   // Create the controller.
-  controller: function() {
+  controller: function(args) {
     nav.vm.init ();
+    nav.activePage(args.page);
   },
 
   // Create the view.
@@ -25,13 +29,13 @@ var nav = {
       m("div", {class: "nav-header"}, [
         m("div", {class: "nav-collapse"}, [
           m("ul", [
-            m("li", [
+            m("li", {class: nav.activePage() == "home" ? "active" : ""}, [
               m("a", {href: "./index.html"}, "Home")
             ]),
-            m("li", [
+            m("li", {class: nav.activePage() == "about" ? "active" : ""}, [
               m("a", {href: "./about.html"},  "About")
             ]),
-            m("li", [
+            m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
               m("a", {href: "./play.html"}, "Play")
             ]),
 

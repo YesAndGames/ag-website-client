@@ -92,7 +92,7 @@ var about = {
     // Create the view.
     view: function() {
         return [
-          m.component(nav),
+          m.component(nav, {page: "about"}),
           m.component(features),
           m.component(footer)
         ]

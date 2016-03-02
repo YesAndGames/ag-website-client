@@ -89,7 +89,7 @@ var home = {};
 // Create the home view-model.
 home.vm = {
   init: function() {
-    console.log ("home vm init");
+    console.log("home vm init");
   }
 }
 
@@ -101,7 +101,7 @@ home.controller = function() {
 // Create the home view.
 home.view = function() {
     return [
-      m.component(nav),
+      m.component(nav, {page: "home"}),
       m.component(callToAction),
       m.component(mediaReel),
       m.component(footer)

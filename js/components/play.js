@@ -59,7 +59,7 @@ var play = {
     // Create the view.
     view: function() {
         return [
-          m.component(nav),
+          m.component(nav, {page: "play"}),
           m.component(betaSignup),
           m.component(footer)
         ]
