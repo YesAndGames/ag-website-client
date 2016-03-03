@@ -4,7 +4,7 @@ var loginModal = {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
       m(".modalContent login-modal", {onclick: function (e) { e.stopPropagation (); }}, [
         m("h2", "Log in to Adventure Guild"),
-        m("p", "Log in using the username you registered online or your in-game username."),
+        m("p", "Log in using the username you registered online or your in-game username. Usernames are case-insensitive."),
         m("div", m("form", {id: "loginForm"}, [
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
