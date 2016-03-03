@@ -1,0 +1,63 @@
+.guildium-shop {
+
+  margin-top: $nav-height;
+
+  .purchase-guildium {
+    text-align: center;
+
+    img {
+      width: 200px;
+      margin: 0 auto;
+    }
+  }
+
+  .purchase-options {
+    width: 80%;
+    margin: 0 auto;
+    ul {
+
+      hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      li {
+        @include clearfix ();
+        margin: 0 auto;
+        height: 40px;
+        background-image: url("../../imgs/icons/guildium.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        list-style: none;
+        padding-left: 60px;
+        padding-bottom: 10px;
+
+        h3 {
+          display: inline;
+          font-size: 20pt;
+          line-height: 1;
+          margin: 10px;
+        }
+
+        h4 {
+          display: inline;
+          font-size: 20pt;
+          line-height: 1;
+          color: green;
+          margin: 10px;
+        }
+
+        div {
+          padding-top: 10px;
+          float: left;
+        }
+
+        button {
+          display: inline;
+          padding: 5px;
+          float: right;
+        }
+      }
+    }
+  }
+}

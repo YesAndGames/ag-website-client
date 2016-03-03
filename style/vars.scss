@@ -69,7 +69,7 @@ $viewport-height: 100vh;
   transform-style: preserve-3d;
   height: 100%;
 
-  & > div, & > form {
+  & > div, & > form, & > li {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
