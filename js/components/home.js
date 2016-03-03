@@ -104,12 +104,12 @@ home.controller = function() {
 
 // Create the home view.
 home.view = function() {
-    return [
-      m.component(nav, {page: "home"}),
-      m.component(callToAction),
-      m.component(mediaReel),
-      m.component(footer)
-    ]
+  return [
+    m.component(nav, {page: "home"}),
+    m.component(callToAction),
+    m.component(mediaReel),
+    m.component(footer)
+  ]
 }
 
 // Initialize the home component chain.

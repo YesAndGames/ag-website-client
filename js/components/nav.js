@@ -126,8 +126,8 @@ var nav = {
               ]),
               */
 
-              m("li", [
-                m("a", {href: "#"},  "Donate")
+              m("li", {class: nav.activePage() == "shop" ? "active" : ""}, [
+                m("a", {href: "./donations.html"}, "Donations")
               ]),
             ])
           ])
