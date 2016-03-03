@@ -50,6 +50,34 @@ var openModal = function (e, component) {
   m.mount (modalContainer, m.component(component));
 }
 
+// No user login hang component.
+var loginHang = {
+  view: function () {
+    return m("div", {class: "nav-login-module vertical-center"}, [
+      m("div", [
+        m("button", {type: "button", onclick: function(e){openModal(e, loginModal)}}, "Log In"),
+        m("button", {type: "button", onclick: function(e){openModal(e, registrationModal)}}, "Register")
+      ])
+    ])
+  }
+}
+
+// Logged in user hang component.
+var accountInfoHang = {
+  view: function () {
+    return m("div", {class: "nav-account-module vertical-center"}, [
+      m (".account-info-hang-username", [
+        m("h4", "Welcome,"),
+        m("h3", "Weslo"),
+      ]),
+      m (".account-info-hang-links", [
+        m("a", {href: "#"}, "View Account"),
+        m("a", {href: "#"}, "Log Out"),
+      ])
+    ])
+  }
+}
+
 // Create the nav component.
 var nav = {
 
@@ -107,12 +135,7 @@ var nav = {
         m("hr", {class: "hr-gradient"}),
       ]),
       m("div", {class: "nav-login-hang"}, [
-        m("div", {class: "nav-login-module vertical-center"}, [
-          m("div", [
-            m("button", {type: "button", onclick: function(e){openModal(e, loginModal)}}, "Log In"),
-            m("button", {type: "button", onclick: function(e){openModal(e, registrationModal)}}, "Register")
-          ])
-        ])
+        m.component (accountInfoHang)
       ])
     ]);
   }
