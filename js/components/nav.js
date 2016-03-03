@@ -135,7 +135,7 @@ var nav = {
         m("hr", {class: "hr-gradient"}),
       ]),
       m("div", {class: "nav-login-hang"}, [
-        m.component (accountInfoHang)
+        m.component (loginHang)
       ])
     ]);
   }
