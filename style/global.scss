@@ -25,6 +25,23 @@ h3 {
   font-size: 28pt;
 }
 
+a {
+  color: $light-grey;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $light;
+}
+
+a:visited {
+  color: $dark-grey;
+}
+
+a:visited:hover {
+  color: $light;
+}
+
 button {
   cursor: pointer;
   font-family: $header-font;

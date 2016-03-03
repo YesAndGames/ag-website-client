@@ -18,7 +18,12 @@ footer {
     ul {
       list-style: none;
       li {
+        margin-top: 5px;
         a {
+          font-size: 16pt;
+          span {
+            margin-right: 3px;
+          }
         }
       }
     }
