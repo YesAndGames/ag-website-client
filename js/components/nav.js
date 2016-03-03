@@ -1,3 +1,30 @@
+// Create the login modal component.
+var loginModal = {
+  view: function() {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Log in to Adventure Guild")
+      ])
+    );
+  }
+}
+
+// Close currently opened modals.
+var closeModals = function (e) {
+  m.mount(document.getElementById ("modalContainer"), null);
+}
+
+// Open the specified dialogue component.
+var openModal = function (e, component) {
+  var modalContainer = document.getElementById ("modalContainer");
+  if (!modalContainer) {
+    modalContainer = document.createElement("div");
+    modalContainer.id = "modalContainer";
+    document.body.appendChild (modalContainer);
+  }
+  m.mount (modalContainer, m.component(component));
+}
+
 // Create the nav component.
 var nav = {
 
@@ -57,7 +84,7 @@ var nav = {
       m("div", {class: "nav-login-hang"}, [
         m("div", {class: "nav-login-module vertical-center"}, [
           m("div", [
-            m("button", {type: "button"}, "Log In"),
+            m("button", {type: "button", onclick: function(e){openModal(e, loginModal)}}, "Log In"),
             m("button", {type: "button"}, "Register")
           ])
         ])
