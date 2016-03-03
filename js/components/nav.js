@@ -2,8 +2,15 @@
 var loginModal = {
   view: function() {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
-      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
-        m("h2", "Log in to Adventure Guild")
+      m(".modalContent login-modal", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Log in to Adventure Guild"),
+        m("p", "Log in using the username you registered online or your in-game username."),
+        m("div", m("form", {id: "loginForm"}, [
+          m("input", {type: "text", name: "username", placeholder: "Username"}),
+          m("input", {type: "password", name: "password", placeholder: "Password"}),
+          m("button", {type: "button"}, "Login"),
+          m("a", {href: "#"}, "I forgot my password!")
+        ]))
       ])
     );
   }

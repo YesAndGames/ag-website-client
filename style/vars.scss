@@ -12,6 +12,8 @@ $guild-gold: #f9bb16;
 $button-fill: #553300;
 $button-border: #A19B7E;
 $button-highlight: #E7CD3C;
+$input-fill: #A19B7E;
+$input-border: #361500;
 
 // Size calculations
 $nav-height: 118px;
@@ -67,7 +69,7 @@ $viewport-height: 100vh;
   transform-style: preserve-3d;
   height: 100%;
 
-  & > div {
+  & > div, & > form {
     position: relative;
     top: 50%;
     transform: translateY(-50%);

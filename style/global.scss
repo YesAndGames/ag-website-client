@@ -48,6 +48,31 @@ button:hover {
 button:active {
 }
 
+input {
+  font-family: $page-font;
+  font-size: 12pt;
+  height: 30px;
+  padding-left: 10px;
+  background-color: $input-fill;
+  border: solid 2px $input-border;
+
+  &::placeholder {
+    color: $dark-grey;
+  }
+  &::-webkit-input-placeholder {
+    color: $dark-grey;
+  }
+  &:-moz-placeholder {
+    color: $dark-grey;
+  }
+  &::-moz-placeholder {
+    color: $dark-grey;
+  }
+  &:-ms-input-placeholder {
+    color: $dark-grey;
+  }
+}
+
 .embed-container {
     position: relative;
     padding-bottom: 56.25%;
