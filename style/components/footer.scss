@@ -1,10 +1,34 @@
 footer {
 
+  & > div {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+
   hr {
     margin-bottom: 20px;
   }
 
   img {
+    @include hoverOpacity ();
     width: 100%;
+  }
+
+  .contact {
+    ul {
+      list-style: none;
+      li {
+        a {
+        }
+      }
+    }
+  }
+
+  .footer-logo-yag {
+    padding: 30px 20px 0 0;
+  }
+
+  .footer-logo-magic {
+    padding: 20px 40px 20px 20px;
   }
 }

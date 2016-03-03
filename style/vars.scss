@@ -83,6 +83,21 @@ $viewport-height: 100vh;
   height: calc(#{$viewport-height} - #{$nav-height});
 }
 
+@mixin hoverPointer() {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin hoverOpacity() {
+  opacity: .5;
+
+  @include transition (.2s);
+  &:hover {
+    opacity: 1;
+  }
+}
+
 @-webkit-viewport { width: device-width; }
 @-moz-viewport    { width: device-width; }
 @-ms-viewport     { width: device-width; }
