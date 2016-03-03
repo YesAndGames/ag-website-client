@@ -16,6 +16,24 @@ var loginModal = {
   }
 }
 
+// Create the registration modal component.
+var registrationModal = {
+  view: function() {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent login-modal", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Join the Adventure Guild"),
+        m("p", "Register a username for a new Adventure Guild account. Use this username to log into the game and the website. Usernames are case-insensitive."),
+        m("div", m("form", {id: "registrationForm"}, [
+          m("input", {type: "text", name: "username", placeholder: "Username"}),
+          m("input", {type: "password", name: "password", placeholder: "Password"}),
+          m("input", {type: "email", name: "email", placeholder: "Email"}),
+          m("button", {type: "button"}, "Join the Guild"),
+        ]))
+      ])
+    );
+  }
+}
+
 // Close currently opened modals.
 var closeModals = function (e) {
   m.mount(document.getElementById ("modalContainer"), null);
@@ -92,7 +110,7 @@ var nav = {
         m("div", {class: "nav-login-module vertical-center"}, [
           m("div", [
             m("button", {type: "button", onclick: function(e){openModal(e, loginModal)}}, "Log In"),
-            m("button", {type: "button"}, "Register")
+            m("button", {type: "button", onclick: function(e){openModal(e, registrationModal)}}, "Register")
           ])
         ])
       ])
