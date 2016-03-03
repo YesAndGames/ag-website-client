@@ -69,6 +69,10 @@
 
     .account-info-hang-username {
       float: left;
+
+      p {
+        color: $dark-grey;
+      }
     }
 
     .account-info-hang-links {

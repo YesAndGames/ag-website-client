@@ -67,7 +67,7 @@ var accountInfoHang = {
   view: function () {
     return m("div", {class: "nav-account-module vertical-center"}, [
       m (".account-info-hang-username", [
-        m("h4", "Welcome,"),
+        m("p", "Welcome,"),
         m("h3", "Weslo"),
       ]),
       m (".account-info-hang-links", [
