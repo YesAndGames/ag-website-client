@@ -1,5 +1,10 @@
+header {
+  pointer-events: none;
+}
+
 .nav-container {
   background-color: $dark;
+  pointer-events: all;
 }
 
 .title-header {
@@ -53,6 +58,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px;
+    pointer-events: all;
   }
 
   .nav-login-module {
