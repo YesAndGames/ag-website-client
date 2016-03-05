@@ -60,4 +60,4 @@ var shop = {
   }
 }
 
-m.mount (document.body, shop);
+// m.mount (document.body, shop);

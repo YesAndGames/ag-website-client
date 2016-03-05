@@ -117,7 +117,7 @@ var nav = {
                 m("a", {href: "./about.html"},  "About")
               ]),
               m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
-                m("a", {href: "./play.html"}, "Play")
+                m("a", {href: "#", onclick: function (e) {m.route("/play");}}, "Play")
               ]),
 
               /*

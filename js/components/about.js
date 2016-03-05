@@ -100,4 +100,4 @@ var about = {
 }
 
 // Initialize the home component chain.
-m.mount (document.body, about);
+// m.mount (document.body, about);
