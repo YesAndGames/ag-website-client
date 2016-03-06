@@ -57,7 +57,10 @@
     var setupLocations = function () {
       content = [];
       forEach(links, function (i, el) {
-        var href = links[i].getAttribute("href").replace("#", "");
+        var href = links[i].getAttribute("href");
+        if (href) {
+          href = href.replace("#", "");
+        }
         if (document.getElementById (href)) {
           content.push(document.getElementById(href).offsetTop + 200);
         }

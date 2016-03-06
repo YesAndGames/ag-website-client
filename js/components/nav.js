@@ -111,10 +111,10 @@ var nav = {
           m("div", {class: "nav-collapse", style: "max-height: 28px"}, [
             m("ul", [
               m("li", {class: nav.activePage() == "home" ? "active" : ""}, [
-                m("a", {href: "./index.html"}, "Home")
+                m("a", {href: "#", onclick: function (e) {m.route("/");}}, "Home")
               ]),
               m("li", {class: nav.activePage() == "about" ? "active" : ""}, [
-                m("a", {href: "./about.html"},  "About")
+                m("a", {href: "#", onclick: function (e) {m.route("/about");}},  "About")
               ]),
               m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
                 m("a", {href: "#", onclick: function (e) {m.route("/play");}}, "Play")
@@ -127,7 +127,7 @@ var nav = {
               */
 
               m("li", {class: nav.activePage() == "shop" ? "active" : ""}, [
-                m("a", {href: "./donations.html"}, "Donations")
+                m("a", {href: "#", onclick: function (e) {m.route("/donations");}}, "Donations")
               ]),
             ])
           ])

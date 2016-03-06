@@ -62,7 +62,7 @@ var mediaReel = {
   view: function() {
     return m("section", {class: "media-reel hero"}, [
       m("div", [
-        m("div", {id: "media-reel-slick"}, [
+        m("div", {config: function(el, isInit) {$(el).slick({ dots: true, adaptiveHeight: true});}}, [
           m("div", [
             m("div", {class: "embed-container"}, [
               m("iframe", {src: "https://www.youtube.com/embed/YSaL_rk1i9Y", frameborder: "0", allowfullscreen: "true"})
@@ -119,7 +119,3 @@ m.route(document.body, "/", {
     "/donations": shop
   }
 );
-
-m.route ("/play");
-
-console.log (m.route());
