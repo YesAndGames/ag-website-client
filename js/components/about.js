@@ -45,7 +45,7 @@ var features = {
 
       // RPG features
       m("div", [
-        m("div", {class: "about-features-rpg hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -68,7 +68,7 @@ var features = {
 
       // Character customization features
       m("div", [
-        m("div", {class: "about-features-customization hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -89,7 +89,7 @@ var features = {
 
       // Tactical combat features
       m("div", [
-        m("div", {class: "about-features-combat hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -110,7 +110,7 @@ var features = {
 
       // Mobility features
       m("div", [
-        m("div", {class: "about-features-mobile hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
