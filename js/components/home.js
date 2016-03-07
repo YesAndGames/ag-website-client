@@ -64,22 +64,13 @@ var mediaReel = {
       m("div", [
         m("div", {config: function(el, isInit) {$(el).slick({ dots: true, adaptiveHeight: true});}}, [
           m("div", [
-            m("div", {class: "embed-container"}, [
-              m("iframe", {src: "https://www.youtube.com/embed/YSaL_rk1i9Y", frameborder: "0", allowfullscreen: "true"})
-            ]),
-            m("p", "Online development feature online by ", [
-              m("a", {href: "Reporter at RIT"}, "Reporter at RIT"),
-              "."
-            ])
-          ]),
-          m("div", [
             m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
           ]),
           m("div", [
-            m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+            m("img", {src: "imgs/screenshots/character.png", alt: "Character Customization"})
           ]),
           m("div", [
-            m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+            m("img", {src: "imgs/screenshots/items.png", alt: "Procedural Items"})
           ])
         ])
       ])
