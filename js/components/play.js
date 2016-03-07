@@ -3,8 +3,8 @@ var alphaSignup = {
   view: function() {
     return m("section", {class: "alpha-signup hero"}, [
       m("div", [
-        m(".vertical-center", [
-          m("div", {class: "col span_4_of_12"}, [
+        m("div", {class: "col span_4_of_12 vertical-center"}, [
+          m("div", [
             m("h2", "Join the"),
             m("h1", "Early-Access Alpha"),
             m("p", "Play Adventure Guild NOW by registering for our closed Early-Access Alpha if you haven't already as a Platinum Adventurer or above on Kickstarter. "
@@ -13,9 +13,22 @@ var alphaSignup = {
             m("div", {class: "platform-images"}, [
               m("img", {src: "imgs/logos/chrome.png", alt: "Chrome"}),
             ])
-          ]),
-          m("div", {class: "cold span_8_of_12"}, [
           ])
+        ]),
+        m("div", {class: "col span_8_of_12 vertical-center"}, [
+          m(".purchase-options", [
+            m("ul", [
+              m("hr", {class: "hr-gradient"}),
+              m("li", [
+                m("div", [
+                  m("h3", "Early-Access Pass"),
+                  m("h4", "$10.00")
+                ]),
+                m("button", {type: "button"}, "Buy")
+              ]),
+              m("hr", {class: "hr-gradient"}),
+            ]),
+          ]),
         ]),
       ]),
       m("hr", {class: "hr-gradient"})
