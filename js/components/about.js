@@ -110,10 +110,6 @@ var features = {
           ])
         ])
       ]),
-
-      m("hr", {class: "hr-gradient"}),
-
-      //
     ]);
   }
 }
