@@ -53,3 +53,36 @@ function authLogin(username, password) {
     return RESPONSE_LOGGED_IN;
   }
 }
+
+/**
+ * Attempt to create a user account.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string} username     The username to send to the server.
+ * @param {string} password    The password to use for this user account.
+ * @return {number} The login response sent back from the server.
+ */
+function authCreateAccount(username, password) {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": yag_api_endpoint + "auth/create",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    },
+    "processData": false,
+    "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"
+  }
+
+  $.ajax(settings).done(function (response) {
+    if(isset(response)) {
+      switch(response.loginResponse) {
+        case(RESPONSE_ACCOUNT_CREATED):
+          dataCacheStore("userAuth", response);
+          break;
+      }
+      return response.loginResponse;
+    }
+  });
+}
