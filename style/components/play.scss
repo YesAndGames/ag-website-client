@@ -1,4 +1,4 @@
-.beta-signup {
+.alpha-signup {
 
   padding-top: $nav-height;
   text-align: center;
@@ -6,15 +6,23 @@
   h1 {
     margin-bottom: 20px;
   }
+}
 
-  .platform-images {
+.beta-signup {
+  text-align: center;
 
-    margin-top: 10px;
+  h1 {
+    margin-bottom: 20px;
+  }
+}
 
-    img {
-      display: inline;
-      height: 80px;
-      margin: 10px;
-    }
+.platform-images {
+
+  margin-top: 10px;
+
+  img {
+    display: inline;
+    height: 80px;
+    margin: 10px;
   }
 }

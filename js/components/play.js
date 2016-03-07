@@ -1,3 +1,28 @@
+// Create the alpha signup component.
+var alphaSignup = {
+  view: function() {
+    return m("section", {class: "alpha-signup hero"}, [
+      m("div", [
+        m(".vertical-center", [
+          m("div", {class: "col span_4_of_12"}, [
+            m("h2", "Join the"),
+            m("h1", "Early-Access Alpha"),
+            m("p", "Play Adventure Guild NOW by registering for our closed Early-Access Alpha if you haven't already as a Platinum Adventurer or above on Kickstarter. "
+              + "Get the earliest possible public access to the game through our browser player, and play on the account you will use when the game releases. "
+              + "Your progress may be reset between this event and release, but your user account and purchases will carry over at launch."),,
+            m("div", {class: "platform-images"}, [
+              m("img", {src: "imgs/logos/chrome.png", alt: "Chrome"}),
+            ])
+          ]),
+          m("div", {class: "cold span_8_of_12"}, [
+          ])
+        ]),
+      ]),
+      m("hr", {class: "hr-gradient"})
+    ]);
+  }
+}
+
 // Create the beta signup component.
 var betaSignup = {
 
@@ -23,7 +48,7 @@ var betaSignup = {
             m("h1", "Open Beta"),
             m("div", [
               m("p", "Adventure Guild will eventually be publicly available via an Open Beta event before the official release of the game. "
-              + "Open Beta will follow an Early Alpha Access event, but will be free to access on all available platforms. "
+              + "Open Beta will follow an Early-Access Alpha event, but will be free to access on all available platforms. "
               + "Our testing events may have limited space, and participants will be chosen at random. "
               + "To register for our public events and get email notifications when we broadcast updates, sign up here. ")
             ]),
@@ -60,6 +85,7 @@ var play = {
     view: function() {
         return [
           m.component(nav, {page: "play"}),
+          m.component(alphaSignup),
           m.component(betaSignup),
           m.component(footer)
         ]
