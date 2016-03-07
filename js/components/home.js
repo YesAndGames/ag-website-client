@@ -62,7 +62,7 @@ var mediaReel = {
   view: function() {
     return m("section", {class: "media-reel hero"}, [
       m("div", [
-        m("div", {id: "media-reel-slick"}, [
+        m("div", {config: function(el, isInit) {$(el).slick({ dots: true, adaptiveHeight: true});}}, [
           m("div", [
             m("div", {class: "embed-container"}, [
               m("iframe", {src: "https://www.youtube.com/embed/YSaL_rk1i9Y", frameborder: "0", allowfullscreen: "true"})
@@ -112,13 +112,10 @@ home.view = function() {
   ]
 }
 
-// Initialize the home component chain.
-m.mount (document.body, home);
-
-/* routing chain doesn't work yet
 m.route(document.body, "/", {
-  "/": home,
-  "/play": play
+    "/": home,
+    "/play": play,
+    "/about": about,
+    "/donations": shop
   }
 );
-*/

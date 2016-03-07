@@ -67,4 +67,4 @@ var play = {
 }
 
 // Initialize the home component chain.
-m.mount (document.body, play);
+// m.mount (document.body, play);
