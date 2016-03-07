@@ -43,6 +43,29 @@ var features = {
 
       m("hr", {class: "hr-gradient"}),
 
+      // RPG features
+      m("div", [
+        m("div", {class: "about-features-rpg hero"}, [
+          m("div", [
+            m("div", {class: "vertical-center col span_4_of_12"}, [
+              m("div", [
+                m("h3", "A Full-Fledged Multiplayer Tactics RPG"),
+                m("p", "Adventure Guild is one of the most full-featured multiplayer RPGs ever developed for mobile platforms. " +
+                  "Gone are the expectations that mobile games lack depth and complexity. " +
+                  "Adventure Guild strikes the perfect balance between the substantial gameplay of a real RPG and the simplicity of design mobile games demand."),
+              ])
+            ]),
+            m("div", {class: "vertical-center col span_8_of_12"}, [
+              m(".embed-container", {class: "youtube-video-container"},
+                m("iframe", {src:"https://www.youtube.com/embed/ySlAPkteu5k", frameborder: "0", allowfullscreen: "yes"})
+              ),
+            ])
+          ])
+        ])
+      ]),
+
+      m("hr", {class: "hr-gradient"}),
+
       // Mobility features
       m("div", [
         m("div", {class: "about-features-mobile hero"}, [
