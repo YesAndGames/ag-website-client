@@ -26,12 +26,12 @@ var callToAction = {
           m("div", [
             m("img", {class: "devices-image", src: "imgs/home/devices.png", alt: "Play Anytime, Anywhere"}),
             m("div", [
-              m("a", {href: "./play.html"}, [
-                m("button", {type: "button"}, "Play Free")
+              m("a", {href: "#", onclick: function (e) {m.route("/play");}}, [
+                m("button", {type: "button"}, "Get Early Access")
               ])
             ]),
             m("div", [
-              m("a", {href: "./about.html"}, [
+              m("a", {href: "#", onclick: function (e) {m.route("/about");}}, [
                 m("button", {type: "button"}, "Learn More")
               ])
             ])
