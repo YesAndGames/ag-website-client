@@ -66,6 +66,27 @@ var features = {
 
       m("hr", {class: "hr-gradient"}),
 
+      // Character customization features
+      m("div", [
+        m("div", {class: "about-features-customization hero"}, [
+          m("div", [
+            m("div", {class: "vertical-center col span_4_of_12"}, [
+              m("div", [
+                m("h3", "Completely Customize Your Adventurers"),
+                m("p", "Create, customize, and grow a totally unique party of Adventurers. " +
+                  "Tweak everything visual from their facial features to their hair color to their wearable cosmetics without affecting equipment stats. " +
+                  "Personalize their strategic playstyle by equipping new weapons and armor and choosing the loaded out Skills they take into battle."),
+              ])
+            ]),
+            m("div", {class: "vertical-center col span_8_of_12"}, m("div", [
+                m("img", {src: "imgs/screenshots/character.png", alt: "Adventurer"})
+            ]))
+          ])
+        ])
+      ]),
+
+      m("hr", {class: "hr-gradient"}),
+
       // Mobility features
       m("div", [
         m("div", {class: "about-features-mobile hero"}, [
