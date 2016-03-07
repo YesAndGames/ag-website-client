@@ -15,6 +15,13 @@
     }
   }
 
+  .about-features-customization {
+    img {
+      width: 80%;
+      margin-left: 10%;
+    }
+  }
+
   .kickstarter-video-container {
     position: relative;
     height: 0;
@@ -27,6 +34,15 @@
       position: absolute;
       top: 10%;
       left: 0;
+      width: 80%;
+      height: 80%;
+      padding-left: 10%;
+    }
+  }
+
+  .youtube-video-container {
+    iframe {
+      top: 10%;
       width: 80%;
       height: 80%;
       padding-left: 10%;
