@@ -45,7 +45,7 @@ var features = {
 
       // RPG features
       m("div", [
-        m("div", {class: "about-features-rpg hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -68,7 +68,7 @@ var features = {
 
       // Character customization features
       m("div", [
-        m("div", {class: "about-features-customization hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -87,9 +87,30 @@ var features = {
 
       m("hr", {class: "hr-gradient"}),
 
+      // Tactical combat features
+      m("div", [
+        m("div", {class: "about-feature hero"}, [
+          m("div", [
+            m("div", {class: "vertical-center col span_4_of_12"}, [
+              m("div", [
+                m("h3", "Strategize in Tactical Turn-Based Combat"),
+                m("p", "Control your Adventurers in tactical, turn-based combat encounters that challenge you to play smart and cooperate. " +
+                  "Use your Adventurers Skills to your advantage, and combo them with the rest of your party to outsmart the monsters in your path. " +
+                  "Procedurally scaled and balanced combat encounters keep combat endlessly fresh and challenging."),
+              ])
+            ]),
+            m("div", {class: "vertical-center col span_8_of_12"}, m("div", [
+                m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"})
+            ]))
+          ])
+        ])
+      ]),
+
+      m("hr", {class: "hr-gradient"}),
+
       // Mobility features
       m("div", [
-        m("div", {class: "about-features-mobile hero"}, [
+        m("div", {class: "about-feature hero"}, [
           m("div", [
             m("div", {class: "vertical-center col span_4_of_12"}, [
               m("div", [
@@ -110,10 +131,6 @@ var features = {
           ])
         ])
       ]),
-
-      m("hr", {class: "hr-gradient"}),
-
-      //
     ]);
   }
 }
