@@ -146,9 +146,9 @@ var features = {
                 ])
               ])
             ]),
-            m("div", {class: "col span_8_of_12"}, [
-
-            ])
+            m("div", {class: "vertical-center col span_8_of_12"}, m("div", [
+                m("img", {src: "imgs/features/mobile.png", alt: "Mobile Gameplay"})
+            ]))
           ])
         ])
       ]),
