@@ -108,6 +108,27 @@ var features = {
 
       m("hr", {class: "hr-gradient"}),
 
+      // Items features
+      m("div", [
+        m("div", {class: "about-feature hero"}, [
+          m("div", [
+            m("div", {class: "vertical-center col span_4_of_12"}, [
+              m("div", [
+                m("h3", "Bring Home the Loot"),
+                m("p", "Form your party, explore the world, defeat evil monsters, and bring home the loot. " +
+                  "Equip your Adventurers with the best loot for their playstyle; each attribute affects them in different ways. " +
+                  "All the weapons and armor are procedurally generated, so you'll always have new gear to find."),
+              ])
+            ]),
+            m("div", {class: "vertical-center col span_8_of_12"}, m("div", [
+                m("img", {src: "imgs/screenshots/items.png", alt: "Procedurally Generated Items"})
+            ]))
+          ])
+        ])
+      ]),
+
+      m("hr", {class: "hr-gradient"}),
+
       // Mobility features
       m("div", [
         m("div", {class: "about-feature hero"}, [
