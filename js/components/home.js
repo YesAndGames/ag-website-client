@@ -112,7 +112,8 @@ m.route.mode = "pathname";
 m.route(document.body, "/", {
     "/": home,
     "/play": play,
-    "/about": about,
-    "/donations": shop
+    //"/about": about,
+    //"/donations": shop,
+    "/press": press
   }
 );

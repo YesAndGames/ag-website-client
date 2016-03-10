@@ -129,6 +129,9 @@ var nav = {
                 m("a", {href: "#", onclick: function (e) {m.route("/donations");}}, "Donations")
               ]),
               */
+              m("li", {class: nav.activePage() == "press" ? "active" : ""}, [
+                  m("a", {href: "#", onclick: function (e) {m.route("/press");}},  "Press")
+              ])
             ])
           ])
         ]),
