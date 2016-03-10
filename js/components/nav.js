@@ -116,26 +116,26 @@ var nav = {
               m("li", {class: nav.activePage() == "about" ? "active" : ""}, [
                 m("a", {href: "#", onclick: function (e) {m.route("/about");}},  "About")
               ]),
+              /*
               m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
                 m("a", {href: "#", onclick: function (e) {m.route("/play");}}, "Play")
               ]),
 
-              /*
               m("li", [
                 m("a", {href: "#"},  "Forums")
               ]),
-              */
 
               m("li", {class: nav.activePage() == "shop" ? "active" : ""}, [
                 m("a", {href: "#", onclick: function (e) {m.route("/donations");}}, "Donations")
               ]),
+              */
             ])
           ])
         ]),
         m("hr", {class: "hr-gradient"}),
       ]),
       m("div", {class: "nav-login-hang"}, [
-        m.component (loginHang)
+        //m.component (loginHang)
       ])
     ]);
   }
