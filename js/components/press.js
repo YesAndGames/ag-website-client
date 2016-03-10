@@ -134,6 +134,9 @@ var pressDescription = {
       m(".embed-container", m("iframe", {src:"https://youtube.com/embed/4f65MKjdW64", frameborder: "0", allowfullscreen: "yes"})),
 
       m("h2", "Screenshots"),
+      m("img", {src: "imgs/screenshots/combat.png", alt: "Combat"}),
+      m("img", {src: "imgs/screenshots/character.png", alt: "Character Customization"}),
+      m("img", {src: "imgs/screenshots/items.png", alt: "Procedural Items"}),
     ]);
   }
 }
