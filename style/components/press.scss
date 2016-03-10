@@ -47,6 +47,15 @@
     font-family: $page-font;
   }
 
+  h3 {
+    font-size: 12pt;
+    padding-top: 10px;
+    padding-bottom: 5xp;
+    color: $light-grey;
+    text-shadow: none;
+    font-family: $page-font;
+  }
+
   p, a {
     display: block;
     padding-left: 5px;

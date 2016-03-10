@@ -117,7 +117,21 @@ var pressDescription = {
 
       m("h1", "Media"),
 
+      m("a", {href: "#"}, "Download the Adventure Guild media image kit ag-media.zip."),
+
       m("h2", "Videos"),
+
+      m("h3", "Kickstarter Video"),
+      m(".embed-container", m("iframe", {src:"https://www.kickstarter.com/projects/yesandgames/adventure-guild/widget/video.html", frameborder: "0", allowfullscreen: "yes"})),
+
+      m("h3", "Kickstarter Trailer"),
+      m(".embed-container", m("iframe", {src:"https://www.youtube.com/embed/ySlAPkteu5k", frameborder: "0", allowfullscreen: "yes"})),
+
+      m("h3", "First 3 Minutes of Gameplay"),
+      m(".embed-container", m("iframe", {src:"https://youtube.com/embed/E84j5TQkcoY", frameborder: "0", allowfullscreen: "yes"})),
+
+      m("h3", "Multiplayer Gameplay"),
+      m(".embed-container", m("iframe", {src:"https://youtube.com/embed/4f65MKjdW64", frameborder: "0", allowfullscreen: "yes"})),
 
       m("h2", "Screenshots"),
     ]);
