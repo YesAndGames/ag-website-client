@@ -55,8 +55,9 @@ var pressDescription = {
 
       m("p", "Adventure Guild is a full-fledged multiplayer RPG built for mobile devices and cross-platform play. "
       + "Create a party of Adventurers and send them off on Adventures with your friends on any platform and play at your own pace on the go. "
-      + "Explore the deepest, darkest dungeons throughout the world, strategize in tactical multiplayer combat, and bring home the loot. "
-      + "Featuring incredibly deep character customization, hand-crafted worlds to explore, procedurally generated items, living social features, "
+      + "Explore the deepest, darkest dungeons throughout the world, strategize in tactical multiplayer combat, and bring home the loot."),
+      m("br"),
+      m("p", "Featuring incredibly deep character customization, hand-crafted worlds to explore, procedurally generated items, living social features, "
       + "and seamless cross-platform, on-the-go co-op play, Adventure Guild is the most substantial multiplayer RPG in the mobile space."),
 
       m("h1", "Game Features"),
@@ -78,6 +79,33 @@ var pressDescription = {
       m("h2", "Guilds and Other Social Features"),
 
       m("h2", "Pay for What You Want, Not to Win"),
+
+      m("h1", "History"),
+
+      m("p", "Adventure Guild began as a student prototyping project in a Game Design and Development studio class at RIT between Wes Rockholz, Ian Hampson and Ryan Rule-Hoffman in December 2014. "
+      + "The objective was to replace the time-consuming but socially rewarding PC MMORPG with a more casual but equally substantial game for mobile devices that played at the pace of Words With Friends or Trivia Crack."),
+      m("br"),
+      m("p", "The prototype demonstrated satisfying promise and was accepted as a part of the Co-Up Program at MAGIC Spell Studios to fund the game's production from prototype to demo throughout the summer of 2015. "
+      + "Since then the development team has expanded to include Nick Rabb, Shin Yi Tan, Jackie Wiley, and Isaac Wang, and the project has grown with us."),
+      m("br"),
+      m("p", "In the winter of 2015 Adventure Guild was crowdfunded via a successful Kickstarter campaign that enabled us to push the project from a demo to an alpha phase, and we continue to work full-time on the project since then. "
+      + "Adventure Guild has been featured on campus at RIT and in Rochester at the 2015 Rochester Mini Maker Faire. The game will be showcased on the floor at Game Developer's Conference 2016 in San Francisco, CA and at Imagine RIT in May 2016."),
+
+      m("h2", "Yes And Games"),
+
+      m("p", "Yes And Games was founded in the summer of 2014 by Nick Rabb and Wes Rockholz. "
+      + "Our goal is to use improvisational theater techniques to create games at the intersection of minds that have never been imagined before."),
+
+      m("h2", "Team"),
+
+      m("ul", [
+        m("li", "Wes Rockholz, High Warlord"),
+        m("li", "Nick Rabb, Head Ninja"),
+        m("li", "Shin Yi Tan, Art Director & Illustrator"),
+        m("li", "Ryan Rule-Hoffman, Server Guy"),
+        m("li", "Jackie Wiley, Game Designer"),
+        m("li", "Isaac Wang, Audio Director and Sound Designer")
+      ])
     ]);
   }
 }
