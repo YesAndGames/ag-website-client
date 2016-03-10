@@ -105,7 +105,13 @@ var pressDescription = {
         m("li", "Ryan Rule-Hoffman, Server Guy"),
         m("li", "Jackie Wiley, Game Designer"),
         m("li", "Isaac Wang, Audio Director and Sound Designer")
-      ])
+      ]),
+
+      m("h1", "Media"),
+
+      m("h2", "Videos"),
+
+      m("h2", "Screenshots"),
     ]);
   }
 }
