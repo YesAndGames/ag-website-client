@@ -12,6 +12,11 @@
 
   .presskit-container {
     width: 100%;
+
+    & > div {
+      max-width: 60em;
+      margin: 0 auto;
+    }
   }
 
   .press-factsheet {

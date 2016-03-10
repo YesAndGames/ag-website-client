@@ -3,14 +3,14 @@ var presskit = {
     return m("section", {class: "presskit"}, m("div", [
       m(".press-header"),
       m("hr", {class: "hr-gradient"}),
-      m(".presskit-container", [
+      m(".presskit-container", m("div", [
         m("div", {class: "col span_4_of_12"}, m("div", [
           m.component(pressFactsheet)
         ])),
         m("div", {class: "col span_8_of_12"}, m("div", [
           m.component(pressDescription)
         ]))
-      ])
+      ]))
     ]));
   }
 }
@@ -68,6 +68,9 @@ var pressDescription = {
       + "Plus, play all day or just when you feel like it. We never time-gate your progression, and we'll catch you up if you miss moves your friends make."),
 
       m("h2", "Tactical Turn-Based Combat Encounters"),
+      m("p", "Explore the world and defeat the evil creatures in your path throughout turn-based tactical combat encounters. "
+      + "Strategize with your party to combine powerful Skills and outsmart your foes. "
+      + "Gain experience and bring home the loot to empower your Adventurers, then take on more challenges in the next corner of the world."),
 
       m("h2", "Detailed Character Creation"),
       m("p", "Customize all your Adventurers from their Adventurer Class to their Skill loadouts to their visual aesthetics. "
@@ -81,7 +84,6 @@ var pressDescription = {
       m("h2", "Pay for What You Want, Not to Win"),
 
       m("h1", "History"),
-
       m("p", "Adventure Guild began as a student prototyping project in a Game Design and Development studio class at RIT between Wes Rockholz, Ian Hampson and Ryan Rule-Hoffman in December 2014. "
       + "The objective was to replace the time-consuming but socially rewarding PC MMORPG with a more casual but equally substantial game for mobile devices that played at the pace of Words With Friends or Trivia Crack."),
       m("br"),
@@ -92,12 +94,10 @@ var pressDescription = {
       + "Adventure Guild has been featured on campus at RIT and in Rochester at the 2015 Rochester Mini Maker Faire. The game will be showcased on the floor at Game Developer's Conference 2016 in San Francisco, CA and at Imagine RIT in May 2016."),
 
       m("h2", "Yes And Games"),
-
       m("p", "Yes And Games was founded in the summer of 2014 by Nick Rabb and Wes Rockholz. "
       + "Our goal is to use improvisational theater techniques to create games at the intersection of minds that have never been imagined before."),
 
       m("h2", "Team"),
-
       m("ul", [
         m("li", "Wes Rockholz, High Warlord"),
         m("li", "Nick Rabb, Head Ninja"),
