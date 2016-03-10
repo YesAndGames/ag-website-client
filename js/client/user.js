@@ -7,12 +7,16 @@
 * yesandgames@gmail.com
 */
 
+/*global $*/
+/*global yag_api_endpoint*/
+
 /**
  * Get the details of a user's data.
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {number} userId     The ID of the user to fetch data for.
  */
-function userGetData(userId) {
+function userGetData(userId, callback) {
+  'use strict';
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -26,6 +30,6 @@ function userGetData(userId) {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    callback();
   });
 }

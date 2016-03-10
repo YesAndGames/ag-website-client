@@ -7,6 +7,12 @@
 * yesandgames@gmail.com
 */
 
+/*global $*/
+/*global yag_api_endpoint*/
+/*global dataCacheRetrieve*/
+/*global dataCacheStore*/
+/*global dataCacheAuthVar*/
+
 // Private variables
 var RESPONSE_OK = 0;
 var RESPONSE_INVALID_LOGIN = 1;
@@ -19,11 +25,12 @@ var RESPONSE_LOGGED_IN = 6;
 /**
  * Attempt to authenticate a user.
  * @author Nick Rabb <nrabb@outlook.com>
- * @param {string} username     The username to send to the server.
- * @param {string} password    The password to authenticate this user with.
- * @return {number} The login response sent back from the server or LOGGED_IN if the user is already logged in.
+ * @param {string}   username        The username to send to the server.
+ * @param {string}   password        The password to authenticate this user with.
+ * @param {function} Code to run with the login response.
  */
-function authLogin(username, password) {
+function authLogin(username, password, callback) {
+  'use strict';
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -35,33 +42,34 @@ function authLogin(username, password) {
     },
     "processData": false,
     "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"
-  }
+  };
 
   // Make sure the user isn't already logged in
-  if(dataCacheRetrieve('userAuth') !== 'undefined') {
+  if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
     $.ajax(settings).done(function (response) {
-      if(isset(response)) {
-        switch(response.loginResponse) {
-          case(RESPONSE_OK):
-            dataCacheStore("userAuth", response);
-            break;
+      if (response !== 'undefined') {
+        switch (response.loginResponse) {
+        case (RESPONSE_OK):
+          dataCacheStore(dataCacheAuthVar, response);
+          break;
         }
-        return response.loginResponse;
+        callback(response.loginResponse);
       }
     });
   } else {
-    return RESPONSE_LOGGED_IN;
+    callback(RESPONSE_LOGGED_IN);
   }
 }
 
 /**
  * Attempt to create a user account.
  * @author Nick Rabb <nrabb@outlook.com>
- * @param {string} username     The username to send to the server.
- * @param {string} password    The password to use for this user account.
- * @return {number} The login response sent back from the server.
+ * @param {string}   username        The username to send to the server.
+ * @param {string}   password        The password to use for this user account.
+ * @param {function} Code to run after the with the create account response.
  */
-function authCreateAccount(username, password) {
+function authCreateAccount(username, password, callback) {
+  'use strict';
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -73,16 +81,16 @@ function authCreateAccount(username, password) {
     },
     "processData": false,
     "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"
-  }
+  };
 
   $.ajax(settings).done(function (response) {
-    if(isset(response)) {
-      switch(response.loginResponse) {
-        case(RESPONSE_ACCOUNT_CREATED):
-          dataCacheStore("userAuth", response);
-          break;
+    if (response !== 'undefined') {
+      switch (response.loginResponse) {
+      case (RESPONSE_ACCOUNT_CREATED):
+        dataCacheStore(dataCacheAuthVar, response);
+        break;
       }
-      return response.loginResponse;
+      callback(response.loginResponse);
     }
   });
 }

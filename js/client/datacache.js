@@ -6,6 +6,52 @@
 * yesandgames@gmail.com
 */
 
+/*global storage*/
+
+// VARIABLES
+var varPrefix = 'yagapi-';
+// hash('userauth', MD5)
+var dataCacheAuthVar = varPrefix + '89344e9d14eefd2b8c4363c5dc46cefd';
+
+/**
+ * Set a cookie.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string} cname    The name of the cookie to set.
+ * @param {string} cvalue   The value to set.
+ */
+function setCookie(cname, cvalue) {
+  'use strict';
+  var d = new Date(), expires;
+  d.setTime(d.getTime() + (0.0416 * 24 * 60 * 60 * 1000));
+  expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+/**
+ * Get the value of a cookie.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string} cname    The name of the cookie to get
+ * @return {string} The value of the cookie cname
+ */
+function getCookie(cname) {
+  'use strict';
+  var name = cname + "=",
+    ca = document.cookie.split(';'),
+    i,
+    c;
+  for (i = 0; i < ca.length; i += 1) {
+    c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 /**
  * Store a variable into the data cache.
  * @author Nick Rabb <nrabb@outlook.com>
@@ -14,7 +60,8 @@
  * @return {string}         The value that got set.
  */
 function dataCacheStore(name, value) {
-  if(typeof(storage) !== 'undefined') {
+  'use strict';
+  if (typeof (storage) !== 'undefined') {
     sessionStorage[name] = value;
     return sessionStorage[name];
   } else {
@@ -30,39 +77,10 @@ function dataCacheStore(name, value) {
  * @return {string}         The value for that variable.
  */
 function dataCacheRetrieve(name) {
-  if(typeof(storage) !== 'undefined') {
+  'use strict';
+  if (typeof (storage) !== 'undefined') {
     return sessionStorage[name];
   } else {
     return getCookie(name);
   }
-}
-
-/**
- * Set a cookie.
- * @author Nick Rabb <nrabb@outlook.com>
- * @param {string} cname    The name of the cookie to set.
- * @param {string} cvalue   The value to set.
- */
-function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (0.0416*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
-}
-
-/**
- * Get the value of a cookie.
- * @author Nick Rabb <nrabb@outlook.com>
- * @param {string} cname    The name of the cookie to get
- * @return {string} The value of the cookie cname
- */
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
 }
