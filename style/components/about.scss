@@ -13,6 +13,10 @@
     img {
       width: 100%;
     }
+    @media screen and (max-width: $mobile-break) {
+      padding: 40px;
+      height: auto;
+    }
   }
 
   .about-feature {
@@ -20,6 +24,13 @@
     img {
       width: 80%;
       margin-left: 10%;
+      @media screen and (max-width: $mobile-break) {
+        margin-top: 20px;
+      }
+    }
+    @media screen and (max-width: $mobile-break) {
+      padding: 40px;
+      height: auto;
     }
   }
 
@@ -53,12 +64,17 @@
   .platform-images {
 
     margin-top: 10px;
+    text-align: center;
 
     img {
       display: inline;
       height: 80px;
       width: 80px;
       margin: 10px;
+      @media screen and (max-width: $mobile-break) {
+        height: 40px;
+        width: 40px;
+      }
     }
   }
 }
