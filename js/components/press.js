@@ -43,7 +43,7 @@ var pressFactsheet = {
       m("p", "iOS, Android, Windows 10 Mobile, Browsers"),
 
       m("h2", "Media"),
-      m("a", {href: "#"}, "Download ag-media.zip"),
+      m("a", {href: "imgs/press/ag-media.zip", download: "ag-media"}, "Download ag-media.zip"),
     ]);
   }
 }
@@ -117,7 +117,7 @@ var pressDescription = {
 
       m("h1", "Media"),
 
-      m("a", {href: "#"}, "Download the Adventure Guild media image kit ag-media.zip."),
+      m("a", {href: "imgs/press/ag-media.zip", download: "ag-media"}, "Download the Adventure Guild media image kit ag-media.zip."),
 
       m("h2", "Videos"),
 
