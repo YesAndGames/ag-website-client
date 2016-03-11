@@ -8,8 +8,6 @@ header {
   z-index: 3;
 
   h1 {
-    @include hoverOpacity ();
-    cursor: pointer;
     span {
       @media screen and (max-width: $mobile-break) {
         display: block;
