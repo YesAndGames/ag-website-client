@@ -43,6 +43,10 @@ header {
           display: inline;
           float: none;
           font-size: 18pt;
+
+          @media screen and (max-width: $mobile-break) {
+            display: block;
+          }
         }
       }
     }

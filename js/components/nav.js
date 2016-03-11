@@ -108,7 +108,7 @@ var nav = {
           ])
         ]),
         m("div", {class: "nav-header"}, [
-          m("div", {class: "nav-collapse", style: "max-height: 28px"}, [
+          m("div", {class: "nav-collapse"}, [
             m("ul", [
               m("li", {class: nav.activePage() == "home" ? "active" : ""}, [
                 m("a", {href: "#", onclick: function (e) {m.route("/");}}, "Home")
