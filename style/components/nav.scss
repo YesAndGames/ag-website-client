@@ -49,6 +49,12 @@ header {
           }
         }
       }
+
+      .active {
+        a {
+          color: $light;
+        }
+      }
     }
   }
 }
