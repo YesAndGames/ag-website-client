@@ -1,5 +1,7 @@
 .about-features {
-  padding-top: $nav-height;
+  @media screen and (max-width: $mobile-break) {
+    text-align: center;
+  }
 
   h1, h2, h3 {
     text-align: center;

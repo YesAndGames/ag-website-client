@@ -83,6 +83,13 @@ $viewport-height: 100vh;
   height: calc(#{$viewport-height} - #{$nav-height});
 }
 
+@mixin position-under-nav () {
+  margin-top: $nav-height;
+  @media screen and (max-width: $mobile-break) {
+    margin-top: $nav-height-mobile;
+  }
+}
+
 @mixin hoverPointer() {
   &:hover {
     cursor: pointer;

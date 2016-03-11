@@ -1,7 +1,6 @@
 .call-to-action {
   @include darkBackground ("../../imgs/home/fight.png", 0.3);
-
-  padding-top: $nav-height;
+  @include position-under-nav ();
   text-align: center;
 
   button {

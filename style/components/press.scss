@@ -2,7 +2,7 @@
   @include clearfix ();
 
   .press-header {
-    margin-top: $nav-height;
+    @include position-under-nav ();
     background-image: url("../../imgs/press/header.png");
     background-size: cover;
     background-repeat: no-repeat;
