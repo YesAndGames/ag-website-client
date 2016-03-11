@@ -1,7 +1,5 @@
 .about-features {
-  @media screen and (max-width: $mobile-break) {
-    text-align: center;
-  }
+  @include position-under-nav ();
 
   h1, h2, h3 {
     text-align: center;
