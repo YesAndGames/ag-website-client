@@ -1,0 +1,116 @@
+header {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+
+  h1 {
+    span {
+      @media screen and (max-width: $mobile-break) {
+        display: block;
+      }
+    }
+  }
+}
+
+.nav-container {
+  background-color: $dark;
+  pointer-events: all;
+}
+
+.title-header {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.nav-header {
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  .nav-collapse {
+    font-family: $header-font;
+    float: none;
+
+    ul {
+      list-style:none;
+      margin:0;
+      padding:0;
+      text-align:center;
+
+      li {
+        display: inline;
+        float: none;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        a {
+          display: inline;
+          float: none;
+          font-size: 18pt;
+
+          @media screen and (max-width: $mobile-break) {
+            display: block;
+          }
+        }
+      }
+
+      .active {
+        a {
+          color: $light;
+        }
+      }
+    }
+  }
+}
+
+.nav-login-hang {
+  background: transparent;
+
+  & > div {
+    margin-right: 20px;
+    width: 280px;
+    height: 60px;
+    float: right;
+    background-color: black;
+    border-color: $button-border;
+    border-style: solid;
+    border-width: 2px;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    pointer-events: all;
+  }
+
+  .nav-login-module {
+    text-align: center;
+    button {
+      display: inline;
+      font-size: 16pt;
+      margin: 5px;
+    }
+  }
+
+  .nav-account-module {
+    text-align: left;
+
+    .account-info-hang-username {
+      float: left;
+
+      p {
+        color: $dark-grey;
+      }
+    }
+
+    .account-info-hang-links {
+      float: right;
+      a {
+        display: block;
+      }
+    }
+  }
+}

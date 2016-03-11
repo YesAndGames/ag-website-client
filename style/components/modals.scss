@@ -1,0 +1,55 @@
+.modal {
+  @include vertical-center ();
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modalContent {
+  background: $dark;
+  border: solid 2px $button-border;
+  border-radius: 5px;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+}
+
+.modalContent {
+  padding: 20px;
+  width: 360px;
+  height: auto;
+  text-align: center;
+
+  h2 {
+    margin: 5px;
+  }
+
+  form {
+
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    input {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+
+    button {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    a {
+      margin: 5px;
+      display: block;
+    }
+  }
+}

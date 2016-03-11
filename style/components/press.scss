@@ -1,0 +1,72 @@
+.presskit {
+  @include clearfix ();
+
+  .press-header {
+    @include position-under-nav ();
+    background-image: url("../../imgs/press/header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 240px;
+  }
+
+  .presskit-container {
+    width: 100%;
+
+    & > div {
+      max-width: 60em;
+      margin: 0 auto;
+    }
+  }
+
+  .press-factsheet {
+    a {
+      display: block;
+    }
+    padding: 20px;
+  }
+
+  .press-description {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 18pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: $guild-gold;
+    text-shadow: none;
+  }
+
+  h2 {
+    font-size: 14pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: $adventure-blue;
+    text-shadow: none;
+    font-family: $page-font;
+  }
+
+  h3 {
+    font-size: 12pt;
+    padding-top: 10px;
+    padding-bottom: 5xp;
+    color: $light-grey;
+    text-shadow: none;
+    font-family: $page-font;
+  }
+
+  p, a {
+    display: block;
+    padding-left: 5px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

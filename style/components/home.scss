@@ -1,0 +1,41 @@
+.call-to-action {
+  @include darkBackground ("../../imgs/home/fight.png", 0.3);
+  @include position-under-nav ();
+  text-align: center;
+
+  button {
+    width: 300px;
+    margin: 10px;
+  }
+
+  .devices-image {
+    height: 200px;
+    // margin-bottom: 20px;
+  }
+
+  .logo-image {
+    width: 100%;
+  }
+
+  h2 {
+    margin: 10px;
+  }
+
+  .fa {
+    font-size: 72px;
+  }
+}
+
+.media-reel {
+
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+    color: $light-grey;
+  }
+}

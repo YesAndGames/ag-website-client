@@ -1,0 +1,34 @@
+.alpha-signup {
+
+  padding-top: $nav-height;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .purchase-options {
+    li {
+      background-image: url("../../imgs/logos/adventure-guild.png");
+    }
+  }
+}
+
+.beta-signup {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.platform-images {
+
+  margin-top: 10px;
+
+  img {
+    display: inline;
+    height: 80px;
+    margin: 10px;
+  }
+}
