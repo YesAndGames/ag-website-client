@@ -1,8 +1,8 @@
 var presskit = {
   view: function() {
-    return m("section", {class: "presskit"}, m("div", [
+    return m("section", {class: "presskit"}, [
       m(".press-header"),
-      m("hr", {class: "hr-gradient"}),
+      m("hr", {class: "hr-gradient", style: "margin-top: 0"}),
       m(".presskit-container", m("div", [
         m("div", {class: "col span_4_of_12"}, m("div", [
           m.component(pressFactsheet)
@@ -11,7 +11,7 @@ var presskit = {
           m.component(pressDescription)
         ]))
       ]))
-    ]));
+    ]);
   }
 }
 
