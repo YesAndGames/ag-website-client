@@ -102,7 +102,7 @@ var nav = {
     return m("header", [
       m("div", {class: "nav-container"}, [
         m("div", {class: "title-header"}, [
-          m("h1", [
+          m("h1", {onclick: function (e) {m.route("/");}}, [
             m("span", {class: "color-adventure-blue"}, "Adventure "),
             m("span", {class: "color-guild-gold"}, "Guild")
           ])
