@@ -1,0 +1,41 @@
+.playerWarning {
+  height: auto;
+  margin-top: $nav-height;
+  padding: 10px;
+  text-align: center;
+
+  h2 {
+    margin: 10px;
+  }
+
+  & > div {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+
+  .playerWarningContent {
+    max-width: 30em;
+    padding: 10px;
+    margin: 0 auto;
+    color: $light-grey;
+
+    strong {
+      color: $adventure-blue;
+    }
+  }
+}
+
+.playerContainer {
+  @include clearfix ();
+  @include viewport-under-nav ();
+
+  @media screen and (max-width: $tablet-break) {
+    height: auto;
+  }
+
+  & > div {
+    height: 100%;
+    max-width: 60em;
+    margin: 0 auto;
+  }
+}

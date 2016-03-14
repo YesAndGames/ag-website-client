@@ -101,7 +101,8 @@ input {
 
 .embed-container iframe,
 .embed-container object,
-.embed-container embed {
+.embed-container embed,
+.embed-container canvas {
     position: absolute;
     top:0;
     left: 0;
