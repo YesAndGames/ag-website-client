@@ -97,7 +97,7 @@ function UnityProgress (dom) {
 }
 
 var Module = {
-  TOTAL_MEMORY: 268435456,
+  TOTAL_MEMORY: 536870912,
   errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
   compatibilitycheck: null,
   dataUrl: "js/plugins/ag-character-creator.data",
