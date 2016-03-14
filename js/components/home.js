@@ -114,6 +114,7 @@ m.route(document.body, "/", {
     //"/play": play,
     "/about": about,
     //"/donations": shop,
-    "/press": press
+    "/press": press,
+    "/adventurers": characters
   }
 );

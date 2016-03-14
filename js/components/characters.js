@@ -11,7 +11,7 @@ var characterCreatorPlayer = {
 var characters = {
   view: function() {
     return [
-      m.component(nav, {page: "characters"}),
+      m.component(nav, {page: "adventurers"}),
       m.component(characterCreatorPlayer),
       m.component(footer)
     ];

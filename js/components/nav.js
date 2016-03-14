@@ -131,6 +131,9 @@ var nav = {
               */
               m("li", {class: nav.activePage() == "press" ? "active" : ""}, [
                   m("a", {href: "#", onclick: function (e) {m.route("/press");}},  "Press")
+              ]),
+              m("li", {class: nav.activePage() == "adventurers" ? "active" : ""}, [
+                  m("a", {href: "#", onclick: function (e) {m.route("/adventurers");}},  "Adventurers")
               ])
             ])
           ])
