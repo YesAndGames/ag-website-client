@@ -26,8 +26,9 @@ h3 {
 }
 
 a {
-  color: $light-grey;
+  color: $dark-grey;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {

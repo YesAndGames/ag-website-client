@@ -26,7 +26,7 @@ var callToAction = {
           m("div", [
             m("img", {class: "devices-image", src: "imgs/home/devices.png", alt: "Play Anytime, Anywhere"}),
             m("div", [
-              m("a", {href: "#", onclick: function (e) {m.route("/about");}}, [
+              m("a", {onclick: function (e) {m.route("/about");}}, [
                 m("button", {type: "button"}, "Learn More")
               ])
             ]),
@@ -35,7 +35,7 @@ var callToAction = {
               m("a", {target: "_blank", href: "http://twitter.com/AdvGuildGame"}, m("span", {class: "fa fa-twitter fa-fw"})),
               m("a", {target: "_blank", href: "http://facebook.com/AdventureGuildGame"}, m("span", {class: "fa fa-facebook fa-fw"})),
               /*
-              m("a", {href: "#", onclick: function (e) {m.route("/play");}}, [
+              m("a", {onclick: function (e) {m.route("/play");}}, [
                 m("button", {type: "button"}, "Get Early Access")
               ])
               */
