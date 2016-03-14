@@ -1,17 +1,19 @@
 var characterCreatorPlayer = {
   view: function() {
-    return m(".template", m("div", {class: "template-wrap clear"}, [
+    return m(".hero", m(".template", m("div", {class: "template-wrap clear"}, [
       m("canvas", {class: "emscripten", id: "canvas",
-        oncontextmenu: "event.preventDefault()", height: "600px", width: "960px"}),
+        oncontextmenu: "event.preventDefault()"}),
       m("script", {src: "js/plugins/UnityLoader.js"})
-    ]));
+    ])));
   }
 }
 
 var characters = {
   view: function() {
     return [
-      m.component(characterCreatorPlayer)
+      m.component(nav, {page: "characters"}),
+      m.component(characterCreatorPlayer),
+      m.component(footer)
     ];
   }
 }
