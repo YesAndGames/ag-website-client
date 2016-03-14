@@ -1,0 +1,30 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}gz -f
+RewriteRule ^(.*)\.js$ $1\.jsgz [L]
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}gz -f
+RewriteRule ^(.*)\.data$ $1\.datagz [L]
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}gz -f
+RewriteRule ^(.*)\.mem$ $1\.memgz [L]
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}gz -f
+RewriteRule ^(.*)\.unity3d$ $1\.unity3dgz [L]
+
+AddEncoding gzip .jsgz
+AddEncoding gzip .datagz
+AddEncoding gzip .memgz
+AddEncoding gzip .unity3dgz
+
+RewriteRule about\/?$ index.html
+RewriteRule adventureguildgame.com\/about\/(.*\..*)$ \.\/$1
+RewriteRule press\/?$ index.html
+RewriteRule adventureguildgame.com\/press\/(.*\..*)$ \.\/$1
+RewriteRule adventurers\/?$ index.html
+RewriteRule adventureguildgame.com\/adventurers\/(.*\..*)$ \.\/$1
