@@ -6,8 +6,6 @@ var playerWarning = {
           m("p", "Try out our Adventurer creator through the experimental Unity WebGL player. "
             + "Mobile browsers are unsupported and there may be issues with small screen sizes. "
             + "If you find a bug, shoot us an email! We want to make the player as accessible as possible."),
-          m("br"),
-          m("strong", "Throughout this week, take a screenshot of your Adventurer and tweet it to @AdvGuildGame with the hashtag #AdventureGuildGDC for a chance to win a t-shirt!")
         ])
       ])),
       m("hr", {class:"hr-gradient"})
