@@ -37,8 +37,7 @@ function authLogin(username, password, callback) {
     "url": yag_api_endpoint + "auth/login",
     "method": "POST",
     "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
+      "content-type": "application/json"
     },
     "processData": false,
     "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"
@@ -76,8 +75,7 @@ function authCreateAccount(username, password, callback) {
     "url": yag_api_endpoint + "auth/create",
     "method": "POST",
     "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
+      "content-type": "application/json"
     },
     "processData": false,
     "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"

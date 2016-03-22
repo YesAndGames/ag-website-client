@@ -10,7 +10,7 @@ function login() {
           alert("Logged in");
           break;
         case (RESPONSE_INVALID_LOGIN):
-          alert("Invalid login");
+          document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
           break;
         case (RESPONSE_LOGGED_IN):
           alert("Already logged in");
