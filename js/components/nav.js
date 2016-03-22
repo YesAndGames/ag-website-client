@@ -19,6 +19,7 @@ function login() {
           alert("Unknown response code: " + loginResponse);
           break;
       }
+      console.log (dataCacheRetrieve(dataCacheAuthVar));
     });
   }
 }
@@ -167,7 +168,7 @@ var nav = {
         m("hr", {class: "hr-gradient"}),
       ]),
       m("div", {class: "nav-login-hang"}, [
-        m.component (loginHang)
+        m.component (dataCacheRetrieve(dataCacheAuthVar) == null ? loginHang : accountInfoHang)
       ])
     ]);
   }
