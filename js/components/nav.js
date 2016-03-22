@@ -1,3 +1,28 @@
+function login() {
+  var username = document.getElementById("loginForm").getElementsByTagName("input")[0].value;
+  var password = document.getElementById("loginForm").getElementsByTagName("input")[1].value;
+  if (username === 'undefined' || password === 'undefined' || username == '' || password == '') {
+    document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
+  } else {
+    authLogin(username, password, function (loginResponse) {
+      switch (loginResponse) {
+        case (RESPONSE_OK):
+          alert("Logged in");
+          break;
+        case (RESPONSE_INVALID_LOGIN):
+          alert("Invalid login");
+          break;
+        case (RESPONSE_LOGGED_IN):
+          alert("Already logged in");
+          break;
+        default:
+          alert("Unknown response code: " + loginResponse);
+          break;
+      }
+    });
+  }
+}
+
 // Create the login modal component.
 var loginModal = {
   view: function() {
@@ -6,9 +31,10 @@ var loginModal = {
         m("h2", "Log in to Adventure Guild"),
         m("p", "Log in using the username you registered online or your in-game username. Usernames are case-insensitive."),
         m("div", m("form", {id: "loginForm"}, [
+          m("p", {class: "color-error", style: "display: none;"}, "Invalid username or password! Please try again."),
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
-          m("button", {type: "button"}, "Login"),
+          m("button", {type: "button", onclick: function (e) { login(); }}, "Login"),
           m("a", {href: "#"}, "I forgot my password!")
         ]))
       ])
@@ -141,7 +167,7 @@ var nav = {
         m("hr", {class: "hr-gradient"}),
       ]),
       m("div", {class: "nav-login-hang"}, [
-        //m.component (loginHang)
+        m.component (loginHang)
       ])
     ]);
   }
