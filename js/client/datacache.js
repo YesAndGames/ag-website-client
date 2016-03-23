@@ -51,6 +51,9 @@ function getCookie(cname) {
   return "";
 }
 
+function deleteCookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 
 /**
  * Store a variable into the data cache.
@@ -82,5 +85,14 @@ function dataCacheRetrieve(name) {
     return sessionStorage[name];
   } else {
     return getCookie(name);
+  }
+}
+
+function dataCacheRemove(name) {
+  'use strict';
+  if (typeof (sessionStorage !== 'undefined')) {
+    delete sessionStorage[name];
+  } else {
+    deleteCookie(name);
   }
 }

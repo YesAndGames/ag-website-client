@@ -7,7 +7,7 @@ function login() {
     authLogin(username, password, function (loginResponse) {
       switch (loginResponse) {
         case (RESPONSE_OK):
-          alert("Logged in");
+          location.reload();
           break;
         case (RESPONSE_INVALID_LOGIN):
           document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
@@ -22,6 +22,11 @@ function login() {
       console.log (dataCacheRetrieve(dataCacheAuthVar));
     });
   }
+}
+
+function logout() {
+  dataCacheRemove(dataCacheAuthVar);
+  location.reload();
 }
 
 // Create the login modal component.
@@ -95,11 +100,11 @@ var accountInfoHang = {
     return m("div", {class: "nav-account-module vertical-center"}, [
       m (".account-info-hang-username", [
         m("p", "Welcome,"),
-        m("h3", "Weslo"),
+        m("h3", JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).username),
       ]),
       m (".account-info-hang-links", [
         m("a", {href: "#"}, "View Account"),
-        m("a", {href: "#"}, "Log Out"),
+        m("a", {href: "#", onclick: function(e){logout();}}, "Log Out"),
       ])
     ])
   }

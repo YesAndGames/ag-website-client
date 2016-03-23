@@ -47,12 +47,12 @@ function authLogin(username, password, callback) {
   if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
     $.ajax(settings).done(function (response) {
       if (response !== 'undefined') {
-        switch (response.loginResponse) {
+        switch (response[0].loginResponse) {
         case (RESPONSE_OK):
-          dataCacheStore(dataCacheAuthVar, response);
+          dataCacheStore(dataCacheAuthVar, response[0]);
           break;
         }
-        callback(response.loginResponse);
+        callback(response[0].loginResponse);
       }
     });
   } else {
