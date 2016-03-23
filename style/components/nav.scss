@@ -7,6 +7,10 @@ header {
   height: auto;
   z-index: 3;
 
+  hr {
+    margin-bottom: 0;
+  }
+
   h1 {
     span {
       @media screen and (max-width: $mobile-break) {
