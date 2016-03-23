@@ -88,6 +88,11 @@ header {
     border-bottom-right-radius: 5px;
     padding: 10px;
     pointer-events: all;
+
+    @media screen and (max-width: $mobile-break) {
+      margin: 0 auto;
+      float: none;
+    }
   }
 
   .nav-login-module {
