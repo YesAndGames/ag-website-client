@@ -7,7 +7,7 @@ function login() {
     authLogin(username, password, function (loginResponse) {
       switch (loginResponse) {
         case (RESPONSE_OK):
-          location.reload();
+          closeModals ();
           break;
         case (RESPONSE_INVALID_LOGIN):
           document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
@@ -19,14 +19,12 @@ function login() {
           alert("Unknown response code: " + loginResponse);
           break;
       }
-      console.log (dataCacheRetrieve(dataCacheAuthVar));
     });
   }
 }
 
 function logout() {
   dataCacheRemove(dataCacheAuthVar);
-  location.reload();
 }
 
 // Create the login modal component.
