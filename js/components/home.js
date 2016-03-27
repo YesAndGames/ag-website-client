@@ -115,6 +115,7 @@ m.route(document.body, "/", {
     "/about": about,
     //"/donations": shop,
     "/press": press,
-    "/adventurers": characters
+    "/adventurers": characters,
+    "/account": account
   }
 );

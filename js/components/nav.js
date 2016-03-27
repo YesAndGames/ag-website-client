@@ -122,8 +122,8 @@ var accountInfoHang = {
         m("h3", JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).username),
       ]),
       m (".account-info-hang-links", [
-        m("a", {href: "#"}, "View Account"),
-        m("a", {href: "#", onclick: function(e){logout();}}, "Log Out"),
+        m("a", {onclick: function(e){m.route("/account");}}, "View Account"),
+        m("a", {onclick: function(e){logout();}}, "Log Out"),
       ])
     ])
   }
