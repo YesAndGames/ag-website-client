@@ -8,6 +8,10 @@ function login() {
       switch (loginResponse) {
         case (RESPONSE_OK):
           closeModals ();
+          var email = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).email;
+          if (email == null || email == "") {
+            openModal(null, missingEmailModal);
+          }
           break;
         case (RESPONSE_INVALID_LOGIN):
           document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
@@ -31,7 +35,7 @@ function logout() {
 var loginModal = {
   view: function() {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
-      m(".modalContent login-modal", {onclick: function (e) { e.stopPropagation (); }}, [
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
         m("h2", "Log in to Adventure Guild"),
         m("p", "Log in using the username you registered online or your in-game username. Usernames are case-insensitive."),
         m("div", m("form", {id: "loginForm"}, [
@@ -50,7 +54,7 @@ var loginModal = {
 var registrationModal = {
   view: function() {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
-      m(".modalContent login-modal", {onclick: function (e) { e.stopPropagation (); }}, [
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
         m("h2", "Join the Adventure Guild"),
         m("p", "Register a username for a new Adventure Guild account. Use this username to log into the game and the website. Usernames are case-insensitive."),
         m("div", m("form", {id: "registrationForm"}, [
@@ -58,6 +62,23 @@ var registrationModal = {
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("input", {type: "email", name: "email", placeholder: "Email"}),
           m("button", {type: "button"}, "Join the Guild"),
+        ]))
+      ])
+    );
+  }
+}
+
+// Create the missing email modal component.
+var missingEmailModal = {
+  view: function() {
+    return m(".modal", {onclick: function(e) {closeModals(e);}},
+      m(".modalContent", {onclick: function(e){e.stopPropagation();}}, [
+        m("h2", "We're missing your email"),
+        m("p", "You don't need to register your email to log in to Adventure Guild, but in order to use certain website functions like making purchases, recovering your password, or changing account details, we need to confirm your email address."),
+        m("div", m("form", {id: "missingEmailForm"}, [
+          m("input", {type: "email", name: "email", placeholder: "Email"}),
+          m("button", {type: "button"}, "Confirm"),
+          m("a", {onclick: function(e){closeModals(e);}}, "Skip, I'll do this later"),
         ]))
       ])
     );
