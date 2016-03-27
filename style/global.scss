@@ -141,6 +141,10 @@ input {
   }
 }
 
+.position-under-nav {
+    @include position-under-nav ();
+}
+
 .vertical-center {
   @media screen and (min-width: $tablet-break) {
     @include vertical-center ();
