@@ -167,25 +167,29 @@ var nav = {
               m("li", {class: nav.activePage() == "about" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/about");}},  "About")
               ]),
-              /*
               m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/play");}}, "Play")
               ]),
 
+              /*
               m("li", [
                 m("a", {},  "Forums")
               ]),
+              */
 
               m("li", {class: nav.activePage() == "shop" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/donations");}}, "Donations")
               ]),
-              */
+
+              /*
               m("li", {class: nav.activePage() == "press" ? "active" : ""}, [
                   m("a", {onclick: function (e) {m.route("/press");}},  "Press")
               ]),
               m("li", {class: nav.activePage() == "adventurers" ? "active" : ""}, [
                   m("a", {onclick: function (e) {m.route("/adventurers");}},  "Adventurers")
               ])
+
+              */
             ])
           ])
         ]),

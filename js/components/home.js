@@ -111,9 +111,9 @@ home.view = function() {
 m.route.mode = "pathname";
 m.route(document.body, "/", {
     "/": home,
-    //"/play": play,
+    "/play": play,
     "/about": about,
-    //"/donations": shop,
+    "/donations": shop,
     "/press": press,
     "/adventurers": characters,
     "/account": account

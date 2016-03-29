@@ -5,10 +5,6 @@ footer {
     margin: 0 auto;
   }
 
-  hr {
-    margin-bottom: 20px;
-  }
-
   img {
     @include hoverOpacity ();
     width: 100%;
@@ -20,6 +16,7 @@ footer {
   .contact {
     ul {
       list-style: none;
+      margin-bottom: 20px;
       li {
         margin-top: 5px;
         a {

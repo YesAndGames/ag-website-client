@@ -45,6 +45,12 @@ var footer = {
                     "Kickstarter"
                   ])
                 ]),
+                m("li", [
+                  m("a", {onclick: function(e){m.route("/press");}}, [
+                    m("span", {class: "fa fa-newspaper-o fa-fw"}),
+                    "Presskit"
+                  ])
+                ]),
               ])
             ])
           ]),
