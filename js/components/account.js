@@ -36,8 +36,19 @@ var accountDetails = {
     console.log (account.user());
   },
   view: function() {
-    return m("section", {class: "hero position-under-nav"}, m("div", [
-      m("h1", account.user().username)
+    return m("section", {class: "hero position-under-nav"}, m(".account-details", [
+      m("h1", account.user().username),
+      m(".col span_8_of_12", [
+        m("h3", "Account Details"),
+      ]),
+      m(".col span_4_of_12", [
+        m("h3", "Manage Account"),
+        m("ul", [
+          m("li", m("a", "Change Password")),
+          m("li", m("a", "Redeem Key")),
+          m("li", m("a", "View Transactions")),
+        ]),
+      ]),
     ]));
   }
 }
