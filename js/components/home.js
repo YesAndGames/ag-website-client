@@ -31,14 +31,14 @@ var callToAction = {
               ])
             ]),
             m("div", [
+              /*
               m("h2", "Stay Connected!"),
               m("a", {target: "_blank", href: "http://twitter.com/AdvGuildGame"}, m("span", {class: "fa fa-twitter fa-fw"})),
               m("a", {target: "_blank", href: "http://facebook.com/AdventureGuildGame"}, m("span", {class: "fa fa-facebook fa-fw"})),
-              /*
+              */
               m("a", {onclick: function (e) {m.route("/play");}}, [
                 m("button", {type: "button"}, "Get Early Access")
               ])
-              */
             ])
           ])
         ]),
