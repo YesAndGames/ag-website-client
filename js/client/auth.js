@@ -27,7 +27,7 @@ var RESPONSE_LOGGED_IN = 6;
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {string}   username        The username to send to the server.
  * @param {string}   password        The password to authenticate this user with.
- * @param {function} Code to run with the login response.
+ * @param {function} callback        Code to run with the login response.
  */
 function authLogin(username, password, callback) {
   'use strict';
@@ -65,9 +65,10 @@ function authLogin(username, password, callback) {
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {string}   username        The username to send to the server.
  * @param {string}   password        The password to use for this user account.
- * @param {function} Code to run after the with the create account response.
+* @param {string}   email            The email to use for this user.
+ * @param {function} callback        Code to run after the with the create account response.
  */
-function authCreateAccount(username, password, callback) {
+function authCreateAccount(username, password, email, callback) {
   'use strict';
   var settings = {
     "async": true,
@@ -78,7 +79,7 @@ function authCreateAccount(username, password, callback) {
       "content-type": "application/json"
     },
     "processData": false,
-    "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\"\n}"
+    "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\",\n  \"email\": \"" + email + "\n}"
   };
 
   $.ajax(settings).done(function (response) {
@@ -91,4 +92,62 @@ function authCreateAccount(username, password, callback) {
       callback(response.loginResponse);
     }
   });
+}
+
+/**
+ * Request a password change for a user.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string}   username        The username to send to the server.
+ * @param {string}   password        The password to use for this user account.
+ * @param {function} callback        Code to run after the with the create account response.
+ */
+function requestPasswordChange(username, password, callback) {
+    'use strict';
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": yag_api_endpoint + "auth/" + username + "/password",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "processData": false,
+      "data": "{\n    \"password\": \"" + password + "\n}"
+    };
+
+    $.ajax(settings).done(function (response) {
+      if (response !== 'undefined') {
+        callback(response);
+      }
+    });
+}
+
+/**
+ * Submit a user's password change.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string}   username        The username to send to the server.
+ * @param {string}   oldPass         The user's old password
+ * @param {string}   newPass         The user's new password
+ * @param {string}   confirmUUID     The unique id authentication given in the URL params
+ * @param {function} callback        Code to run after the with the create account response.
+ */
+function changePassword(username, oldPass, newPass, confirmUUID) {
+    'use strict';
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": yag_api_endpoint + "auth/" + username + "/password/change",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "processData": false,
+      "data": "{\n    \"oldPassword\": \"" + oldPass + "\",\n    \"newPassword\": \"" + newPass + "\",\n  \"confirmUUID\": \"" + confirmUUID + "\n}"
+    };
+
+    $.ajax(settings).done(function (response) {
+      if (response !== 'undefined') {
+        callback(response);
+      }
+    });
 }
