@@ -116,6 +116,6 @@ m.route(document.body, "/", {
     "/donations": shop,
     "/press": press,
     "/adventurers": characters,
-    "/account": account
+    "/account": account,
   }
 );
