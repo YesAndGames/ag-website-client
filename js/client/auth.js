@@ -105,7 +105,7 @@ function authConfirmAccount(confirmUUID, callback) {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": yag_api_endpoint + "auth/create",
+      "url": yag_api_endpoint + "auth/confirm",
       "method": "POST",
       "headers": {
         "content-type": "application/json"
