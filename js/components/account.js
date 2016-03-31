@@ -4,7 +4,10 @@ var account = {
 
   vm: {
     init: function() {
-      account.user = m.prop(JSON.parse(dataCacheRetrieve(dataCacheAuthVar)));
+      var json = dataCacheRetrieve(dataCacheAuthVar);
+      if (json != null && json != "") {
+        account.user = m.prop(JSON.parse(json));
+      }
     },
 
     // Interpret confirmation code query string.
