@@ -113,11 +113,9 @@ function authConfirmAccount(confirmUUID, callback) {
       "processData": false,
       "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\"\n}"
     };
-
-    $.ajax(settings).success(function (response, textStatus, xhr) {
-      console.log(response);
+    $.ajax(settings).success(function (response) {
       if (typeof response !== 'undefined') {
-          callback(response, xhr.status);
+          callback(response);
       }
     });
 }
