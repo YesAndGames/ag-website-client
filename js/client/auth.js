@@ -114,9 +114,9 @@ function authConfirmAccount(confirmUUID, callback) {
       "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\"\n}"
     };
 
-    $.ajax(settings).done(function (response, status) {
-      if (response !== 'undefined') {
-          callback(response, status);
+    $.ajax(settings).success(function (response, textStatus, xhr) {
+      if (typeof response !== 'undefined') {
+          callback(response, xhr.status);
       }
     });
 }
