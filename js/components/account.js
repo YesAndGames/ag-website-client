@@ -25,9 +25,13 @@ var account = {
     },
 
     // Callback response from the server that indicates whether or not the account confirmation succeeded.
-    submitConfirmCodeResponse: function(response, status) {
-      console.log(response);
-      console.log(status);
+    submitConfirmCodeResponse: function(response) {
+      if (response.success) {
+        emailConfirmationModal.setResponse("Successfully confirmed your email address!");
+      }
+      else {
+        emailConfirmationModal.setResponse(response.message);
+      }
     }
   },
 

@@ -18,13 +18,37 @@ var changePasswordModal = {
 
 // Modal that waits for a response from the server indicating that the user's email is confirmed.
 var emailConfirmationModal = {
+
+  // The response from the server.
+  response: m.prop(null),
+
   view: function() {
     return m(".modal",
       m(".modalContent", [
         m("h2", "Confirming Your Email"),
-        m("p", "Waiting for a response from the server."),
-        m("div", m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
+        (emailConfirmationModal.response() == null || emailConfirmationModal.response() == "") ?
+          [
+            m("p", "Waiting for a response from the server."),
+            m("div", m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"}))
+          ]
+          :
+          [
+            m("div", m("p", emailConfirmationModal.response())),
+            m("br"),
+            m("button", {onclick:function(e){emailConfirmationModal.close()}}, "OK")
+          ],
       ])
     );
+  },
+
+  setResponse(message) {
+    emailConfirmationModal.response(message);
+    m.redraw(true);
+  },
+
+  close: function() {
+    m.route("/account");
+    emailConfirmationModal.response = m.prop(null);
+    closeModals(null);
   }
 }
