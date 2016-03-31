@@ -5,7 +5,22 @@ var account = {
   vm: {
     init: function() {
       account.user = m.prop(JSON.parse(dataCacheRetrieve(dataCacheAuthVar)));
-      console.log (account.user);
+
+      // Interpret confirmation code query string.
+      var confirmUUID = m.route.param("c");
+      if (confirmUUID != null && confirmUUID != "") {
+        this.submitConfirmCode(confirmUUID);
+      }
+    },
+
+    // Sends a confirmation to the server.
+    submitConfirmCode: function(confirmCode) {
+      console.log(confirmCode)
+    }.
+
+    // Callback response from the server that indicates whether or not the account confirmation succeeded.
+    submitConfirmCodeResponse: function(success) {
+      
     }
   },
 
@@ -19,7 +34,7 @@ var account = {
       m.component(account.user() == null ? missingAccountDetails : accountDetails),
       m.component(footer)
     ];
-  }
+  },
 }
 
 // Create the missing account component, in case the user lost their session or something.
