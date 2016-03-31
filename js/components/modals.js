@@ -15,3 +15,17 @@ var changePasswordModal = {
     );
   }
 }
+
+// Modal that waits for a response from the server indicating that the user's email is confirmed.
+var emailConfirmationModal = {
+  view: function() {
+    return m(".modal",
+      m(".modalContent", [
+        m("h2", "Confirming Your Email"),
+        m("p", "Waiting for a response from the server."),
+        m("div", m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
+        m("button", {onclick:function(e){m.route("/account"); closeModals();}}, "Cancel"),
+      ])
+    );
+  }
+}

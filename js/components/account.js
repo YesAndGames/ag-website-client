@@ -5,8 +5,10 @@ var account = {
   vm: {
     init: function() {
       account.user = m.prop(JSON.parse(dataCacheRetrieve(dataCacheAuthVar)));
+    },
 
-      // Interpret confirmation code query string.
+    // Interpret confirmation code query string.
+    checkConfirmationParameter: function() {
       var confirmUUID = m.route.param("c");
       if (confirmUUID != null && confirmUUID != "") {
         this.submitConfirmCode(confirmUUID);
@@ -15,12 +17,13 @@ var account = {
 
     // Sends a confirmation to the server.
     submitConfirmCode: function(confirmCode) {
-      console.log(confirmCode)
-    }.
+      console.log(confirmCode);
+      openModal(null,emailConfirmationModal);
+    },
 
     // Callback response from the server that indicates whether or not the account confirmation succeeded.
     submitConfirmCodeResponse: function(success) {
-      
+
     }
   },
 
@@ -52,7 +55,10 @@ var accountDetails = {
     console.log (account.user());
   },
   view: function() {
-    return m("section", {class: "hero position-under-nav"}, m(".account-details", [
+    return m("section", {
+      class: "hero position-under-nav",
+      config: function(el, isInit) {if(!isInit){account.vm.checkConfirmationParameter();}}},
+    m(".account-details", [
       m("h1", account.user().username),
       m(".col span_8_of_12", [
         m("h3", "Account Details"),
