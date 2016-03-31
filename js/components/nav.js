@@ -12,6 +12,7 @@ function login() {
           if (email == null || email == "") {
             openModal(null, missingEmailModal);
           }
+          m.route("/home");
           break;
         case (RESPONSE_INVALID_LOGIN):
           document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
@@ -29,6 +30,7 @@ function login() {
 
 function logout() {
   dataCacheRemove(dataCacheAuthVar);
+  m.route("/home");
 }
 
 // Create the login modal component.
