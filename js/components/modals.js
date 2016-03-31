@@ -24,7 +24,6 @@ var emailConfirmationModal = {
         m("h2", "Confirming Your Email"),
         m("p", "Waiting for a response from the server."),
         m("div", m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
-        m("button", {onclick:function(e){m.route("/account"); closeModals();}}, "Cancel"),
       ])
     );
   }
