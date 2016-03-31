@@ -115,6 +115,7 @@ function authConfirmAccount(confirmUUID, callback) {
     };
 
     $.ajax(settings).success(function (response, textStatus, xhr) {
+      console.log(response);
       if (typeof response !== 'undefined') {
           callback(response, xhr.status);
       }

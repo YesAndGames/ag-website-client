@@ -20,13 +20,14 @@ var account = {
 
     // Sends a confirmation to the server.
     submitConfirmCode: function(confirmCode) {
-      console.log(confirmCode);
       openModal(null,emailConfirmationModal);
+      authConfirmAccount(confirmCode, this.submitConfirmCodeResponse);
     },
 
     // Callback response from the server that indicates whether or not the account confirmation succeeded.
-    submitConfirmCodeResponse: function(success) {
-
+    submitConfirmCodeResponse: function(response, status) {
+      console.log(response);
+      console.log(status);
     }
   },
 
