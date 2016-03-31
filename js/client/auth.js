@@ -128,10 +128,9 @@ function requestPasswordChange(username, password, callback) {
  * @param {string}   username        The username to send to the server.
  * @param {string}   oldPass         The user's old password
  * @param {string}   newPass         The user's new password
- * @param {string}   confirmUUID     The unique id authentication given in the URL params
  * @param {function} callback        Code to run after the with the create account response.
  */
-function changePassword(username, oldPass, newPass, confirmUUID) {
+function changePassword(username, oldPass, newPass) {
     'use strict';
     var settings = {
       "async": true,
@@ -142,7 +141,7 @@ function changePassword(username, oldPass, newPass, confirmUUID) {
         "content-type": "application/json"
       },
       "processData": false,
-      "data": "{\n    \"oldPassword\": \"" + oldPass + "\",\n    \"newPassword\": \"" + newPass + "\",\n  \"confirmUUID\": \"" + confirmUUID + "\n}"
+      "data": "{\n    \"oldPassword\": \"" + oldPass + "\",\n    \"newPassword\": \"" + newPass + "\n}"
     };
 
     $.ajax(settings).done(function (response) {
