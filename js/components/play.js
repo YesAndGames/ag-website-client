@@ -27,7 +27,10 @@ var alphaSignup = {
                   m("h3", "Early-Access Pass"),
                   m("h4", "$10.00")
                 ]),
-                m("button", {type: "button"}, "Buy")
+                m("button", {type: "button", onclick:function(e){
+                  openModal(e, genericPurchaseModal,
+                    {imgPath:"imgs/logos/adventure-guild.png", headerText:"Early Access Key"});}},
+                     "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
             ]),

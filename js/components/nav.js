@@ -93,14 +93,14 @@ var closeModals = function (e) {
 }
 
 // Open the specified dialogue component.
-var openModal = function (e, component) {
+var openModal = function (e, component, args) {
   var modalContainer = document.getElementById ("modalContainer");
   if (!modalContainer) {
     modalContainer = document.createElement("div");
     modalContainer.id = "modalContainer";
     document.body.appendChild (modalContainer);
   }
-  m.mount (modalContainer, m.component(component));
+  m.mount (modalContainer, m.component(component, args));
 }
 
 // No user login hang component.

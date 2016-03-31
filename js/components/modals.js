@@ -52,3 +52,24 @@ var emailConfirmationModal = {
     closeModals(null);
   }
 }
+
+var genericPurchaseModal = {
+  controller: function(args) {
+    this.imgPath = m.prop(args.imgPath);
+    this.headerText = m.prop(args.headerText);
+  },
+  view: function(controller) {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Make a Donation"),
+        m("div", {style: "height:160px"}, [
+          m(".col span_5_of_12", m("img", {width:"100%", src:controller.imgPath(), alt:"Purchase"})),
+          m(".col span_7_of_12", m("p", controller.headerText())),
+        ]),
+        m(".paypal-purchase", [
+          m("button", "Buy"),
+        ])
+      ])
+    );
+  }
+}
