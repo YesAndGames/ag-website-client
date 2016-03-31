@@ -111,7 +111,7 @@ function authConfirmAccount(confirmUUID, callback) {
         "content-type": "application/json"
       },
       "processData": false,
-      "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\n}"
+      "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\"\n}"
     };
 
     $.ajax(settings).done(function (response) {
