@@ -114,9 +114,9 @@ function authConfirmAccount(confirmUUID, callback) {
       "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\"\n}"
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function (response, status) {
       if (response !== 'undefined') {
-        callback(response);
+          callback(response, status);
       }
     });
 }
@@ -142,7 +142,7 @@ function authRequestPasswordChange(username, password, callback) {
       "data": "{\n    \"password\": \"" + password + "\n}"
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function (response, status) {
       if (response !== 'undefined') {
         callback(response);
       }
