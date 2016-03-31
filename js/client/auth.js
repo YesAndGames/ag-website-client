@@ -95,13 +95,40 @@ function authCreateAccount(username, password, email, callback) {
 }
 
 /**
+ * Confirm a user's account.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string}   confirmUUID     A unique ID to confirm the account.
+ * @param {function} callback        Code to run after the with the create account response.
+ */
+function authConfirmAccount(confirmUUID, callback) {
+    'use strict';
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": yag_api_endpoint + "auth/create",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "processData": false,
+      "data": "{\n    \"confirmUUID\": \"" + confirmUUID + "\n}"
+    };
+
+    $.ajax(settings).done(function (response) {
+      if (response !== 'undefined') {
+        callback(response);
+      }
+    });
+}
+
+/**
  * Request a password change for a user.
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {string}   username        The username to send to the server.
  * @param {string}   password        The password to use for this user account.
  * @param {function} callback        Code to run after the with the create account response.
  */
-function requestPasswordChange(username, password, callback) {
+function authRequestPasswordChange(username, password, callback) {
     'use strict';
     var settings = {
       "async": true,
@@ -130,7 +157,7 @@ function requestPasswordChange(username, password, callback) {
  * @param {string}   newPass         The user's new password
  * @param {function} callback        Code to run after the with the create account response.
  */
-function changePassword(username, oldPass, newPass) {
+function authChangePassword(username, oldPass, newPass) {
     'use strict';
     var settings = {
       "async": true,
