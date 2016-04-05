@@ -33,6 +33,53 @@ function logout() {
   m.route("/home");
 }
 
+// Validates registration credentials and requests a new account from the server.
+function register() {
+  var username = document.getElementById("registrationForm").getElementsByTagName("input")[0].value;
+  var password = document.getElementById("registrationForm").getElementsByTagName("input")[1].value;
+  var confirmPassword = document.getElementById("registrationForm").getElementsByTagName("input")[2].value;
+  var email = document.getElementById("registrationForm").getElementsByTagName("input")[3].value;
+
+  // Client-side validation.
+  if (username === 'undefined' || username == '') {
+    alert ("Please enter a username.");
+  }
+  else if (password === 'undefined' || password == '') {
+    alert ("Please enter a password.");
+  }
+  else if (confirmPassword != password) {
+    alert ("Passwords do not match.");
+  }
+  else if (!validateEmail(email)) {
+    alert ("Invalid email address.");
+  }
+
+  // Valid, send to server and await response.
+  else {
+    authCreateAccount(username, password, email, function (loginResponse) {
+      switch (loginResponse) {
+        case (RESPONSE_OK):
+          closeModals ();
+          m.route("/home");
+          break;
+        case (RESPONSE_INVALID_LOGIN):
+          document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
+          break;
+        case (RESPONSE_LOGGED_IN):
+          alert("Already logged in");
+          break;
+        default:
+          alert("Unknown response code: " + loginResponse);
+          break;
+      }
+    });
+  }
+}
+
+function validateEmail(email) {
+  return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+}
+
 // Create the login modal component.
 var loginModal = {
   view: function() {
@@ -62,8 +109,9 @@ var registrationModal = {
         m("div", m("form", {id: "registrationForm"}, [
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
+          m("input", {type: "password", name: "confirmPassword", placeholder: "Confirm Password"}),
           m("input", {type: "email", name: "email", placeholder: "Email"}),
-          m("button", {type: "button"}, "Join the Guild"),
+          m("button", {type: "button", onclick: function(e) { register(); }}, "Join the Guild"),
         ]))
       ])
     );
