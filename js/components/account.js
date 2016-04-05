@@ -70,10 +70,14 @@ var accountDetails = {
       m("h1", account.user().username),
       m(".col span_8_of_12", [
         m("h3", "Account Details"),
-        m("h4", "Email Address"),
-        m.component(emailField),
-        m("h4", "Supporter Titles"),
-        m.component(kickstarterTitle),
+        m("div", [
+          m("h4", "Email Address"),
+          m.component(emailField),
+        ]),
+        m("div", [
+          m("h4", "Supporter Titles"),
+          m.component(kickstarterTitle),
+        ]),
       ]),
       m(".col span_4_of_12", [
         m("h3", "Manage Account"),
