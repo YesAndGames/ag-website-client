@@ -25,7 +25,6 @@ function userGetData(userId, callback) {
     "method": "GET",
     "headers": {
       "content-type": "application/json",
-      "cache-control": "no-cache"
     },
     "processData": false
   };
@@ -52,9 +51,8 @@ function userSetEmail(userId, email, password, callback) {
       "method": "POST",
       "headers": {
         "content-type": "application/json",
-        "cache-control": "no-cache"
       },
-      "data": "{\n  \"email\": \"" + email + "\", \"password\":\" + password + \"\n}",
+      "data": "{\n  \"email\": \"" + email + "\", \"password\":\"" + password + "\"\n}",
       "processData": false
     };
 

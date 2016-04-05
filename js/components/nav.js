@@ -109,7 +109,7 @@ function setMissingEmail() {
     alert ("Invalid email address.");
   }
   else {
-    var userID = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).userId;
+    var userID = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).id;
     userSetEmail(userID, email, password, function (response) {
       closeModals();
       alert(response);
