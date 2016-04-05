@@ -21,11 +21,7 @@ var alphaSignup = {
         m("div", {class: "col span_8_of_12 vertical-center"},
         dataCacheRetrieve(dataCacheAuthVar) == null ?
         [
-          m(".vertical-center", m(".must-login", [
-            m("h3", "You need an account to purchase"),
-            m("button", {type:"button", onclick:function(e){openModal(e, loginModal)}}, "Login"),
-            m("button", {type:"button", onclick:function(e){openModal(e, registrationModal)}}, "Register"),
-          ]))
+          m.component(mustLogin),
         ]
         :
         [

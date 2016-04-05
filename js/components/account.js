@@ -137,3 +137,14 @@ var kickstarterTitle = {
     }
   }
 }
+
+// Renders a component that asks the user to login.
+var mustLogin = {
+  view: function() {
+    return m(".vertical-center", m(".must-login", [
+      m("h3", "You need an account to purchase"),
+      m("button", {type:"button", onclick:function(e){openModal(e, loginModal)}}, "Login"),
+      m("button", {type:"button", onclick:function(e){openModal(e, registrationModal)}}, "Register"),
+    ]));
+  }
+}
