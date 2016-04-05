@@ -92,7 +92,7 @@ var loginModal = {
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("button", {type: "button", onclick: function (e) { login(); }}, "Login"),
-          m("a", {href: "#"}, "I forgot my password!")
+          //m("a", {href: "#"}, "I forgot my password!")
         ]))
       ])
     );

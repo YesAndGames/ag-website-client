@@ -3,7 +3,7 @@ var alphaSignup = {
   view: function() {
     return m("section", {class: "alpha-signup hero"}, [
       m("div", [
-        m("div", {class: "col span_5_of_12 vertical-center"}, [
+        m("div", {class: "col span_4_of_12 vertical-center"}, [
           m("div", [
             m("h2", "Join the"),
             m("h1", "Early-Access Alpha"),
@@ -18,7 +18,7 @@ var alphaSignup = {
             ])
           ])
         ]),
-        m("div", {class: "col span_7_of_12 vertical-center"},
+        m("div", {class: "col span_8_of_12 vertical-center"},
         dataCacheRetrieve(dataCacheAuthVar) == null ?
         [
           m.component(mustLogin),

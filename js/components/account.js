@@ -70,18 +70,22 @@ var accountDetails = {
       m("h1", account.user().username),
       m(".col span_8_of_12", [
         m("h3", "Account Details"),
-        m("h4", "Email Address"),
-        m.component(emailField),
-        m("h4", "Supporter Titles"),
-        m.component(kickstarterTitle),
+        m("div", [
+          m("h4", "Email Address"),
+          m.component(emailField),
+        ]),
+        m("div", [
+          m("h4", "Supporter Titles"),
+          m.component(kickstarterTitle),
+        ]),
       ]),
       m(".col span_4_of_12", [
         m("h3", "Manage Account"),
         m("ul", [
           m("li", m("a", {onclick:function(e){openModal(e,changePasswordModal);}}, "Change Password")),
-          m("li", m("a", "Change Email Address")),
-          m("li", m("a", "Redeem Key")),
-          m("li", m("a", "View Transactions")),
+          //m("li", m("a", "Change Email Address")),
+          //m("li", m("a", "Redeem Key")),
+          //m("li", m("a", "View Transactions")),
         ]),
       ]),
     ]));

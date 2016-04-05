@@ -18,4 +18,8 @@
   ul {
     list-style: none;
   }
+
+  & > div > div {
+    margin-top: 10px;
+  }
 }
