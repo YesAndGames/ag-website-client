@@ -18,7 +18,17 @@ var alphaSignup = {
             ])
           ])
         ]),
-        m("div", {class: "col span_8_of_12 vertical-center"}, [
+        m("div", {class: "col span_8_of_12 vertical-center"},
+        dataCacheRetrieve(dataCacheAuthVar) == null ?
+        [
+          m(".vertical-center", m(".must-login", [
+            m("h3", "You need an account to purchase"),
+            m("button", {type:"button"}, "Login"),
+            m("button", {type:"button"}, "Register"),
+          ]))
+        ]
+        :
+        [
           m(".purchase-options", [
             m("ul", [
               m("hr", {class: "hr-gradient"}),
