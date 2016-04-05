@@ -14,6 +14,7 @@
  * Get the details of a user's data.
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {number} userId     The ID of the user to fetch data for.
+ * @param {function} callback Code to run after the request comes back.
  */
 function userGetData(userId, callback) {
   'use strict';
@@ -30,7 +31,7 @@ function userGetData(userId, callback) {
   };
 
   $.ajax(settings).done(function (response) {
-    callback();
+    callback(response);
   });
 }
 
@@ -58,6 +59,6 @@ function userSetEmail(userId, email, password, callback) {
     };
 
     $.ajax(settings).done(function (response) {
-      callback();
+      callback(response);
     });
 }

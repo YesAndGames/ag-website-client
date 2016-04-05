@@ -79,7 +79,7 @@ function authCreateAccount(username, password, email, callback) {
       "content-type": "application/json"
     },
     "processData": false,
-    "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\",\n  \"email\": \"" + email + "\n}"
+    "data": "{\n    \"username\": \"" + username + "\",\n    \"password\": \"" + password + "\",\n  \"email\": \"" + email + "\"\n}"
   };
 
   $.ajax(settings).done(function (response) {

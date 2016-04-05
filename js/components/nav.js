@@ -58,12 +58,12 @@ function register() {
   else {
     authCreateAccount(username, password, email, function (loginResponse) {
       switch (loginResponse) {
-        case (RESPONSE_OK):
+        case (RESPONSE_ACCOUNT_CREATED):
           closeModals ();
           m.route("/home");
           break;
-        case (RESPONSE_INVALID_LOGIN):
-          document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
+        case (RESPONSE_USERNAME_TAKEN):
+          document.getElementById("registrationForm").getElementsByTagName("p")[0].style.display = "block";
           break;
         case (RESPONSE_LOGGED_IN):
           alert("Already logged in");
@@ -107,6 +107,7 @@ var registrationModal = {
         m("h2", "Join the Adventure Guild"),
         m("p", "Register a username for a new Adventure Guild account. Use this username to log into the game and the website. Usernames are case-insensitive."),
         m("div", m("form", {id: "registrationForm"}, [
+          m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("input", {type: "password", name: "confirmPassword", placeholder: "Confirm Password"}),
