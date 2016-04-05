@@ -71,7 +71,7 @@ function register() {
           openModal(null, genericMessageModal,
             {
               messageTitle:"Registration Success!",
-              message:"Welcome to Adventure Guild, " + username + "!",
+              message:"Welcome to Adventure Guild, " + username + "! Check your email to confirm your account.",
             });
           m.route("/home");
           break;
@@ -91,6 +91,30 @@ function register() {
 
 function validateEmail(email) {
   return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+}
+
+// Validates and requests that the server set a user's missing email address.
+function setMissingEmail() {
+  var email = document.getElementById("missingEmailForm").getElementsByTagName("input")[0].value;
+  var password = document.getElementById("missingEmailForm").getElementsByTagName("input")[1].value;
+
+  // Client-side validation.
+  if (email === 'undefined' || email == '') {
+    alert ("Please enter an email address.");
+  }
+  else if (password === 'underfined' || password == '') {
+    alert ("Please enter your password.");
+  }
+  else if (!validateEmail(email)) {
+    alert ("Invalid email address.");
+  }
+  else {
+    var userID = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).userId;
+    userSetEmail(userID, email, password, function (response) {
+      closeModals();
+      alert(response);
+    });
+  }
 }
 
 // Create the login modal component.
@@ -141,6 +165,7 @@ var missingEmailModal = {
         m("p", "You don't need to register your email to log in to Adventure Guild, but in order to use certain website functions like making purchases, recovering your password, or changing account details, we need to confirm your email address."),
         m("div", m("form", {id: "missingEmailForm"}, [
           m("input", {type: "email", name: "email", placeholder: "Email"}),
+          m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("button", {type: "button"}, "Confirm"),
           m("a", {onclick: function(e){closeModals(e);}}, "Skip, I'll do this later"),
         ]))
