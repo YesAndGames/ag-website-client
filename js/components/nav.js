@@ -166,7 +166,7 @@ var missingEmailModal = {
         m("div", m("form", {id: "missingEmailForm"}, [
           m("input", {type: "email", name: "email", placeholder: "Email"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
-          m("button", {type: "button"}, "Confirm"),
+          m("button", {type: "button", onclick:function(e){setMissingEmail();}}, "Confirm"),
           m("a", {onclick: function(e){closeModals(e);}}, "Skip, I'll do this later"),
         ]))
       ])
