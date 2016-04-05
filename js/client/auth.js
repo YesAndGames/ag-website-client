@@ -167,7 +167,7 @@ function authChangePassword(username, oldPass, newPass) {
         "content-type": "application/json"
       },
       "processData": false,
-      "data": "{\n    \"oldPassword\": \"" + oldPass + "\",\n    \"newPassword\": \"" + newPass + "\n}"
+      "data": "{\n    \"oldPassword\": \"" + oldPass + "\",\n    \"newPassword\": \"" + newPass + "\"\n}"
     };
 
     $.ajax(settings).done(function (response) {
