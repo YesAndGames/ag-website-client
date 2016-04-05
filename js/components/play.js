@@ -23,8 +23,8 @@ var alphaSignup = {
         [
           m(".vertical-center", m(".must-login", [
             m("h3", "You need an account to purchase"),
-            m("button", {type:"button"}, "Login"),
-            m("button", {type:"button"}, "Register"),
+            m("button", {type:"button", onclick:function(e){openModal(e, loginModal)}}, "Login"),
+            m("button", {type:"button", onclick:function(e){openModal(e, registrationModal)}}, "Register"),
           ]))
         ]
         :
