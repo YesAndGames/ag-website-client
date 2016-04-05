@@ -67,8 +67,15 @@
   }
 }
 
+.purchase-content {
+  height: 160px;
+  img {
+    width: 100%;
+  }
+}
+
 .paypal-purchase {
-  height: 100px;
+  height: 80px;
   background-image: url("../../imgs/logos/paypal.png");
   background-repeat: no-repeat;
   background-size: contain;
