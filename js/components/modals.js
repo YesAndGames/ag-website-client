@@ -76,3 +76,24 @@ var genericPurchaseModal = {
     );
   }
 }
+
+// Renders a modal containing a generic message and means to close itself.
+var genericMessageModal = {
+  controller: function(args) {
+    this.messageTitle = m.prop(args.messageTitle);
+    this.message = m.prop(args.message);
+  },
+  view: function(controller) {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", controller.messageTitle()),
+        m("hr", {class:"hr-gradient"}),
+        m(".message-content vertical-center-always", [
+          m("p", controller.message()),
+        ]),
+        m("hr", {class:"hr-gradient"}),
+          m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
+      ])
+    );
+  }
+}

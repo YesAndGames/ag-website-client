@@ -12,6 +12,14 @@ function login() {
           if (email == null || email == "") {
             openModal(null, missingEmailModal);
           }
+          else {
+            openModal(null, genericMessageModal,
+              {
+                messageTitle:"Login Success!",
+                message:"Welcome to the Adventure Guild web service, " + username + "!",
+              }
+            );
+          }
           m.route("/home");
           break;
         case (RESPONSE_INVALID_LOGIN):
@@ -60,6 +68,11 @@ function register() {
       switch (loginResponse) {
         case (RESPONSE_ACCOUNT_CREATED):
           closeModals ();
+          openModal(null, genericMessageModal,
+            {
+              messageTitle:"Registration Success!",
+              message:"Welcome to Adventure Guild, " + username + "!",
+            });
           m.route("/home");
           break;
         case (RESPONSE_USERNAME_TAKEN):
@@ -88,11 +101,11 @@ var loginModal = {
         m("h2", "Log in to Adventure Guild"),
         m("p", "Log in using the username you registered online or your in-game username. Usernames are case-insensitive."),
         m("div", m("form", {id: "loginForm"}, [
-          m("p", {class: "color-error", style: "display: none;"}, "Invalid username or password! Please try again."),
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("button", {type: "button", onclick: function (e) { login(); }}, "Login"),
           //m("a", {href: "#"}, "I forgot my password!")
+          m("p", {class: "color-error", style: "display: none;"}, "Invalid username or password! Please try again."),
         ]))
       ])
     );
@@ -107,11 +120,11 @@ var registrationModal = {
         m("h2", "Join the Adventure Guild"),
         m("p", "Register a username for a new Adventure Guild account. Use this username to log into the game and the website. Usernames are case-insensitive."),
         m("div", m("form", {id: "registrationForm"}, [
-          m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("input", {type: "password", name: "confirmPassword", placeholder: "Confirm Password"}),
           m("input", {type: "email", name: "email", placeholder: "Email"}),
+            m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
           m("button", {type: "button", onclick: function(e) { register(); }}, "Join the Guild"),
         ]))
       ])
