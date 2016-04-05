@@ -29,7 +29,12 @@ var alphaSignup = {
                 ]),
                 m("button", {type: "button", onclick:function(e){
                   openModal(e, genericPurchaseModal,
-                    {imgPath:"imgs/logos/adventure-guild.png", headerText:"Early Access Key"});}},
+                    {
+                      imgPath:"imgs/logos/adventure-guild.png",
+                      headerText:"Early Access Key",
+                      contentText:"Join the Guild now by purchasing an Early Access Key. This will enable you to log in to your account in the mobile and app and play today."
+                    }
+                  );}},
                      "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
