@@ -13,7 +13,13 @@ var guildiumShop = {
             m("img", {src: "imgs/icons/guildium.png", alt: "Guildium Bars"})
           ])
         ]),
-        m("div", {class: "col span_7_of_12 vertical-center"}, [
+        m("div", {class: "col span_7_of_12 vertical-center"},
+        dataCacheRetrieve(dataCacheAuthVar) == null ?
+        [
+          m.component(mustLogin),
+        ]
+        :
+        [
           m(".purchase-options", [
             m("ul", [
               m("hr", {class: "hr-gradient"}),
