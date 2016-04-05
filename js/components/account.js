@@ -79,9 +79,9 @@ var accountDetails = {
         m("h3", "Manage Account"),
         m("ul", [
           m("li", m("a", {onclick:function(e){openModal(e,changePasswordModal);}}, "Change Password")),
-          m("li", m("a", "Change Email Address")),
-          m("li", m("a", "Redeem Key")),
-          m("li", m("a", "View Transactions")),
+          //m("li", m("a", "Change Email Address")),
+          //m("li", m("a", "Redeem Key")),
+          //m("li", m("a", "View Transactions")),
         ]),
       ]),
     ]));
