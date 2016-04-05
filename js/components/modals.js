@@ -65,8 +65,8 @@ var genericPurchaseModal = {
         m("h2", controller.headerText()),
         m("hr", {class:"hr-gradient"}),
         m(".purchase-content", [
-          m(".col span_5_of_12", m("img", {src:controller.imgPath(), alt:"Purchase"})),
-          m(".col span_7_of_12 vertical-center", m("div", m("p", controller.contentText()))),
+          m(".col span_5_of_12_always", m("img", {src:controller.imgPath(), alt:"Purchase"})),
+          m(".col span_7_of_12_always vertical-center-always", m("div", m("p", controller.contentText()))),
         ]),
         m("hr", {class:"hr-gradient"}),
         m(".paypal-purchase", [
