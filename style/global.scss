@@ -151,6 +151,10 @@ input {
   }
 }
 
+.vertical-center-always {
+  @include vertical-center ();
+}
+
 @mixin darkBackground ($path, $opacity) {
   @media screen and (min-width: $tablet-break) {
     background-color: $dark;
