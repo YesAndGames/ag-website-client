@@ -34,6 +34,9 @@ function login() {
       }
     });
   }
+
+  // Suppress submission page refresh.
+  return false;
 }
 
 function logout() {
@@ -131,7 +134,7 @@ var loginModal = {
         m("div", m("form", {id: "loginForm"}, [
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
-          m("button", {type: "button", onclick: function (e) { login(); }}, "Login"),
+          m("button", {type: "submit", onclick: function (e) { return login(); }}, "Login"),
           //m("a", {href: "#"}, "I forgot my password!")
           m("p", {class: "color-error", style: "display: none;"}, "Invalid username or password! Please try again."),
         ]))
