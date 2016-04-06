@@ -9,7 +9,7 @@ var changePasswordModal = {
           m("input", {type: "password", name: "old-password", placeholder: "Old Password"}),
           m("input", {type: "password", name: "new-password", placeholder: "New Password"}),
           m("input", {type: "password", name: "confirm-new-password", placeholder: "Confirm New Password"}),
-          m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
+          m("p", {class: "color-error", style: "display: none;"}, "Incorrect current password."),
           m("button", {type: "submit", onclick: function (e) {return changePasswordModal.changePassword();}}, "Submit")
         ]))
       ])
