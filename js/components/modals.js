@@ -10,7 +10,7 @@ var changePasswordModal = {
           m("input", {type: "password", name: "new-password", placeholder: "New Password"}),
           m("input", {type: "password", name: "confirm-new-password", placeholder: "Confirm New Password"}),
           m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
-          m("button", {type: "button", onclick: function (e) {changePasswordModal.changePassword();}}, "Submit")
+          m("button", {type: "submit", onclick: function (e) {return changePasswordModal.changePassword();}}, "Submit")
         ]))
       ])
     );
@@ -66,6 +66,9 @@ var changePasswordModal = {
         }
       });
     }
+
+    // Suppress page refresh on submit.
+    return false;
   }
 }
 
