@@ -90,6 +90,9 @@ function register() {
       }
     });
   }
+
+  // Suppress submission page refresh;
+  return false;
 }
 
 function validateEmail(email) {
@@ -156,7 +159,7 @@ var registrationModal = {
           m("input", {type: "password", name: "confirmPassword", placeholder: "Confirm Password"}),
           m("input", {type: "email", name: "email", placeholder: "Email"}),
           m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
-          m("button", {type: "button", onclick: function(e) { register(); }}, "Join the Guild"),
+          m("button", {type: "submit", onclick: function(e) { return register(); }}, "Join the Guild"),
         ]))
       ])
     );
