@@ -125,6 +125,9 @@ function setMissingEmail() {
       });
     });
   }
+
+  // Suppress submission page refresh.
+  return false;
 }
 
 // Create the login modal component.
@@ -176,7 +179,7 @@ var missingEmailModal = {
         m("div", m("form", {id: "missingEmailForm"}, [
           m("input", {type: "email", name: "email", placeholder: "Email"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
-          m("button", {type: "button", onclick:function(e){setMissingEmail();}}, "Confirm"),
+          m("button", {type: "submit", onclick:function(e){return setMissingEmail();}}, "Confirm"),
           m("a", {onclick: function(e){closeModals(e);}}, "Skip, I'll do this later"),
         ]))
       ])
