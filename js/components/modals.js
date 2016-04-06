@@ -72,6 +72,63 @@ var changePasswordModal = {
   }
 }
 
+// Modal that helps the user retrieve their password.
+var forgotPasswordModal = {
+  view: function() {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Forgot Password"),
+        m("p", "Help us get you a new Adventure Guild password, and don't forget it this time!"),
+        m("div", m("form", {id: "forgotPasswordForm"}, [
+          m("input", {type: "text", name: "username", placeholder: "Username"}),
+          m("input", {type: "email", name: "email", placeholder: "Email"}),
+          m("p", {class: "color-error", style: "display: none;"}, "Invalid username and email combination."),
+          m("button", {type: "submit", onclick: function (e) {return forgotPasswordModal.requestNewPassword();}}, "Submit")
+        ]))
+      ])
+    );
+  },
+
+  // Request that the server send this user a new password.
+  requestNewPassword: function() {
+
+    // Collect data from form input.
+    var username = document.getElementById("changePasswordForm").getElementsByTagName("input")[0].value;
+    var email = document.getElementById("changePasswordForm").getElementsByTagName("input")[1].value;
+    document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "none";
+
+    // Client-side validation.
+    if(username === 'undefined' || username == '') {
+      alert("Please enter your username.");
+    }
+    else if (!validateEmail(email)) {
+      alert("Invalid email address.");
+    }
+
+    // Successful client-side validation.
+    else {
+
+      // Successful response.
+      if (response.success) {
+        closeModals();
+        openModal(null, genericMessageModal,
+        {
+          messageTitle:"Password Changed!",
+          message:"Your new password has been sent to your email address. Make sure you change it after you log in!",
+        });
+      }
+
+      // Error with the password request.
+      else {
+        document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
+      }
+    }
+
+    // Suppress submission causing page refresh.
+    return false;
+  }
+}
+
 // Modal that waits for a response from the server indicating that the user's email is confirmed.
 var emailConfirmationModal = {
 
