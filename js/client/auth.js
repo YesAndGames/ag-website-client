@@ -182,9 +182,10 @@ function authChangePassword(username, oldPass, newPass, callback) {
  * Send a user a temporary password for a reset.
  * @author Nick Rabb <nrabb@outlook.com>
  * @param {string}   username        The username to send to the server.
+ * @param {string}   email           The user's email address to send the password to
  * @param {function} callback        Code to run after the with the create account response.
  */
-function authResetPassword(username, callback) {
+function authResetPassword(username, email, callback) {
     'use strict';
     var settings = {
       "async": true,
@@ -194,6 +195,7 @@ function authResetPassword(username, callback) {
       "headers": {
         "content-type": "application/json"
       },
+      "data": "{\n  \"email\": \"" + email + "\"\n}",
       "processData": false
     };
 
