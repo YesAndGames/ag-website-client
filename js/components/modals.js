@@ -14,7 +14,7 @@ var changePasswordModal = {
         ]))
       ])
     );
-  }
+  },
 
   // Request that the server change the user's password.
   changePassword: function() {
@@ -41,7 +41,7 @@ var changePasswordModal = {
 
       // Send the request.
       var username = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).username;
-      authChangePassword(username, oldPassword, newPassword, function(response)) {
+      authChangePassword(username, oldPassword, newPassword, function(response) {
 
         // Successful password change.
         if (response.success) {
@@ -64,7 +64,7 @@ var changePasswordModal = {
               break;
           }
         }
-      }
+      });
     }
   }
 }
