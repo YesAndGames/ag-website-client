@@ -112,7 +112,11 @@ function setMissingEmail() {
     var userID = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).userId;
     userSetEmail(userID, email, password, function (response) {
       closeModals();
-      alert(response);
+      openModal(null, genericMessageModal,
+      {
+        messageTitle:"Confirmation Sent!",
+        message:"Check your email for a confirmation link."
+      });
     });
   }
 }
