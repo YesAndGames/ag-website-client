@@ -1,18 +1,5 @@
 // Create the call to action banner component.
 var callToAction = {
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("home call to action banner vm init");
-    }
-  },
-
-  // Create the controller.
-  controller: function() {
-    callToAction.vm.init ();
-  },
-
   // Create the view.
   view: function() {
     return m("section", {class: "call-to-action hero"}, [
@@ -50,19 +37,6 @@ var callToAction = {
 
 // Create the media reel component.
 var mediaReel = {
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("home media reel banner vm init");
-    }
-  },
-
-  // Create the controller.
-  controller: function() {
-    mediaReel.vm.init ();
-  },
-
   // Create the view.
   view: function() {
     return m("section", {class: "media-reel hero"}, [
@@ -84,28 +58,17 @@ var mediaReel = {
 }
 
 // Create the home component.
-var home = {};
+var home = {
 
-// Create the home view-model.
-home.vm = {
-  init: function() {
-    console.log("home vm init");
+  // Create the home view.
+  view: function() {
+    return [
+      m.component(nav, {page: "home"}),
+      m.component(callToAction),
+      m.component(mediaReel),
+      m.component(footer)
+    ]
   }
-}
-
-// Create the home controller.
-home.controller = function() {
-  home.vm.init ();
-}
-
-// Create the home view.
-home.view = function() {
-  return [
-    m.component(nav, {page: "home"}),
-    m.component(callToAction),
-    m.component(mediaReel),
-    m.component(footer)
-  ]
 }
 
 m.route.mode = "pathname";
