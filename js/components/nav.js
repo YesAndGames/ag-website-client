@@ -1,6 +1,7 @@
 function login() {
   var username = document.getElementById("loginForm").getElementsByTagName("input")[0].value;
   var password = document.getElementById("loginForm").getElementsByTagName("input")[1].value;
+  document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "none";
   if (username === 'undefined' || password === 'undefined' || username == '' || password == '') {
     document.getElementById("loginForm").getElementsByTagName("p")[0].style.display = "block";
   } else {
@@ -50,6 +51,7 @@ function register() {
   var password = document.getElementById("registrationForm").getElementsByTagName("input")[1].value;
   var confirmPassword = document.getElementById("registrationForm").getElementsByTagName("input")[2].value;
   var email = document.getElementById("registrationForm").getElementsByTagName("input")[3].value;
+  document.getElementById("registrationForm").getElementsByTagName("p")[0].style.display = "none";
 
   // Client-side validation.
   if (username === 'undefined' || username == '') {
