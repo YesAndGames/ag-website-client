@@ -238,17 +238,9 @@ var nav = {
 
   // Currently active page.
   activePage: m.prop(""),
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("nav vm init");
-    }
-  },
-
+  
   // Create the controller.
   controller: function(args) {
-    nav.vm.init ();
     nav.activePage(args.page);
   },
 
