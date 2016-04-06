@@ -177,3 +177,29 @@ function authChangePassword(username, oldPass, newPass, callback) {
       }
     });
 }
+
+/**
+ * Send a user a temporary password for a reset.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string}   username        The username to send to the server.
+ * @param {function} callback        Code to run after the with the create account response.
+ */
+function authResetPassword(username, callback) {
+    'use strict';
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": yag_api_endpoint + "auth/" + username + "/password/reset",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json"
+      },
+      "processData": false
+    };
+
+    $.ajax(settings).done(function (response) {
+      if (response !== 'undefined') {
+        callback(response);
+      }
+    });
+}
