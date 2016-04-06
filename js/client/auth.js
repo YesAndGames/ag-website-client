@@ -157,7 +157,7 @@ function authRequestPasswordChange(username, password, callback) {
  * @param {string}   newPass         The user's new password
  * @param {function} callback        Code to run after the with the create account response.
  */
-function authChangePassword(username, oldPass, newPass) {
+function authChangePassword(username, oldPass, newPass, callback) {
     'use strict';
     var settings = {
       "async": true,
