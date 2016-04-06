@@ -1,17 +1,4 @@
 var footer = {
-
-    // Create the view-model.
-    vm: {
-      init: function() {
-        console.log ("footer vm init");
-      }
-    },
-
-    // Create the controller.
-    controller: function() {
-      footer.vm.init ();
-    },
-
     // Create the view.
     view: function() {
       return m("footer", [
