@@ -83,7 +83,8 @@ var forgotPasswordModal = {
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "email", name: "email", placeholder: "Email"}),
           m("p", {class: "color-error", style: "display: none;"}, "Invalid username and email combination."),
-          m("button", {type: "submit", onclick: function (e) {return forgotPasswordModal.requestNewPassword();}}, "Submit")
+          m("button", {type: "submit", onclick: function (e) {return forgotPasswordModal.requestNewPassword();}}, "Submit"),
+          m("a", {href:"mailto:yesandgames@gmail.com"}, "If you don't have a registered email address, email us at yesandgames@gmail.com."),
         ]))
       ])
     );
@@ -108,20 +109,24 @@ var forgotPasswordModal = {
     // Successful client-side validation.
     else {
 
-      // Successful response.
-      if (response.success) {
-        closeModals();
-        openModal(null, genericMessageModal,
-        {
-          messageTitle:"Password Changed!",
-          message:"Your new password has been sent to your email address. Make sure you change it after you log in!",
-        });
-      }
+      // Send the request.
+      authResetPassword(username, email, function() {
 
-      // Error with the password request.
-      else {
-        document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
-      }
+        // Successful response.
+        if (response.success) {
+          closeModals();
+          openModal(null, genericMessageModal,
+          {
+            messageTitle:"Password Changed!",
+            message:"Your new password has been sent to your email address. Make sure you change it after you log in!",
+          });
+        }
+
+        // Error with the password request.
+        else {
+          document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
+        }
+      });
     }
 
     // Suppress submission causing page refresh.

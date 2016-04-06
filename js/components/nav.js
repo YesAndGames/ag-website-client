@@ -143,8 +143,8 @@ var loginModal = {
           m("input", {type: "text", name: "username", placeholder: "Username"}),
           m("input", {type: "password", name: "password", placeholder: "Password"}),
           m("button", {type: "submit", onclick: function (e) { return login(); }}, "Login"),
-          //m("a", {href: "#"}, "I forgot my password!")
           m("p", {class: "color-error", style: "display: none;"}, "Invalid username or password! Please try again."),
+          m("a", {onclick: function(e){closeModals(); openModal(e, forgotPasswordModal);}}, "I forgot my password!"),
         ]))
       ])
     );
