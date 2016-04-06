@@ -59,9 +59,6 @@ var missingAccountDetails = {
 
 // Create the account details component.
 var accountDetails = {
-  controller: function() {
-    console.log (account.user());
-  },
   view: function() {
     return m("section", {
       class: "hero position-under-nav",
@@ -113,7 +110,7 @@ var kickstarterTitle = {
       return m("p", kickstarterTitle.getBackerTitle (tier));
     }
     else {
-      return null;
+      return m("p", "None");
     }
   },
 
