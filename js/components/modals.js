@@ -57,7 +57,7 @@ var changePasswordModal = {
         else {
           switch (response.loginResponse) {
             case (RESPONSE_INVALID_LOGIN):
-            document.getElementById("changePasswordForm").getElementsByTagName("p")[0].style.display = "block";
+              document.getElementById("changePasswordForm").getElementsByTagName("p")[0].style.display = "block";
               break;
             default:
               alert("Unknown response code: " + loginResponse + ".");
