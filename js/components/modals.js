@@ -9,7 +9,7 @@ var changePasswordModal = {
           m("input", {type: "password", name: "old-password", placeholder: "Old Password"}),
           m("input", {type: "password", name: "new-password", placeholder: "New Password"}),
           m("input", {type: "password", name: "confirm-new-password", placeholder: "Confirm New Password"}),
-          m("p", {id: "invalidLoginError", class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
+          m("p", {class: "color-error", style: "display: none;"}, "That username or email address is already in use. Please select a new one."),
           m("button", {type: "button", onclick: function (e) {changePasswordModal.changePassword();}}, "Submit")
         ]))
       ])
@@ -23,16 +23,16 @@ var changePasswordModal = {
     var oldPassword = document.getElementById("changePasswordForm").getElementsByTagName("input")[0].value;
     var newPassword = document.getElementById("changePasswordForm").getElementsByTagName("input")[1].value;
     var confirmNewPassword = document.getElementById("changePasswordForm").getElementsByTagName("input")[2].value;
-    document.getElementById("loginForm").getElementById("invalidLoginError").style.display = "none";
+    document.getElementById("changePasswordForm").getElementsByTagName("p")[0].style.display = "none";
 
     // Client-side validation.
     if (oldPassword === 'undefined' || oldPassword == '') {
       alert("Please enter your current password.");
     }
-    else if (newPassword === 'undefined' || newPass == '') {
+    else if (newPassword === 'undefined' || newPassword == '') {
       alert("Please enter a new password.");
     }
-    else if (confirmNewPassword != newPass) {
+    else if (confirmNewPassword != newPassword) {
       alert("Passwords do not match.");
     }
 
@@ -57,7 +57,7 @@ var changePasswordModal = {
         else {
           switch (response.loginResponse) {
             case (RESPONSE_INVALID_LOGIN):
-              document.getElementById("loginForm").getElementById("invalidLoginError").style.display = "block";
+            document.getElementById("changePasswordForm").getElementsByTagName("p")[0].style.display = "block";
               break;
             default:
               alert("Unknown response code: " + loginResponse + ".");
