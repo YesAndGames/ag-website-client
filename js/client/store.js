@@ -32,7 +32,7 @@ function storeGetInventory(callback) {
   };
 
   $.ajax(settings).done(function (response) {
-    if (response !== 'undefined') {
+    if (typeof response !== 'undefined') {
       callback(response);
     }
   });
@@ -70,7 +70,7 @@ function storeAddInventoryItem(name, description, price, imageURL, callback) {
     };
 
   $.ajax(settings).done(function (response) {
-    if (response !== 'undefined') {
+    if (typeof response !== 'undefined') {
       callback(response);
     }
   });
@@ -97,7 +97,7 @@ function storeGetItem(itemId, callback) {
   };
 
   $.ajax(settings).done(function (response) {
-    if (response !== 'undefined') {
+    if (typeof response !== 'undefined') {
       callback(response);
     }
   });
@@ -117,20 +117,17 @@ function storeCreateOrder(callback) {
       settings = {
         "async": true,
         "crossDomain": true,
-        "url": yag_api_endpoint + "store/orders/",
+        "url": yag_api_endpoint + "store/orders/" + userId,
         "method": "POST",
         "headers": {
           "content-type": "application/json",
           "cache-control": "no-cache"
         },
-        "processData": false,
-        "data": {
-          "userId": userId
-        }
+        "processData": false
       };
 
     $.ajax(settings).done(function (response) {
-      if (response !== 'undefined') {
+      if (typeof response !== 'undefined') {
         callback(response);
       }
     });
@@ -151,20 +148,17 @@ function storeDeleteOrder(orderId, callback) {
       settings = {
         "async": true,
         "crossDomain": true,
-        "url": yag_api_endpoint + "store/orders/" + orderId,
+        "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId,
         "method": "DELETE",
         "headers": {
           "content-type": "application/json",
           "cache-control": "no-cache"
         },
-        "processData": false,
-        "data": {
-          "userId": userId
-        }
+        "processData": false
       };
 
     $.ajax(settings).done(function (response) {
-      if (response !== 'undefined') {
+      if (typeof response !== 'undefined') {
         callback(response);
       }
     });
@@ -185,16 +179,13 @@ function storeGetOrder(orderId, callback) {
       settings = {
         "async": true,
         "crossDomain": true,
-        "url": yag_api_endpoint + "store/orders/" + orderId,
+        "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
           "cache-control": "no-cache"
         },
-        "processData": false,
-        "data": {
-          "userId": userId
-        }
+        "processData": false
       };
 
     $.ajax(settings).done(function (response) {
@@ -205,6 +196,35 @@ function storeGetOrder(orderId, callback) {
   }
 }
 
+/**
+ * Get orders for a specific user through the store.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {userId} The id of the user to get orders for
+ * @param {function} callback Code to run with the result of the request.
+ */
+function storeGetUserOrders(userId, callback) {
+    'use strict';
+    if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
+      var userId = dataCacheRetrieve(dataCacheAuthVar).id,
+        settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": yag_api_endpoint + "store/orders/" + userId,
+          "method": "GET",
+          "headers": {
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+          },
+          "processData": false
+        };
+
+      $.ajax(settings).done(function (response) {
+        if (typeof response !== 'undefined') {
+          callback(response);
+        }
+      });
+    }
+}
 
 /**
  * storeAddItemToOrder - Add an item to a user's order.
@@ -220,21 +240,17 @@ function storeAddItemToOrder(orderId, itemId, callback) {
       settings = {
         "async": true,
         "crossDomain": true,
-        "url": yag_api_endpoint + "store/orders/" + orderId + "/items/",
+        "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/items/",
         "method": "POST",
         "headers": {
           "content-type": "application/json",
           "cache-control": "no-cache"
         },
-        "processData": false,
-        "data": {
-          "itemId": itemId,
-          "userId": userId
-        }
+        "processData": false
       };
 
     $.ajax(settings).done(function (response) {
-      if (response !== 'undefined') {
+      if (typeof response !== 'undefined') {
         callback(response);
       }
     });
@@ -256,23 +272,80 @@ function storeRemoveItemFromOrder(orderId, orderItemId, callback) {
       settings = {
         "async": true,
         "crossDomain": true,
-        "url": yag_api_endpoint + "store/orders/" + orderId + "/items/",
+        "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/items/" + orderItemId,
         "method": "DELETE",
         "headers": {
           "content-type": "application/json",
           "cache-control": "no-cache"
         },
-        "processData": false,
-        "data": {
-          "orderItemId": orderItemId,
-          "userId": userId
-        }
+        "processData": false
       };
 
     $.ajax(settings).done(function (response) {
-      if (response !== 'undefined') {
+      if (typeof response !== 'undefined') {
         callback(response);
       }
     });
   }
+}
+
+/**
+ * Authorize an order to be executed through payment.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {orderId} The id of the order to authorize`
+ * @param {function} callback Code to run with the result of the request.
+ */
+function storeAuthorizeOrder(orderId, callback) {
+    'use strict';
+    if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
+      var userId = dataCacheRetrieve(dataCacheAuthVar).id,
+        settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/authorize/" + orderItemId,
+          "method": "POST",
+          "headers": {
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+          },
+          "processData": false
+        };
+
+      $.ajax(settings).done(function (response) {
+        if (typeof response !== 'undefined') {
+          callback(response);
+        }
+      });
+    }
+}
+
+/**
+ * Execute an order to be executed through payment.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {paymentID} The id of the paypal payment
+ * @param {payerID} The id of the paypal payer
+ * @param {function} callback Code to run with the result of the request.
+ */
+function storeExecuteOrder(paymentID, payerID, callback) {
+    'use strict';
+    if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
+      var userId = dataCacheRetrieve(dataCacheAuthVar).id,
+        settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": yag_api_endpoint + "store/orders/execute/" + paymentID + "/" + payerID,
+          "method": "POST",
+          "headers": {
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+          },
+          "processData": false
+        };
+
+      $.ajax(settings).done(function (response) {
+        if (typeof response !== 'undefined') {
+          callback(response);
+        }
+      });
+    }
 }
