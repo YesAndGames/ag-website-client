@@ -94,8 +94,8 @@ var forgotPasswordModal = {
   requestNewPassword: function() {
 
     // Collect data from form input.
-    var username = document.getElementById("changePasswordForm").getElementsByTagName("input")[0].value;
-    var email = document.getElementById("changePasswordForm").getElementsByTagName("input")[1].value;
+    var username = document.getElementById("forgotPasswordForm").getElementsByTagName("input")[0].value;
+    var email = document.getElementById("forgotPasswordForm").getElementsByTagName("input")[1].value;
     document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "none";
 
     // Client-side validation.
@@ -110,7 +110,7 @@ var forgotPasswordModal = {
     else {
 
       // Send the request.
-      authResetPassword(username, email, function() {
+      authResetPassword(username, email, function(response) {
 
         // Successful response.
         if (response.success) {
