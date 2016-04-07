@@ -10,15 +10,25 @@ var payment = {
 
       // If query parameters aren't provided, route to home.
       if (paymentID == null || paymentID == "" ||
-          token == null || token == "" ||
           payerID == null || payerID == "") {
-        m.route("/");
-        openModal(null, genericMessageModal,
-          {
-            messageTitle:"Payment error!",
-            message:"No payment data to process.",
-          }
-        );
+        if (token != null && token != "") {
+          m.route("/");
+          openModal(null, genericMessageModal,
+            {
+              messageTitle:"Payment cancelled!",
+              message:"Returning to the Adventure Guild website.",
+            }
+          );
+        }
+        else {
+          m.route("/");
+          openModal(null, genericMessageModal,
+            {
+              messageTitle:"Payment error!",
+              message:"No payment data to process.",
+            }
+          );
+        }
       }
       else {
         // Make the payment and wait for a response.
