@@ -80,5 +80,6 @@ m.route(document.body, "/", {
     "/press": press,
     "/adventurers": characters,
     "/account": account,
+    "/payment": payment,
   }
 );

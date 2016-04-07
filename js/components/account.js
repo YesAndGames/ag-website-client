@@ -42,8 +42,6 @@ var account = {
   view: function() {
     return [
       m.component(nav, {page: "account"}),
-      m.component(account.user() == null ? missingAccountDetails : accountDetails),
-      m.component(footer)
     ];
   },
 }
