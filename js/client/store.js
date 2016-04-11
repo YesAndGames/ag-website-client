@@ -25,8 +25,7 @@ function storeGetInventory(callback) {
     "url": yag_api_endpoint + "store/items/",
     "method": "GET",
     "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
+      "content-type": "application/json"
     },
     "processData": false
   };
@@ -56,8 +55,7 @@ function storeAddInventoryItem(name, description, price, imageURL, callback) {
       "url": yag_api_endpoint + "auth/items/",
       "method": "POST",
       "headers": {
-        "content-type": "application/json",
-        "cache-control": "no-cache"
+        "content-type": "application/json"
       },
       "processData": false,
       "data": {
@@ -90,8 +88,7 @@ function storeGetItem(itemId, callback) {
     "url": yag_api_endpoint + "store/items/" + itemId,
     "method": "GET",
     "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
+      "content-type": "application/json"
     },
     "processData": false
   };
@@ -120,8 +117,7 @@ function storeCreateOrder(callback) {
         "url": yag_api_endpoint + "store/orders/" + userId,
         "method": "POST",
         "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
+          "content-type": "application/json"
         },
         "processData": false
       };
@@ -151,8 +147,7 @@ function storeDeleteOrder(orderId, callback) {
         "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId,
         "method": "DELETE",
         "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
+          "content-type": "application/json"
         },
         "processData": false
       };
@@ -182,8 +177,7 @@ function storeGetOrder(orderId, callback) {
         "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId,
         "method": "GET",
         "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
+          "content-type": "application/json"
         },
         "processData": false
       };
@@ -212,8 +206,7 @@ function storeGetUserOrders(userId, callback) {
           "url": yag_api_endpoint + "store/orders/" + userId,
           "method": "GET",
           "headers": {
-            "content-type": "application/json",
-            "cache-control": "no-cache"
+            "content-type": "application/json"
           },
           "processData": false
         };
@@ -243,8 +236,7 @@ function storeAddItemToOrder(orderId, itemId, callback) {
         "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/items/",
         "method": "POST",
         "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
+          "content-type": "application/json"
         },
         "processData": false
       };
@@ -275,8 +267,7 @@ function storeRemoveItemFromOrder(orderId, orderItemId, callback) {
         "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/items/" + orderItemId,
         "method": "DELETE",
         "headers": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
+          "content-type": "application/json"
         },
         "processData": false
       };
@@ -305,8 +296,7 @@ function storeAuthorizeOrder(orderId, callback) {
           "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/authorize/" + orderItemId,
           "method": "POST",
           "headers": {
-            "content-type": "application/json",
-            "cache-control": "no-cache"
+            "content-type": "application/json"
           },
           "processData": false
         };
@@ -336,8 +326,7 @@ function storeExecuteOrder(paymentID, payerID, callback) {
           "url": yag_api_endpoint + "store/orders/execute/" + paymentID + "/" + payerID,
           "method": "POST",
           "headers": {
-            "content-type": "application/json",
-            "cache-control": "no-cache"
+            "content-type": "application/json"
           },
           "processData": false
         };

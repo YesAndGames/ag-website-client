@@ -1,3 +1,17 @@
+function createOrder(itemId) {
+    storeCreateOrder(function(response) {
+        console.log("Got in create order response");
+        var orderId = response.id;
+        storeAddItemToOrder(orderId, itemId, function(itemResponse) {
+            console.log("Got in add item response");
+            storeAuthorizeOrder(orderId, function(authorizeResponse) {
+                console.log("Got in authorize order response");
+                window.location = authorizeResponse.links[1].href;
+            });
+        });
+    });
+}
+
 // Create the guildium shop component.
 var guildiumShop = {
   view: function () {
@@ -28,7 +42,7 @@ var guildiumShop = {
                   m("h3", "50 Guildium"),
                   m("h4", "$5.00")
                 ]),
-                m("button", {type: "button"}, "Buy")
+                m("button", {type: "button", onclick: function(e) { createOrder(2) }}, "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
               m("li", [
