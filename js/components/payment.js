@@ -32,6 +32,15 @@ var payment = {
       }
       else {
         // Make the payment and wait for a response.
+        storeExecuteOrder(paymentID, payerID, function(response) {
+            m.route("/");
+            openModal(null, genericMessageModal,
+                {
+                    messageTitle: "Thank You!",
+                    message: "Your purchase has been completed!\n\nYou can now use the Guildium you purchased inside our in-game store. Happy Adventuring!"
+                }
+            );
+        });
       }
     }
   },
@@ -51,10 +60,10 @@ var waitingForPayment = {
       class: "hero position-under-nav",
       config: function(el, isInit) {if(!isInit){payment.vm.handleQueryParameters();}}
     }, [
-      m(".vertical-center-always payment-processing", m("div", [
+      m(".vertical-center-always payment-processing", [
         m("h1", "Processing Payment..."),
-        m("div", m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"}))
-      ]))
+        m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})
+        ])
     ])
   }
 }
