@@ -9,7 +9,7 @@ function login() {
       switch (loginResponse) {
         case (RESPONSE_OK):
           closeModals ();
-          var email = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).email;
+          var email = dataCacheRetrieve(dataCacheAuthVar).email;
           if (email == null || email == "") {
             openModal(null, missingEmailModal);
           }
@@ -117,7 +117,7 @@ function setMissingEmail() {
     alert ("Invalid email address.");
   }
   else {
-    var userID = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).id;
+    var userID = dataCacheRetrieve(dataCacheAuthVar).id;
     userSetEmail(userID, email, password, function (response) {
       closeModals();
       openModal(null, genericMessageModal,
@@ -223,7 +223,7 @@ var accountInfoHang = {
     return m("div", {class: "nav-account-module vertical-center"}, [
       m (".account-info-hang-username", [
         m("p", "Welcome,"),
-        m("h3", JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).username),
+        m("h3", dataCacheRetrieve(dataCacheAuthVar).username),
       ]),
       m (".account-info-hang-links", [
         m("a", {onclick: function(e){m.route("/account");}}, "View Account"),
@@ -238,7 +238,7 @@ var nav = {
 
   // Currently active page.
   activePage: m.prop(""),
-  
+
   // Create the controller.
   controller: function(args) {
     nav.activePage(args.page);
