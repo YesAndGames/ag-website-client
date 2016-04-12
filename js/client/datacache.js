@@ -82,7 +82,7 @@ function dataCacheStore(name, value) {
 function dataCacheRetrieve(name) {
   'use strict';
   if (typeof (sessionStorage) !== 'undefined') {
-    return JSON.parse(sessionStorage[name]);
+    return sessionStorage[name] === undefined ? null : JSON.parse(sessionStorage[name]);
   } else {
     return JSON.parse(getCookie(name));
   }
