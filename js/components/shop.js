@@ -1,3 +1,6 @@
+// This identifies your website in the createToken call below
+Stripe.setPublishableKey('pk_test_wMdM3C9AkAjyMxC4qO4kv9xT');
+
 function createOrder(itemId) {
     storeCreateOrder(function(response) {
         console.log("Got in create order response");

@@ -6,7 +6,7 @@ var account = {
     init: function() {
       var json = dataCacheRetrieve(dataCacheAuthVar);
       if (json != null && json != "") {
-        account.user = m.prop(JSON.parse(json));
+        account.user = m.prop(json);
       }
     },
 

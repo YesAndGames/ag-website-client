@@ -1,3 +1,11 @@
+function limitInput(event, length) {
+    'use strict';
+    var el = event.srcElement;
+    if (el.value.length > length) {
+        el.value = el.value.slice(0, length);
+    }
+}
+
 // Modal that enables the user to change their password.
 var changePasswordModal = {
   view: function() {
@@ -78,16 +86,42 @@ var purchaseItemModal = {
             m(".modalContent", {onclick: function (e) { e.stopPropagation(); }}, [
                 m("h2", "Purchase Guildium"),
                 m("p", "Please enter your payment information to complete your purchase of Guildium."),
-                m("div", m("form", {id: "purchaseGuildiumForm"}, [
-                    m("label", m("span", "Credit Card Number"), m("input", {type: "text", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number"})),
-                    m("label", m("span", "CVC"), m("input", {type: "text", name: "", size:"4", "data-stripe": "cvc", placeholder:"CVC"})),
-                    m("label", m("span", "Expiration (MM/YYYY)"), m("input", {type: "text", name: "", size:"2", "data-stripe": "exp-month", placeholder:"MM"})),
-                    m("span", "/"),
-                    m("input", {type: "text", name: "", size:"4", "data-stripe": "exp-year", placeholder:"YYYY"}),
-                    m("button", {type: "submit"}, "Submit Payment")
-                ]))
+                m("div", m("form", {id: "purchaseGuildiumForm", method:"POST", action:""}, [
+                    m("span", {class:"payment-errors"}),
+                    m("label", m("span", "Credit Card Number"), m("input", {type: "number", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number", oninput: function (e) {limitInput(e, 16);}})),
+                    m("label", m("span", "CVC"), m("input", {type: "number", name: "", size:"4", "data-stripe": "cvc", placeholder:"CVC", oninput: function (e) {limitInput(e, 4);}})),
+                    m("label", m("span", "Expiration (MM/YYYY)"),
+                        m("div", [
+                            m("div", {class: "half-width"},
+                                m("input", {type: "number", name: "", size:"2", "data-stripe": "exp-month", placeholder:"MM", oninput: function (e) {limitInput(e, 2);}})),
+                            m("span", "/"),
+                            m("div", {class: "half-width"},
+                                m("input", {type: "number", name: "", size:"4", "data-stripe": "exp-year", placeholder:"YYYY", oninput: function (e) {limitInput(e, 4);}}))
+                        ])
+                    ),
+                    m("button", {type: "submit", onclick: function (e) { return purchaseItemModal.submitPayment(); }}, "Submit Payment")
+                ])),
+                m("div", {id: "paymentLoader", style: "display: none;"}, m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"}))
             ])
         )
+    },
+
+    handleTokenResponse(status, response) {
+        document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Submitting your payment...";
+        console.log(response);
+    },
+
+    // Submit the payment information to the server and handle the response
+    submitPayment: function() {
+        var form = document.getElementById("purchaseGuildiumForm");
+        form.getElementsByTagName("button")[0].setAttribute('disabled', true);
+        Stripe.card.createToken($(form), purchaseItemModal.handleTokenResponse);
+        document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Verifying your payment information...";
+        form.setAttribute("style", "display: none;");
+        document.getElementById("paymentLoader").setAttribute("style", "display: block;");
+
+        // Repress submission causing page refresh
+        return false;
     }
 }
 

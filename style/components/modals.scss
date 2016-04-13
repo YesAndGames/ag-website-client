@@ -34,22 +34,17 @@
     margin: 0 auto;
     margin-top: 20px;
 
+    .half-width {
+        display: inline-block;
+        width: 45%;
+        padding-right: 2%;
+    }
+
     input {
       display: block;
       width: 95%;
       margin: 0 auto;
       margin-bottom: 10px;
-
-      .half-width:first-child {
-          display: inline-block;
-          width: 45%;
-          padding-right: 2%;
-      }
-
-      .half-width:last-child {
-          display: inline-block;
-          width: 47%;
-      }
     }
 
     button {
