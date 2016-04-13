@@ -283,17 +283,17 @@ function storeRemoveItemFromOrder(orderId, orderItemId, callback) {
 /**
 * Authorize an order to be executed through payment.
 * @author Nick Rabb <nrabb@outlook.com>
-* @param {orderId} The id of the order to authorize`
+* @param {orderId} The id of the order to authorize
 * @param {function} callback Code to run with the result of the request.
 */
-function storeAuthorizeOrder(orderId, callback) {
+function storeAuthorizePayPalOrder(orderId, callback) {
     'use strict';
     if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
         var userId = dataCacheRetrieve(dataCacheAuthVar).id,
             settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/authorize/",
+                "url": yag_api_endpoint + "store/orders/" + userId + "/" + orderId + "/paypal/authorize/",
                 "method": "POST",
                 "headers": {
                     "content-type": "application/json"
@@ -316,14 +316,43 @@ function storeAuthorizeOrder(orderId, callback) {
 * @param {payerID} The id of the paypal payer
 * @param {function} callback Code to run with the result of the request.
 */
-function storeExecuteOrder(paymentID, payerID, callback) {
+function storeExecutePayPalOrder(paymentID, payerID, callback) {
     'use strict';
     if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
         var userId = dataCacheRetrieve(dataCacheAuthVar).id,
             settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": yag_api_endpoint + "store/orders/execute/" + paymentID + "/" + payerID,
+                "url": yag_api_endpoint + "store/orders/paypal/execute/" + paymentID + "/" + payerID,
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json"
+                },
+                "processData": false
+            };
+
+        $.ajax(settings).done(function (response) {
+            if (response !== undefined) {
+                callback(response);
+            }
+        });
+    }
+}
+
+/**
+* Execute an order to be executed through Stripe.
+* @author Nick Rabb <nrabb@outlook.com>
+* @param {orderId} The id of the order to execute
+* @param {token} The token
+* @param {function} callback Code to run with the result of the request.
+*/
+function storeExecuteStripeOrder(orderID, token, callback) {
+    'use strict';
+    if (dataCacheRetrieve(dataCacheAuthVar) !== 'undefined') {
+        var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": yag_api_endpoint + "store/orders/" + orderID + "/stripe/execute/" + token,
                 "method": "POST",
                 "headers": {
                     "content-type": "application/json"

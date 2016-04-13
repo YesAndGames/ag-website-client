@@ -1,15 +1,28 @@
 // This identifies your website in the createToken call below
 Stripe.setPublishableKey('pk_test_wMdM3C9AkAjyMxC4qO4kv9xT');
 
-function createOrder(itemId) {
+function createPayPalOrder(itemId) {
     storeCreateOrder(function(response) {
-        console.log("Got in create order response");
         var orderId = response.id;
         storeAddItemToOrder(orderId, itemId, function(itemResponse) {
-            console.log("Got in add item response");
             storeAuthorizeOrder(orderId, function(authorizeResponse) {
-                console.log("Got in authorize order response");
                 window.location = authorizeResponse.links[1].href;
+            });
+        });
+    });
+}
+
+function createStripeOrder(token, itemId) {
+    storeCreateOrder(function(response) {
+        var orderId = response.id;
+        storeAddItemToOrder(orderId, itemId, function(itemResponse) {
+            storeExecuteStripeOrder(orderId, token, function(stripeResponse) {
+                console.log(stripeResponse);
+                if (stripeResponse.status === "success") {
+
+                } else {
+
+                }
             });
         });
     });
@@ -45,7 +58,12 @@ var guildiumShop = {
                   m("h3", "50 Guildium"),
                   m("h4", "$5.00")
                 ]),
-                m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal) }}, "Buy")
+                m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
+                    itemId: 2,
+                    imgPath: "",
+                    headerText: "Purchase 50 Guildium",
+                    contentText: "Purchase 50 points of in-game currency for Adventure Guild"
+                }); }}, "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
               m("li", [
@@ -53,7 +71,12 @@ var guildiumShop = {
                   m("h3", "100 Guildium"),
                   m("h4", "$10.00")
                 ]),
-                m("button", {type: "button"}, "Buy")
+                m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
+                    itemId: 3,
+                    imgPath: "",
+                    headerText: "Purchase 100 Guildium",
+                    contentText: "Purchase 100 points of in-game currency for Adventure Guild"
+                }); }}, "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
               m("li", [
@@ -61,7 +84,12 @@ var guildiumShop = {
                   m("h3", "200 Guildium"),
                   m("h4", "$20.00")
                 ]),
-                m("button", {type: "button"}, "Buy")
+                m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
+                    itemId: 4,
+                    imgPath: "",
+                    headerText: "Purchase 200 Guildium",
+                    contentText: "Purchase 200 points of in-game currency for Adventure Guild"
+                }); }}, "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
             ])
