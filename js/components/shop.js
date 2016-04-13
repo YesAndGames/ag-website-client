@@ -42,7 +42,7 @@ var guildiumShop = {
                   m("h3", "50 Guildium"),
                   m("h4", "$5.00")
                 ]),
-                m("button", {type: "button", onclick: function(e) { createOrder(2) }}, "Buy")
+                m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal) }}, "Buy")
               ]),
               m("hr", {class: "hr-gradient"}),
               m("li", [

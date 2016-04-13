@@ -72,6 +72,25 @@ var changePasswordModal = {
   }
 }
 
+var purchaseItemModal = {
+    view: function() {
+        return m(".modal", {onclick: function (e) { closeModals (e); }},
+            m(".modalContent", {onclick: function (e) { e.stopPropagation(); }}, [
+                m("h2", "Purchase Guildium"),
+                m("p", "Please enter your payment information to complete your purchase of Guildium."),
+                m("div", m("form", {id: "purchaseGuildiumForm"}, [
+                    m("label", m("span", "Credit Card Number"), m("input", {type: "text", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number"})),
+                    m("label", m("span", "CVC"), m("input", {type: "text", name: "", size:"4", "data-stripe": "cvc", placeholder:"CVC"})),
+                    m("label", m("span", "Expiration (MM/YYYY)"), m("input", {type: "text", name: "", size:"2", "data-stripe": "exp-month", placeholder:"MM"})),
+                    m("span", "/"),
+                    m("input", {type: "text", name: "", size:"4", "data-stripe": "exp-year", placeholder:"YYYY"}),
+                    m("button", {type: "submit"}, "Submit Payment")
+                ]))
+            ])
+        )
+    }
+}
+
 // Modal that helps the user retrieve their password.
 var forgotPasswordModal = {
   view: function() {
