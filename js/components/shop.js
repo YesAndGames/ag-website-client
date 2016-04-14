@@ -18,11 +18,13 @@ function createStripeOrder(token, itemId) {
         storeAddItemToOrder(orderId, itemId, function(itemResponse) {
             storeExecuteStripeOrder(orderId, token, function(stripeResponse) {
                 console.log(stripeResponse);
-                if (stripeResponse.status === "success") {
-
+                if (stripeResponse.status === "succeeded") {
+                    document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Your payment was successful!\n\nGo use your new Guildium and get something cool!";
                 } else {
-
+                    document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "There was an error processing your payment! Please try again, or if your issue persists, contact yesandgames@gmail.com";
                 }
+                document.getElementById("paymentLoader").setAttribute("style", "display: none;");
+                document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("button")[1].setAttribute("style", "display: block;");
             });
         });
     });
@@ -60,7 +62,7 @@ var guildiumShop = {
                 ]),
                 m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
                     itemId: 2,
-                    imgPath: "",
+                    imgPath: "http://dev.adventureguildgame.com/imgs/icons/guildium.png",
                     headerText: "Purchase 50 Guildium",
                     contentText: "Purchase 50 points of in-game currency for Adventure Guild"
                 }); }}, "Buy")
@@ -73,7 +75,7 @@ var guildiumShop = {
                 ]),
                 m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
                     itemId: 3,
-                    imgPath: "",
+                    imgPath: "http://dev.adventureguildgame.com/imgs/icons/guildium.png",
                     headerText: "Purchase 100 Guildium",
                     contentText: "Purchase 100 points of in-game currency for Adventure Guild"
                 }); }}, "Buy")
@@ -86,7 +88,7 @@ var guildiumShop = {
                 ]),
                 m("button", {type: "button", onclick: function(e) { openModal(e, purchaseItemModal, {
                     itemId: 4,
-                    imgPath: "",
+                    imgPath: "http://dev.adventureguildgame.com/imgs/icons/guildium.png",
                     headerText: "Purchase 200 Guildium",
                     contentText: "Purchase 200 points of in-game currency for Adventure Guild"
                 }); }}, "Buy")

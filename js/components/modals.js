@@ -91,12 +91,15 @@ var purchaseItemModal = {
         return m(".modal", {onclick: function (e) { closeModals (e); }},
             m(".modalContent", {onclick: function (e) { e.stopPropagation(); }}, [
                 m("input", {type: "hidden", id: "paymentItemId", itemId: controller.itemId()}),
-                m("h2", controller.headerText()),
-                m("hr", {class:"hr-gradient"}),
-                m(".purchase-content", [
-                  m(".col span_5_of_12_always", m("img", {src:controller.imgPath(), alt:"Purchase"})),
-                  m(".col span_7_of_12_always vertical-center-always", m("div", m("p", controller.contentText()))),
-                ]),
+                m("div", {id: "paymentDescription"},
+                    m("h2", controller.headerText()),
+                    m("hr", {class:"hr-gradient"}),
+                    m(".purchase-content", [
+                      m(".col span_5_of_12_always", m("img", {src:controller.imgPath(), alt:"Purchase"})),
+                      m(".col span_7_of_12_always vertical-center-always", m("div", m("p", controller.contentText()))),
+                    ])
+                ),
+                m("p", ""),
                 m("div", m("form", {id: "purchaseGuildiumForm", method:"POST", action:""}, [
                     m("span", {class:"payment-errors"}),
                     m("label", m("span", "Credit Card Number"), m("input", {type: "number", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number", oninput: function (e) {limitInput(e, 16);}})),
@@ -112,8 +115,8 @@ var purchaseItemModal = {
                     ),
                     m("button", {type: "submit", onclick: function (e) { return purchaseItemModal.submitPayment(); }}, "Submit Payment")
                 ])),
-                m("div", {id: "paymentLoader", style: "display: none;"}, m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"}),
-                m("button", {type: "button", style: "display: none;", onclick: function (e) { closeModals(e); }}, "Close"))
+                m("div", {id: "paymentLoader", style: "display: none;"}, m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
+                m("button", {type: "button", style: "display: none;", onclick: function (e) { closeModals(e); }}, "Close")
             ])
         )
     },
@@ -122,17 +125,15 @@ var purchaseItemModal = {
     handleTokenResponse(status, response) {
         document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Submitting your payment...";
         if (response.error) {
+            var form = document.getElementById("purchaseGuildiumForm");
+            form.getElementsByTagName("button")[0].removeAttribute('disabled');
+            form.setAttribute("style", "display: block;");
+            document.getElementById("paymentLoader").setAttribute("style", "display: none;");
             document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Error! " + response.error.message;
-            document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("button").setAttribute("style", "display: block;");
         } else {
             var token = response.id;
             createStripeOrder(token, document.getElementById("paymentItemId").getAttribute("itemId"));
         }
-    },
-
-    // Handle the response from submitting the payment to the server
-    handleServerResponse(response) {
-        console.log(response);
     },
 
     // Submit the payment information to the server and handle the response
