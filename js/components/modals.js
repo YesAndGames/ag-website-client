@@ -356,7 +356,7 @@ var earlyAccessSuccessModal = {
       m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
         m("h2", "Welcome to Early Access!"),
         m("hr", {class:"hr-gradient"}),
-        m(".message-content vertical-center-always", [
+        m(".message-content", [
           m("div", m("img", {src: "imgs/logos/adventure-guild.png", width: "50%"})),
           m("p", "Thank you for purchasing early access to Adventure Guild. Download the app on your device and log in with the account credentials you created here!"),
         ]),
