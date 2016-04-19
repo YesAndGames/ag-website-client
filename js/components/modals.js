@@ -258,7 +258,7 @@ var redeemKeyModal = {
         m ("p", "If you were given a key to redeem a digital item, enter it here to redeem the item for this account."),
         m("div", m("form", {id: "redeemKeyForm"}, [
           m("input", {type: "text", name: "key", placeholder: "Key"}),
-          m("p", {class: "color-error", style: "display: none;"}, "Invalid key."),
+          m("p", {class: "color-error", style: "display: none;"}, "The key you submitted is invalid."),
           m("button", {type: "submit", onclick: function (e) {return redeemKeyModal.redeemKey();}}, "Submit"),
         ]))
       ])
@@ -269,6 +269,7 @@ var redeemKeyModal = {
 
     // Collect data from form.
     var key = document.getElementById("redeemKeyForm").getElementsByTagName("input")[0].value;
+      document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "none";
 
     // Client-side verifications.
     if (key === 'undefined' || key == '') {
@@ -280,7 +281,14 @@ var redeemKeyModal = {
 
       // Send the request.
       keysConsumeKey(key, function(response) {
-        console.log(response);
+
+        // Check success.
+        if (response.success) {
+          console.log(response);
+        }
+        else {
+          document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
+        }
       });
     }
 
