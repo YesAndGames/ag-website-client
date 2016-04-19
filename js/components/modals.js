@@ -249,7 +249,7 @@ var emailConfirmationModal = {
   }
 }
 
-// Render sa modal that lets the user redeem a key.
+// Renders a modal that lets the user redeem a key.
 var redeemKeyModal = {
   view: function(e) {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
@@ -259,10 +259,33 @@ var redeemKeyModal = {
         m("div", m("form", {id: "redeemKeyForm"}, [
           m("input", {type: "text", name: "key", placeholder: "Key"}),
           m("p", {class: "color-error", style: "display: none;"}, "Invalid key."),
-          m("button", {type: "submit", onclick: function (e) {return false;}}, "Submit"),
+          m("button", {type: "submit", onclick: function (e) {return redeemKey();}}, "Submit"),
         ]))
       ])
     );
+  }
+
+  redeemKey: function() {
+
+    // Collect data from form.
+    var key = document.getElementById("redeemKeyForm").getElementsByTagName("input")[0].value;
+
+    // Client-side verifications.
+    if (key === 'undefined' || key == '') {
+      alert ("Please enter a redemption key.");
+    }
+
+    // Valid input.
+    else {
+
+      // Send the request.
+      keysConsumeKey(key, function(response) {
+        console.log(response);
+      });
+    }
+
+    // Suppress submission causing page refresh.
+    return false;
   }
 }
 
