@@ -249,6 +249,23 @@ var emailConfirmationModal = {
   }
 }
 
+// Render sa modal that lets the user redeem a key.
+var redeemKeyModal = {
+  view: function(e) {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Redeem a Key"),
+        m ("p", "If you were given a key to redeem a digital item, enter it here to redeem the item for this account."),
+        m("div", m("form", {id: "redeemKeyForm"}, [
+          m("input", {type: "text", name: "key", placeholder: "Key"}),
+          m("p", {class: "color-error", style: "display: none;"}, "Invalid key."),
+          m("button", {type: "submit", onclick: function (e) {return false;}}, "Submit"),
+        ]))
+      ])
+    );
+  }
+}
+
 var genericPurchaseModal = {
   controller: function(args) {
     this.imgPath = m.prop(args.imgPath);
