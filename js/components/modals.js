@@ -263,7 +263,7 @@ var redeemKeyModal = {
         ]))
       ])
     );
-  }
+  },
 
   redeemKey: function() {
 
