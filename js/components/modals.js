@@ -251,7 +251,7 @@ var emailConfirmationModal = {
 
 // Renders a modal that lets the user redeem a key.
 var redeemKeyModal = {
-  view: function(e) {
+  view: function() {
     return m(".modal", {onclick: function (e) { closeModals (e); }},
       m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
         m("h2", "Redeem a Key"),
@@ -284,7 +284,14 @@ var redeemKeyModal = {
 
         // Check success.
         if (response.success) {
-          console.log(response);
+
+          // Early-Access key.
+          switch (response.key_type) {
+          case (KEY_TYPE_EARLY_ACCESS):
+            closeModals();
+            openModal(null, earlyAccessSuccessModal);
+            break;
+          }
         }
         else {
           document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
@@ -334,6 +341,24 @@ var genericMessageModal = {
         m("hr", {class:"hr-gradient"}),
         m(".message-content vertical-center-always", [
           m("p", controller.message()),
+        ]),
+        m("hr", {class:"hr-gradient"}),
+          m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
+      ])
+    );
+  }
+}
+
+// Renders a modal that thanks the user and welcomes them to early access.
+var earlyAccessSuccessModal = {
+  view: function() {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Welcome to Early Access!"),
+        m("hr", {class:"hr-gradient"}),
+        m(".message-content vertical-center-always", [
+          m("div", m("img" {src: "imgs/logos/adventure-guild.png" width: "50%"})),
+          m("p", "Thank you for purchasing early access to Adventure Guild. Download the app on your device and log in with the account credentials you created here!"),
         ]),
         m("hr", {class:"hr-gradient"}),
           m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
