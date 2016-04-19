@@ -259,7 +259,7 @@ var redeemKeyModal = {
         m("div", m("form", {id: "redeemKeyForm"}, [
           m("input", {type: "text", name: "key", placeholder: "Key"}),
           m("p", {class: "color-error", style: "display: none;"}, "Invalid key."),
-          m("button", {type: "submit", onclick: function (e) {return redeemKey();}}, "Submit"),
+          m("button", {type: "submit", onclick: function (e) {return redeemKeyModal.redeemKey();}}, "Submit"),
         ]))
       ])
     );
