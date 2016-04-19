@@ -269,7 +269,7 @@ var redeemKeyModal = {
 
     // Collect data from form.
     var key = document.getElementById("redeemKeyForm").getElementsByTagName("input")[0].value;
-      document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "none";
+      document.getElementById("redeemKeyForm").getElementsByTagName("p")[0].style.display = "none";
 
     // Client-side verifications.
     if (key === 'undefined' || key == '') {
@@ -294,7 +294,7 @@ var redeemKeyModal = {
           }
         }
         else {
-          document.getElementById("forgotPasswordForm").getElementsByTagName("p")[0].style.display = "block";
+          document.getElementById("redeemKeyForm").getElementsByTagName("p")[0].style.display = "block";
         }
       });
     }
@@ -343,7 +343,7 @@ var genericMessageModal = {
           m("p", controller.message()),
         ]),
         m("hr", {class:"hr-gradient"}),
-          m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
+        m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
       ])
     );
   }
@@ -357,11 +357,11 @@ var earlyAccessSuccessModal = {
         m("h2", "Welcome to Early Access!"),
         m("hr", {class:"hr-gradient"}),
         m(".message-content vertical-center-always", [
-          m("div", m("img" {src: "imgs/logos/adventure-guild.png" width: "50%"})),
+          m("div", m("img", {src: "imgs/logos/adventure-guild.png", width: "50%"})),
           m("p", "Thank you for purchasing early access to Adventure Guild. Download the app on your device and log in with the account credentials you created here!"),
         ]),
         m("hr", {class:"hr-gradient"}),
-          m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
+        m("button", {onclick: function (e) { closeModals (e); }}, "OK"),
       ])
     );
   }
