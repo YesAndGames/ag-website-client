@@ -367,3 +367,44 @@ function storeExecuteStripeOrder(orderID, token, callback) {
         });
     }
 }
+
+function createStripeOrder(token, itemId) {
+    if (itemId == 5) {
+        keysGenerateKey(1, -1, function (response) {
+            storeCreateOrder(function(createResponse) {
+                var orderId = createResponse.id;
+                storeAddItemToOrder(orderId, itemId, function(itemResponse) {
+                    storeExecuteStripeOrder(orderId, token, function(stripeResponse) {
+                        console.log(stripeResponse);
+                        if (stripeResponse.status === "succeeded") {
+                            keysConsumeKey(response.key, function () {
+                                document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Your payment was successful!\n\nGo use your new purchase and do something cool!";
+                            });
+                        } else {
+                            document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "There was an error processing your payment! Please try again, or if your issue persists, contact yesandgames@gmail.com";
+                        }
+                        document.getElementById("paymentLoader").setAttribute("style", "display: none;");
+                        document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("button")[1].setAttribute("style", "display: block;");
+                    });
+                });
+            });
+        });
+    } else {
+        storeCreateOrder(function(createResponse) {
+            var orderId = createResponse.id;
+            storeAddItemToOrder(orderId, itemId, function(itemResponse) {
+                storeExecuteStripeOrder(orderId, token, function(stripeResponse) {
+                    console.log(stripeResponse);
+                    if (stripeResponse.status === "succeeded") {
+                        document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Your payment was successful!\n\nGo use your new purchase and do something cool!";
+                    } else {
+                        document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "There was an error processing your payment! Please try again, or if your issue persists, contact yesandgames@gmail.com";
+                    }
+                    document.getElementById("paymentLoader").setAttribute("style", "display: none;");
+                    document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("button")[1].setAttribute("style", "display: block;");
+                });
+            });
+        });
+    }
+
+}

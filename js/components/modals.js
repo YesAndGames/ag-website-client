@@ -80,7 +80,7 @@ var changePasswordModal = {
   }
 }
 
-var purchaseItemModal = {
+var genericPurchaseModal = {
     controller: function(args) {
       this.itemId = m.prop(args.itemId);
       this.imgPath = m.prop(args.imgPath);
@@ -113,7 +113,7 @@ var purchaseItemModal = {
                                 m("input", {type: "number", name: "", size:"4", "data-stripe": "exp-year", placeholder:"YYYY", oninput: function (e) {limitInput(e, 4);}}))
                         ])
                     ),
-                    m("button", {type: "submit", onclick: function (e) { return purchaseItemModal.submitPayment(); }}, "Submit Payment")
+                    m("button", {type: "submit", onclick: function (e) { return genericPurchaseModal.submitPayment(); }}, "Submit Payment")
                 ])),
                 m("div", {id: "paymentLoader", style: "display: none;"}, m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
                 m("button", {type: "button", style: "display: none;", onclick: function (e) { closeModals(e); }}, "Close")
@@ -140,7 +140,7 @@ var purchaseItemModal = {
     submitPayment: function() {
         var form = document.getElementById("purchaseGuildiumForm");
         form.getElementsByTagName("button")[0].setAttribute('disabled', true);
-        Stripe.card.createToken($(form), purchaseItemModal.handleTokenResponse);
+        Stripe.card.createToken($(form), genericPurchaseModal.handleTokenResponse);
         document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Verifying your payment information...";
         form.setAttribute("style", "display: none;");
         document.getElementById("paymentLoader").setAttribute("style", "display: block;");
@@ -301,30 +301,6 @@ var redeemKeyModal = {
 
     // Suppress submission causing page refresh.
     return false;
-  }
-}
-
-var genericPurchaseModal = {
-  controller: function(args) {
-    this.imgPath = m.prop(args.imgPath);
-    this.headerText = m.prop(args.headerText);
-    this.contentText = m.prop(args.contentText);
-  },
-  view: function(controller) {
-    return m(".modal", {onclick: function (e) { closeModals (e); }},
-      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
-        m("h2", controller.headerText()),
-        m("hr", {class:"hr-gradient"}),
-        m(".purchase-content", [
-          m(".col span_5_of_12_always", m("img", {src:controller.imgPath(), alt:"Purchase"})),
-          m(".col span_7_of_12_always vertical-center-always", m("div", m("p", controller.contentText()))),
-        ]),
-        m("hr", {class:"hr-gradient"}),
-        m(".paypal-purchase", [
-          m("button", "Buy"),
-        ])
-      ])
-    );
   }
 }
 
