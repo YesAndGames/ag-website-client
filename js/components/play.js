@@ -7,7 +7,7 @@ var alphaSignup = {
           m("div", [
             m("h2", "Join the"),
             m("h1", "Early-Access Alpha"),
-            m("p", "Play Adventure Guild NOW by registering for our closed Early-Access Alpha if you haven't already as a Platinum Adventurer or above on Kickstarter. "
+            m("p", "Play Adventure Guild NOW by registering for our closed Early-Access Alpha.  "
               + "Get the earliest possible public access, and play on the account you will use when the game releases. "
               + "Your progress may be reset between this event and release, but your user account and purchases will carry over at launch."),
             m("div", {class: "platform-images"}, [
