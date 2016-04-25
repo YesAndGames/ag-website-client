@@ -1,8 +1,14 @@
 .privacy-policy {
   padding: 10px;
+  color: $light-grey;
 
   h2 {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: $light;
+  }
+
+  strong {
+    color: $light;
   }
 }

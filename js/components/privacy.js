@@ -13,7 +13,14 @@ var tosPrivacyContent = {
     return m(".privacy-policy hero position-under-nav", m("div", [
       m("h2", "Terms of Service and Privacy Policy"),
       m("hr", {class: "hr-gradient"}),
-      m("p", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc hendrerit sapien sit amet elementum porta. Donec quis mauris consectetur, vulputate magna vel, condimentum est. Ut non vestibulum felis. Vestibulum dapibus enim eget augue sodales molestie. Aliquam interdum elementum sapien, quis venenatis sapien iaculis nec. Donec eget pharetra urna. Nunc maximus velit id leo suscipit, nec tincidunt ipsum imperdiet. Curabitur sed lectus nisi. Etiam tempus ligula orci, fringilla consectetur sapien sollicitudin non. Integer sagittis tempus nulla, at egestas erat molestie quis. In et metus purus. Nullam eu efficitur ante. Sed efficitur felis finibus mollis euismod. Quisque nec nisl non leo pellentesque efficitur vitae eu est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla porta, enim consectetur pellentesque posuere, purus urna aliquet lectus, bibendum sagittis neque erat id ipsum."),
+      m("div", m.trust(marked(
+        "1. __Terms of Use:__ Welcome to Yes And Games ('__Yes And Games__') 'Adventure Guild' videogame ('__AG__'). These terms of use and privacy policy ('__Terms of Use__') apply to your use of the AG website ('__Website__') at www.adventureguildgame.com (or such other URL as the Website may subsequently be hosted at), the software, documentation and any associated materials comprising or made available to you in relation to AG (the '__Materials__') as well as any services offered or provided by Yes And Games or its nominated third parties in relation to AG (the '__Services__'). By making use of any of the Website, Materials and Services, you are deemed to have read and agree to be bound by these Terms of Use." +
+        "\n2. __Amendments:__ Yes And Games reserves the right to amend these Terms of Use from time to time upon placing any such amendments on the Website or by providing you direct notice of any such changes. Your continued use of any of the Website, Materials and Services thereafter will be deemed to be acceptance by you of any such changes to these Terms of Use."
+        ), {
+          gfm: true,
+          smartypants: true,
+          breaks: true,
+        })),
     ]));
   }
 }
