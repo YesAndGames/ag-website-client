@@ -37,7 +37,7 @@ function keysGenerateKey(type, vanityItemId, callback) {
                 "content-type": "application/json"
             },
             "processData": false,
-            "data": "{\n    \"type\": \"" + type + "\",\n    \"vanityItemId\": \"" + vanityItemId + "\",\n\"userId\": \"" + userId + "\"\n}"
+            "data": "{\n    \"type\": \"" + type + "\",\n    \"vanityItemId\": \"" + vanityItemId + "\",\n    \"userId\": \"" + userId + "\"\n}"
         };
     $.ajax(settings).done(function (response) {
         if (response !== undefined) {

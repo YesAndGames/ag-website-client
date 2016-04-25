@@ -100,7 +100,7 @@ var genericPurchaseModal = {
                     ])
                 ),
                 m("p", ""),
-                m("div", m("form", {id: "purchaseGuildiumForm", method:"POST", action:""}, [
+                m("div", m("form", {id: "purchaseForm", method:"POST", action:""}, [
                     m("span", {class:"payment-errors"}),
                     m("label", m("span", "Credit Card Number"), m("input", {type: "number", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number", oninput: function (e) {limitInput(e, 16);}})),
                     m("label", m("span", "CVC"), m("input", {type: "number", name: "", size:"4", "data-stripe": "cvc", placeholder:"CVC", oninput: function (e) {limitInput(e, 4);}})),
@@ -125,7 +125,7 @@ var genericPurchaseModal = {
     handleTokenResponse(status, response) {
         document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Submitting your payment...";
         if (response.error) {
-            var form = document.getElementById("purchaseGuildiumForm");
+            var form = document.getElementById("purchaseForm");
             form.getElementsByTagName("button")[0].removeAttribute('disabled');
             form.setAttribute("style", "display: block;");
             document.getElementById("paymentLoader").setAttribute("style", "display: none;");
@@ -138,7 +138,7 @@ var genericPurchaseModal = {
 
     // Submit the payment information to the server and handle the response
     submitPayment: function() {
-        var form = document.getElementById("purchaseGuildiumForm");
+        var form = document.getElementById("purchaseForm");
         form.getElementsByTagName("button")[0].setAttribute('disabled', true);
         Stripe.card.createToken($(form), genericPurchaseModal.handleTokenResponse);
         document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Verifying your payment information...";
