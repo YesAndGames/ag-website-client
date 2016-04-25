@@ -64,7 +64,7 @@ var footer = {
                   ])
                 ]),
                 m("li", [
-                  m("a", {target: "_blank", href: "#"}, [
+                  m("a", {onclick: function(e) {m.route("/privacy");}}, [
                     m("span", {class: "fa fa-lock fa-fw"}),
                     "TOS and Privacy Policy"
                   ])
