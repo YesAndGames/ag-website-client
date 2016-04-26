@@ -1,6 +1,5 @@
 $.get("content/patch-notes/500.md", function(data) {
   patchNotes.test(data);
-  console.log(data);
   m.redraw();
 }, 'text');
 
