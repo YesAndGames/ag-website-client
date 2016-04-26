@@ -17,9 +17,18 @@
     list-style: decimal;
     ol, ul {
       list-style: lower-alpha;
+      list-style-position: inside;
       ol, ul {
         list-style: lower-roman;
+        list-style-position: inside;
+        margin-left: 10px;
       }
+    }
+  }
+
+  li {
+    p {
+      margin-bottom: 10px;
     }
   }
 }
