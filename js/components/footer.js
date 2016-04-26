@@ -46,7 +46,7 @@ var footer = {
             m("div", [
               m("ul", [
                 m("li", [
-                  m("a", {target: "_blank", href: "#"}, [
+                  m("a", {onclick: function(e) {m.route("/updates");}}, [
                     m("span", {class: "fa fa-sticky-note fa-fw"}),
                     "Patch Notes"
                   ])

@@ -82,5 +82,6 @@ m.route(document.body, "/", {
     "/account": account,
     "/payment": payment,
     "/privacy": privacy,
+    "/updates": updates,
   }
 );
