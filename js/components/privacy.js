@@ -18,7 +18,7 @@ var tosPrivacyContent = {
   tos: m.prop(""),
   view: function() {
     return m(".privacy-policy hero position-under-nav", m("div", [
-      m("h2", "Terms of Service and Privacy Policy"),
+      m("h2", "Terms of Use and Privacy Policy"),
       m("hr", {class: "hr-gradient"}),
       m("div", m.trust(marked(
         tosPrivacyContent.tos()
