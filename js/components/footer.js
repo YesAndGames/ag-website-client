@@ -66,7 +66,7 @@ var footer = {
                 m("li", [
                   m("a", {onclick: function(e) {m.route("/privacy");}}, [
                     m("span", {class: "fa fa-lock fa-fw"}),
-                    "TOS and Privacy Policy"
+                    "Terms and Privacy"
                   ])
                 ]),
               ])
