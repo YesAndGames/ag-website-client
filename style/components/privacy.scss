@@ -12,4 +12,14 @@
   strong {
     color: $light;
   }
+
+  ol, ul {
+    list-style: decimal;
+    ol, ul {
+      list-style: lower-alpha;
+      ol, ul {
+        list-style: lower-roman;
+      }
+    }
+  }
 }
