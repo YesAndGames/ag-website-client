@@ -1,5 +1,6 @@
 $.get("content/tos.md", function(data) {
   tosPrivacyContent.tos(data);
+  console.log(data);
   m.redraw();
 }, 'text');
 
@@ -25,6 +26,7 @@ var tosPrivacyContent = {
           gfm: true,
           smartypants: true,
           breaks: true,
+          smartLists: true,
         })),
     ]));
   }
