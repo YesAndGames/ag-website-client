@@ -356,7 +356,11 @@ var contactUsModal = {
         ]),
         m("br"),
         m(".message-content", [
-          m("p", "If you have a query related to your account, or otherwise need to contact us privately, please email us at yesandgames@gmail.com"),
+          m("p",
+            m("strong", "If you have a query or issue related to your account, payments, microtransactions, critical technical difficulties, or otherwise need to contact us privately, please email us at ",
+              m("a", {href:"mailto:yesandgames@gmail.com"}, "yesandgames@gmail.com")
+            )
+          ),
         ]),
         m("hr", {class:"hr-gradient"}),
         m("a", {target: "_blank", href: "http://reddit.com/r/adventureguild"}, m("button", "/r/AdventureGuild")),
