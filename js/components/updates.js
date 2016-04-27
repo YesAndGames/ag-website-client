@@ -1,10 +1,13 @@
 var patchNoteFiles = [
+  "content/patch-notes/400.md",
+  "content/patch-notes/401.md",
   "content/patch-notes/500.md",
 ];
+patchNoteFiles.reverse();
 
-patchNoteFiles.map(function(filepath) {
+patchNoteFiles.map(function(filepath, index) {
   $.get(filepath, function(data) {
-    patchNotes.notes.push(data);
+    patchNotes.notes[index] = data;
     m.redraw();
   }, 'text');
 });
