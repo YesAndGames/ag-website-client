@@ -1,7 +1,13 @@
-$.get("content/patch-notes/500.md", function(data) {
-  patchNotes.test(data);
-  m.redraw();
-}, 'text');
+var patchNoteFiles = [
+  "content/patch-notes/500.md",
+];
+
+patchNoteFiles.map(function(filepath) {
+  $.get(filepath, function(data) {
+    patchNotes.test(data);
+    m.redraw();
+  }, 'text');
+});
 
 var updates = {
   view: function() {
