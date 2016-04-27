@@ -4,7 +4,7 @@ var patchNoteFiles = [
 
 patchNoteFiles.map(function(filepath) {
   $.get(filepath, function(data) {
-    patchNotes.test(data);
+    patchNotes.notes.push(data);
     m.redraw();
   }, 'text');
 });
@@ -20,18 +20,21 @@ var updates = {
 }
 
 var patchNotes = {
-  test: m.prop(""),
+  notes: new Array(),
 
   view: function() {
     return m(".patch-notes hero position-under-nav", m("div", [
-      m("div", m.trust(marked(
-        patchNotes.test()
-        ), {
-          gfm: true,
-          smartypants: true,
-          breaks: true,
-          smartLists: true,
-        })),
+      patchNotes.notes.map (function(data) {
+        return m("div", m.trust(marked(
+          data
+          ), {
+            gfm: true,
+            smartypants: true,
+            breaks: true,
+            smartLists: true,
+          }
+        ));
+      }),
     ]));
   }
 }
