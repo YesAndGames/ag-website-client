@@ -52,13 +52,13 @@ var footer = {
                   ])
                 ]),
                 m("li", [
-                  m("a", {target: "_blank", href: "#"}, [
+                  m("a", {onclick: function(e) {openModal(e, contactUsModal);}}, [
                     m("span", {class: "fa fa-bug fa-fw"}),
                     "Found a Bug?"
                   ])
                 ]),
                 m("li", [
-                  m("a", {target: "_blank", href: "#"}, [
+                  m("a", {onclick: function(e) {openModal(e, contactUsModal);}}, [
                     m("span", {class: "fa fa-envelope fa-fw"}),
                     "Contact Support"
                   ])

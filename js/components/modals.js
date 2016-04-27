@@ -342,3 +342,25 @@ var earlyAccessSuccessModal = {
     );
   }
 }
+
+// Modal that shows you how to contact us.
+var contactUsModal = {
+  view: function() {
+    return m(".modal", {onclick: function (e) { closeModals (e); }},
+      m(".modalContent", {onclick: function (e) { e.stopPropagation (); }}, [
+        m("h2", "Contact us!"),
+        m("hr", {class:"hr-gradient"}),
+        m(".message-content", [
+          m("p", "Our site is still in development, so we don't have resources on our site for sharing bugs and feedback. " +
+          "Reach out to us by posting on our subreddit, where our developers and users are regularly active and can respond and address your question or feedback as soon as possible!"),
+        ]),
+        m("br"),
+        m(".message-content", [
+          m("p", "If you have a query related to your account, or otherwise need to contact us privately, please email us at yesandgames@gmail.com"),
+        ]),
+        m("hr", {class:"hr-gradient"}),
+        m("a", {target: "_blank", href: "http://reddit.com/r/adventureguild"}, m("button", "/r/AdventureGuild")),
+      ])
+    );
+  }
+}
