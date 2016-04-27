@@ -24,8 +24,12 @@ var patchNotes = {
 
   view: function() {
     return m(".patch-notes hero position-under-nav", m("div", [
+      m("h2", "Adventure Guild Updates"),
       patchNotes.notes.map (function(data) {
-        return m("div", m.trust(marked(
+        return [
+          m("hr", {class: "hr-gradient"}),
+          m(".patch",
+          m.trust(marked(
           data
           ), {
             gfm: true,
@@ -33,7 +37,7 @@ var patchNotes = {
             breaks: true,
             smartLists: true,
           }
-        ));
+        ))];
       }),
     ]));
   }
