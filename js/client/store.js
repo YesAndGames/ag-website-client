@@ -369,6 +369,7 @@ function storeExecuteStripeOrder(orderID, token, callback) {
 }
 
 function createStripeOrder(token, itemId) {
+    'use strict';
     if (itemId == 5) {
         keysGenerateKey(1, -1, function (response) {
             storeCreateOrder(function(createResponse) {
@@ -377,8 +378,10 @@ function createStripeOrder(token, itemId) {
                     storeExecuteStripeOrder(orderId, token, function(stripeResponse) {
                         console.log(stripeResponse);
                         if (stripeResponse.status === "succeeded") {
-                            keysConsumeKey(response.key, function () {
-                                document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "Your payment was successful!\n\nGo use your new purchase and do something cool!";
+                            keysConsumeKey(response.key, function (consumeResponse) {
+                                // Update the user data
+                                dataCacheStore(dataCacheAuthVar, consumeResponse);
+                                openModal(null, earlyAccessSuccessModal);
                             });
                         } else {
                             document.getElementById("modalContainer").children[0].children[0].getElementsByTagName("p")[0].textContent = "There was an error processing your payment! Please try again, or if your issue persists, contact yesandgames@gmail.com";
