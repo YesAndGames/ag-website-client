@@ -16,7 +16,7 @@ patchNoteFiles.map(function(filepath, index) {
 var updates = {
   view: function() {
     return [
-      m.component(nav, {page: "account"}),
+      m.component(nav, {page: "updates"}),
       m.component(patchNotes),
       m.component(footer),
     ]
