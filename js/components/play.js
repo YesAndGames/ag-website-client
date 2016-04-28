@@ -61,10 +61,10 @@ var alphaSignup = {
                   );}},
                 "Buy")
               ]),
+              m("hr", {class: "hr-gradient"}),
             ]),
           ]),
-        ]),
-        m("hr", {class: "hr-gradient"})
+        ])
       ])
   ]);
     }
