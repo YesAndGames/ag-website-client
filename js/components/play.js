@@ -13,7 +13,6 @@ var alphaSignup = {
 
   controller: function() {
     alphaSignup.vm.init();
-    console.log(alphaSignup.user());
   },
 
   view: function() {
