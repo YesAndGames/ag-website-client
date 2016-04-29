@@ -81,7 +81,13 @@ var alphaSignup = {
           ]),
           m("div", {class: "col span_8_of_12 vertical-center"},
             m("div", [
-              m("img", {src:"imgs/logos/adventure-guild.png", alt: "Adventure Guild", width: "60%"}),
+              m("div",
+                m("img", {src:"imgs/logos/adventure-guild.png", alt: "Adventure Guild", width: "60%"})
+              ),
+              m(".badge-container", [
+                m("a", m("img", {src: "imgs/badges/app-store.svg", alt: "Download on the App Store"})),
+                m("a", m("img", {src: "imgs/badges/app-store.svg", alt: "Download on the App Store"})),
+              ])
             ])
           ),
         ]),
