@@ -23,6 +23,8 @@
   width: 360px;
   height: auto;
   text-align: center;
+  max-height: 80%;
+  overflow-y: scroll;
 
   h2 {
     margin: 5px;
