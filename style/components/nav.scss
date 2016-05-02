@@ -69,6 +69,12 @@ header {
       }
     }
   }
+
+  .nav-closed {
+    @media screen and (max-width: $mobile-break) {
+      display: none;
+    }
+  }
 }
 
 .nav-login-hang {

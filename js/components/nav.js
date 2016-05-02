@@ -239,6 +239,9 @@ var nav = {
   // Currently active page.
   activePage: m.prop(""),
 
+  // Whether or not the nav is currently open.
+  open: m.prop(false),
+
   // Create the controller.
   controller: function(args) {
     nav.activePage(args.page);
@@ -255,7 +258,7 @@ var nav = {
           ])
         ]),
         m("div", {class: "nav-header"}, [
-          m("div", {class: "nav-collapse"}, [
+          m("div", {class: nav.open() ? "nav-collapse" : "nav-collapse nav-closed"}, [
             m("ul", [
               m("li", {class: nav.activePage() == "home" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/");}}, "Home")
