@@ -57,6 +57,23 @@ var mediaReel = {
   }
 }
 
+var slumberingSandsBanner = {
+  view: function() {
+    return m("section", {class: "ss-banner hero"}, [
+      m("div", [
+        m(".col span_6_of_12"),
+        m(".col span_6_of_12 vertical-center", [
+          m("div", [
+            m("h3", "New Adventure Location"),
+            m("h2", "The Slumbering Sands"),
+            m("button", {onclick: function(e){m.route("/updates");}}, "Patch Notes"),
+          ])
+        ])
+      ])
+    ]);
+  }
+}
+
 // Create the home component.
 var home = {
 
@@ -65,6 +82,7 @@ var home = {
     return [
       m.component(nav, {page: "home"}),
       m.component(callToAction),
+      //m.component(slumberingSandsBanner),
       //m.component(mediaReel),
       m.component(footer)
     ]

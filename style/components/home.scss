@@ -14,7 +14,8 @@
   }
 
   .logo-image {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
   }
 
   h2 {
@@ -24,6 +25,11 @@
   .fa {
     font-size: 72px;
   }
+}
+
+.ss-banner {
+  @include darkBackground ("../../imgs/home/ss-promo-art.png", 0.5);
+  text-align: center;
 }
 
 .media-reel {
