@@ -18,6 +18,12 @@ header {
       }
     }
   }
+
+  .nav-closed {
+    @media screen and (max-width: $mobile-break) {
+      display: none;
+    }
+  }
 }
 
 .nav-container {
@@ -79,12 +85,6 @@ header {
           color: $light;
         }
       }
-    }
-  }
-
-  .nav-closed {
-    @media screen and (max-width: $mobile-break) {
-      display: none;
     }
   }
 }

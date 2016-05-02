@@ -300,7 +300,7 @@ var nav = {
         ]),
         m("hr", {class: "hr-gradient"}),
       ]),
-      m("div", {class: "nav-login-hang"}, [
+      m("div", {class: nav.open() ? "nav-login-hang" : "nav-login-hang nav-closed"}, [
         m.component (dataCacheRetrieve(dataCacheAuthVar) == null ? loginHang : accountInfoHang)
       ])
     ]);
