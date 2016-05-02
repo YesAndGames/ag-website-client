@@ -1,5 +1,5 @@
 // This identifies your website in the createToken call below
-Stripe.setPublishableKey('pk_test_wMdM3C9AkAjyMxC4qO4kv9xT');
+Stripe.setPublishableKey('pk_live_gT3MQ4hMunFSSF3FOrf2vWR3');
 
 function createPayPalOrder(itemId) {
     storeCreateOrder(function(response) {
