@@ -223,7 +223,7 @@ var accountInfoHang = {
     return m("div", {class: "nav-account-module vertical-center"}, [
       m (".account-info-hang-username", [
         m("p", "Welcome,"),
-        m("h3", dataCacheRetrieve(dataCacheAuthVar).username),
+        m("h4", dataCacheRetrieve(dataCacheAuthVar).username),
       ]),
       m (".account-info-hang-links", [
         m("a", {onclick: function(e){m.route("/account");}}, "View Account"),
