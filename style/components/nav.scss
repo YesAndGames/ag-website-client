@@ -28,6 +28,17 @@ header {
 .title-header {
   text-align: center;
   padding-top: 10px;
+
+  h1 {
+    display: inline;
+  }
+
+  a {
+    display: none;
+    @media screen and (max-width: $mobile-break) {
+      display: inline;
+    }
+  }
 }
 
 .nav-header {

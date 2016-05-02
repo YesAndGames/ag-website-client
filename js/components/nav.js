@@ -242,6 +242,11 @@ var nav = {
   // Whether or not the nav is currently open.
   open: m.prop(false),
 
+  // Toggles whether or not the nav is open.
+  toggleOpen: function() {
+    nav.open(!nav.open());
+  },
+
   // Create the controller.
   controller: function(args) {
     nav.activePage(args.page);
@@ -255,7 +260,8 @@ var nav = {
           m("h1", [
             m("span", {class: "color-adventure-blue"}, "Adventure "),
             m("span", {class: "color-guild-gold"}, "Guild")
-          ])
+          ]),
+          m("a", {onclick: function(e) {nav.toggleOpen();}}, m("span", {class: "fa fa-bars fa-3x"})),
         ]),
         m("div", {class: "nav-header"}, [
           m("div", {class: nav.open() ? "nav-collapse" : "nav-collapse nav-closed"}, [
