@@ -261,7 +261,7 @@ var nav = {
             m("span", {class: "color-adventure-blue"}, "Adventure "),
             m("span", {class: "color-guild-gold"}, "Guild")
           ]),
-          m("a", {onclick: function(e) {nav.toggleOpen();}}, m("span", {class: "fa fa-bars fa-3x"})),
+          m("a", {onclick: function(e) {nav.toggleOpen();}}, m("span", {class: nav.open() ? "fa fa-close fa-2x" : "fa fa-bars fa-2x"})),
         ]),
         m("div", {class: "nav-header"}, [
           m("div", {class: nav.open() ? "nav-collapse" : "nav-collapse nav-closed"}, [

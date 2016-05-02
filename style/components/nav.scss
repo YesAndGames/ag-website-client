@@ -14,7 +14,7 @@ header {
   h1 {
     span {
       @media screen and (max-width: $mobile-break) {
-        display: block;
+        font-size: 24pt;
       }
     }
   }
@@ -37,6 +37,7 @@ header {
     display: none;
     @media screen and (max-width: $mobile-break) {
       display: inline;
+      margin-left: 10px;
     }
   }
 }
