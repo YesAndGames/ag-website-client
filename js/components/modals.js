@@ -100,6 +100,7 @@ var genericPurchaseModal = {
                     ])
                 ),
                 m("p", ""),
+                m("p", {class: "modal-warning"}, "Adventure Guild is currently only available for download in the US app stores, and our servers are currently only located in the US. We don't gate this purchase by location, but please be aware that you may not be able to access the app if you are located outside the US."),
                 m("div", m("form", {id: "purchaseForm", method:"POST", action:""}, [
                     m("span", {class:"payment-errors"}),
                     m("label", m("span", "Credit Card Number"), m("input", {type: "number", name: "", size:"20", "data-stripe": "number", placeholder:"Credit Card Number", oninput: function (e) {limitInput(e, 16);}})),
