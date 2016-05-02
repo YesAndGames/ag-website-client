@@ -65,7 +65,7 @@ var home = {
     return [
       m.component(nav, {page: "home"}),
       m.component(callToAction),
-      m.component(mediaReel),
+      //m.component(mediaReel),
       m.component(footer)
     ]
   }
