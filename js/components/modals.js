@@ -116,6 +116,11 @@ var genericPurchaseModal = {
                     ),
                     m("button", {type: "submit", onclick: function (e) { return genericPurchaseModal.submitPayment(); }}, "Submit Payment")
                 ])),
+                m("div", [
+                  m("span", "Secure purchases processed by "),
+                  m("span", m("a", {href: "https://stripe.com/"}, "Stripe")),
+                  m("span", ".")
+                ]),
                 m("div", {id: "paymentLoader", style: "display: none;"}, m("img", {src:"imgs/icons/ajax-loader.gif", alt:"AJAX"})),
                 m("button", {type: "button", style: "display: none;", onclick: function (e) { closeModals(e); }}, "Close")
             ])
