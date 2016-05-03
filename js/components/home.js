@@ -94,7 +94,7 @@ m.route(document.body, "/", {
     "/": home,
     "/play": play,
     "/about": about,
-    "/donations": shop,
+    //"/donations": shop,
     "/press": press,
     "/adventurers": characters,
     "/account": account,

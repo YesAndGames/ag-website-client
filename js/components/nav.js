@@ -280,7 +280,6 @@ var nav = {
               m("li", [
                 m("a", {},  "Forums")
               ]),
-              */
 
               m("li", {class: nav.activePage() == "shop" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/donations");}}, "Donations")
