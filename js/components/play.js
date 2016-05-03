@@ -16,7 +16,7 @@ var alphaSignup = {
   },
 
   view: function() {
-    if (alphaSignup.user() == null || alphaSignup.user().ag_activated != 1) {
+    if (false /*alphaSignup.user() == null || alphaSignup.user().ag_activated != 1*/) {
       return m("section", {class: "alpha-signup hero"}, [
         m("div", [
           m("div", {class: "col span_4_of_12 vertical-center"}, [
@@ -72,9 +72,9 @@ var alphaSignup = {
         m("div", [
           m("div", {class: "col span_4_of_12 vertical-center"}, [
             m("div", [
-              m("h2", "Activated!"),
+              m("h2", "Get the app!"),
               m("h1", "Early-Access Alpha"),
-              m("p", "Download Adventure Guild and login to your account to play the closed Early-Access Alpha. "
+              m("p", "Download Adventure Guild and login to your account to play the Early-Access Alpha. "
                 + "Get the earliest possible public access, and play on the account you will use when the game releases. "
                 + "Your progress may be reset between this event and release, but your user account and purchases will carry over at launch."),
             ])
