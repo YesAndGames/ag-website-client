@@ -297,6 +297,13 @@ var redeemKeyModal = {
             closeModals();
             openModal(null, earlyAccessSuccessModal);
             break;
+            case (KEY_TYPE_VANITY_ITEM):
+            closeModals();
+            openModal(null, genericMessageModal,
+            {
+              messageTitle:"Key redeemed!",
+              message:"Login to Adventure Guild to equip your new cosmetic item!",
+            });
           }
         }
         else {
