@@ -5,6 +5,7 @@
   }
 
   margin-top: $nav-height;
+  text-align: center;
 
   .purchase-guildium {
     text-align: center;
@@ -19,6 +20,14 @@
     li {
       background-image: url("../../imgs/icons/guildium.png");
     }
+  }
+}
+
+.must-login {
+  padding: 40px;
+
+  button {
+    margin: 10px;
   }
 }
 
@@ -65,4 +74,26 @@
       }
     }
   }
+}
+
+.purchase-content {
+  height: 160px;
+  img {
+    width: 100%;
+  }
+}
+
+.paypal-purchase {
+  height: 70px;
+  background-image: url("../../imgs/logos/paypal.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  button {
+    float: right;
+  }
+}
+
+.payment-processing {
+  text-align: center;
 }

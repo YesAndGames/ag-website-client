@@ -7,11 +7,21 @@ header {
   height: auto;
   z-index: 3;
 
+  hr {
+    margin-bottom: 0;
+  }
+
   h1 {
     span {
       @media screen and (max-width: $mobile-break) {
-        display: block;
+        font-size: 24pt;
       }
+    }
+  }
+
+  .nav-closed {
+    @media screen and (max-width: $mobile-break) {
+      display: none;
     }
   }
 }
@@ -24,6 +34,18 @@ header {
 .title-header {
   text-align: center;
   padding-top: 10px;
+
+  h1 {
+    display: inline;
+  }
+
+  a {
+    display: none;
+    @media screen and (max-width: $mobile-break) {
+      display: inline;
+      margin-left: 10px;
+    }
+  }
 }
 
 .nav-header {
@@ -84,6 +106,11 @@ header {
     border-bottom-right-radius: 5px;
     padding: 10px;
     pointer-events: all;
+
+    @media screen and (max-width: $mobile-break) {
+      margin: 0 auto;
+      float: none;
+    }
   }
 
   .nav-login-module {

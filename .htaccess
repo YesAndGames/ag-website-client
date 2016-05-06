@@ -24,7 +24,30 @@ AddEncoding gzip .unity3dgz
 
 RewriteRule about\/?$ index.html
 RewriteRule adventureguildgame.com\/about\/(.*\..*)$ \.\/$1
+
 RewriteRule press\/?$ index.html
 RewriteRule adventureguildgame.com\/press\/(.*\..*)$ \.\/$1
+
 RewriteRule adventurers\/?$ index.html
 RewriteRule adventureguildgame.com\/adventurers\/(.*\..*)$ \.\/$1
+
+RewriteRule play\/?$ index.html
+RewriteRule adventureguildgame.com\/play\/(.*\..*)$ \.\/$1
+
+RewriteRule donations\/?$ index.html
+RewriteRule adventureguildgame.com\/donations\/(.*\..*)$ \.\/$1
+
+RewriteRule account\/?$ index.html
+RewriteRule adventureguildgame.com\/account\/(.*\..*)$ \.\/$1
+
+RewriteRule payment\/?$ index.html
+RewriteRule adventureguildgame.com\/payment\/(.*\..*)$ \.\/$1
+
+RewriteRule privacy\/?$ index.html
+RewriteRule adventureguildgame.com\/privacy\/(.*\..*)$ \.\/$1
+
+RewriteRule updates\/?$ index.html
+RewriteRule adventureguildgame.com\/updates\/(.*\..*)$ \.\/$1
+
+RewriteRule support\/?$ index.html
+RewriteRule adventureguildgame.com\/support\/(.*\..*)$ \.\/$1

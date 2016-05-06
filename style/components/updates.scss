@@ -1,0 +1,34 @@
+.patch-notes {
+  height: auto;
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .patch {
+    padding: 20px;
+
+    ul {
+      list-style-position: inside;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      text-shadow: none;
+    }
+
+    h1 {
+      font-size: 18pt;
+      color: $guild-gold;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 14pt;
+      margin-bottom: 6px;
+      color: $adventure-blue;
+      font-family: $page-font;
+    }
+  }
+}

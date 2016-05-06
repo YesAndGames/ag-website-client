@@ -51,6 +51,9 @@ function getCookie(cname) {
   return "";
 }
 
+function deleteCookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 
 /**
  * Store a variable into the data cache.
@@ -61,11 +64,11 @@ function getCookie(cname) {
  */
 function dataCacheStore(name, value) {
   'use strict';
-  if (typeof (storage) !== 'undefined') {
-    sessionStorage[name] = value;
+  if (typeof (sessionStorage) !== 'undefined') {
+    sessionStorage[name] = JSON.stringify(value);
     return sessionStorage[name];
   } else {
-    setCookie(name, value);
+    setCookie(name, JSON.stringify(value));
     return getCookie(name);
   }
 }
@@ -78,9 +81,18 @@ function dataCacheStore(name, value) {
  */
 function dataCacheRetrieve(name) {
   'use strict';
-  if (typeof (storage) !== 'undefined') {
-    return sessionStorage[name];
+  if (typeof (sessionStorage) !== 'undefined') {
+    return sessionStorage[name] === undefined ? null : JSON.parse(sessionStorage[name]);
   } else {
-    return getCookie(name);
+    return JSON.parse(getCookie(name));
+  }
+}
+
+function dataCacheRemove(name) {
+  'use strict';
+  if (typeof (sessionStorage !== 'undefined')) {
+    delete sessionStorage[name];
+  } else {
+    deleteCookie(name);
   }
 }

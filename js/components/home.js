@@ -1,18 +1,5 @@
 // Create the call to action banner component.
 var callToAction = {
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("home call to action banner vm init");
-    }
-  },
-
-  // Create the controller.
-  controller: function() {
-    callToAction.vm.init ();
-  },
-
   // Create the view.
   view: function() {
     return m("section", {class: "call-to-action hero"}, [
@@ -31,14 +18,14 @@ var callToAction = {
               ])
             ]),
             m("div", [
+              /*
               m("h2", "Stay Connected!"),
               m("a", {target: "_blank", href: "http://twitter.com/AdvGuildGame"}, m("span", {class: "fa fa-twitter fa-fw"})),
               m("a", {target: "_blank", href: "http://facebook.com/AdventureGuildGame"}, m("span", {class: "fa fa-facebook fa-fw"})),
-              /*
+              */
               m("a", {onclick: function (e) {m.route("/play");}}, [
                 m("button", {type: "button"}, "Get Early Access")
               ])
-              */
             ])
           ])
         ]),
@@ -50,19 +37,6 @@ var callToAction = {
 
 // Create the media reel component.
 var mediaReel = {
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("home media reel banner vm init");
-    }
-  },
-
-  // Create the controller.
-  controller: function() {
-    mediaReel.vm.init ();
-  },
-
   // Create the view.
   view: function() {
     return m("section", {class: "media-reel hero"}, [
@@ -83,38 +57,50 @@ var mediaReel = {
   }
 }
 
-// Create the home component.
-var home = {};
-
-// Create the home view-model.
-home.vm = {
-  init: function() {
-    console.log("home vm init");
+var slumberingSandsBanner = {
+  view: function() {
+    return m("section", {class: "ss-banner hero"}, [
+      m("div", [
+        m(".col span_6_of_12"),
+        m(".col span_6_of_12 vertical-center", [
+          m("div", [
+            m("h3", "New Adventure Location"),
+            m("h2", "The Slumbering Sands"),
+            m("button", {onclick: function(e){m.route("/updates");}}, "Patch Notes"),
+          ])
+        ])
+      ])
+    ]);
   }
 }
 
-// Create the home controller.
-home.controller = function() {
-  home.vm.init ();
-}
+// Create the home component.
+var home = {
 
-// Create the home view.
-home.view = function() {
-  return [
-    m.component(nav, {page: "home"}),
-    m.component(callToAction),
-    m.component(mediaReel),
-    m.component(footer)
-  ]
+  // Create the home view.
+  view: function() {
+    return [
+      m.component(nav, {page: "home"}),
+      m.component(callToAction),
+      //m.component(slumberingSandsBanner),
+      //m.component(mediaReel),
+      m.component(footer)
+    ]
+  }
 }
 
 m.route.mode = "pathname";
 m.route(document.body, "/", {
     "/": home,
-    //"/play": play,
+    "/play": play,
     "/about": about,
     //"/donations": shop,
     "/press": press,
-    "/adventurers": characters
+    "/adventurers": characters,
+    "/account": account,
+    "/payment": payment,
+    "/privacy": privacy,
+    "/updates": updates,
+    "/support": support,
   }
 );

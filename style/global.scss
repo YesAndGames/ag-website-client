@@ -25,6 +25,10 @@ h3 {
   font-size: 28pt;
 }
 
+h4 {
+  font-size: 16pt;
+}
+
 a {
   color: $dark-grey;
   text-decoration: none;
@@ -116,6 +120,7 @@ input {
   height: 2px;
   background: #000;
   background-image: linear-gradient(to right, #000, $guild-gold, #000);
+  margin: 0;
 }
 
 .color-adventure-blue {
@@ -141,10 +146,18 @@ input {
   }
 }
 
+.position-under-nav {
+    @include position-under-nav ();
+}
+
 .vertical-center {
   @media screen and (min-width: $tablet-break) {
     @include vertical-center ();
   }
+}
+
+.vertical-center-always {
+  @include vertical-center ();
 }
 
 @mixin darkBackground ($path, $opacity) {
@@ -162,4 +175,11 @@ input {
       opacity: $opacity;
     }
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

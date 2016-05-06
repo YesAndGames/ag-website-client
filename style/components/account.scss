@@ -1,0 +1,25 @@
+.account-details {
+
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: $light-grey;
+    font-size: 24pt;
+  }
+
+  h3 {
+    color: $light-grey;
+    font-size: 20pt;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  & > div > div {
+    margin-top: 10px;
+  }
+}

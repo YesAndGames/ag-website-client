@@ -1,18 +1,5 @@
 // Create the features component.
 var features = {
-
-  // Create the view-model.
-  vm: {
-    init: function() {
-      console.log ("about features vm init");
-    }
-  },
-
-  // Create the controller.
-  controller: function() {
-    features.vm.init ();
-  },
-
   // Create the view.
   view: function() {
 
@@ -158,19 +145,6 @@ var features = {
 
 // Create the about component.
 var about = {
-
-    // Create the view-model.
-    vm: {
-      init: function() {
-        console.log ("about vm init");
-      }
-    },
-
-    // Create the controller.
-    controller: function() {
-      about.vm.init ();
-    },
-
     // Create the view.
     view: function() {
         return [
@@ -180,6 +154,3 @@ var about = {
         ]
     }
 }
-
-// Initialize the home component chain.
-// m.mount (document.body, about);

@@ -3,10 +3,7 @@ footer {
   & > div {
     max-width: 60em;
     margin: 0 auto;
-  }
-
-  hr {
-    margin-bottom: 20px;
+    margin-top: 10px;
   }
 
   img {
@@ -17,9 +14,10 @@ footer {
     }
   }
 
-  .contact {
+  .contact, .support {
     ul {
       list-style: none;
+      margin-bottom: 20px;
       li {
         margin-top: 5px;
         a {
