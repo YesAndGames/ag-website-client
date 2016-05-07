@@ -48,7 +48,7 @@ var changePasswordModal = {
     else {
 
       // Send the request.
-      var username = JSON.parse(dataCacheRetrieve(dataCacheAuthVar)).username;
+      var username = dataCacheRetrieve(dataCacheAuthVar).username;
       authChangePassword(username, oldPassword, newPassword, function(response) {
 
         // Successful password change.
