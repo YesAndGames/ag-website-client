@@ -4,6 +4,7 @@ var patchNoteFiles = [
   "content/patch-notes/500.md",
   "content/patch-notes/501.md",
   "content/patch-notes/600.md",
+  "content/patch-notes/704.md",
 ];
 patchNoteFiles.reverse();
 
