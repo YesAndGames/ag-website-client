@@ -275,6 +275,10 @@ var nav = {
               m("li", {class: nav.activePage() == "play" ? "active" : ""}, [
                 m("a", {onclick: function (e) {m.route("/play");}}, "Play")
               ]),
+              m("li", {class:nav.activePage() == "admin" ? "active" : ""}, [
+                m("a", {onclick: function (e) {m.route("/admin");}}, dataCacheRetrieve(dataCacheAuthVar) == null ? "Admin" : "Admin")
+              ])
+              // && dataCacheRetrieve(dataCacheAuthVar).group === "ADMIN"
 
               /*
               m("li", [
