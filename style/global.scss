@@ -135,10 +135,6 @@ input {
   @include clearfix ();
   @include viewport-under-nav ();
 
-  @media screen and (max-width: $tablet-break) {
-    height: auto;
-  }
-
   & > div {
     height: 100%;
     max-width: 60em;
@@ -151,7 +147,7 @@ input {
 }
 
 .vertical-center {
-  @media screen and (min-width: $tablet-break) {
+  @media screen and (min-width: $mobile-break) {
     @include vertical-center ();
   }
 }
@@ -161,7 +157,7 @@ input {
 }
 
 @mixin darkBackground ($path, $opacity) {
-  @media screen and (min-width: $tablet-break) {
+  @media screen and (min-width: $mobile-break) {
     background-color: $dark;
     & > div:before {
       content: "";
