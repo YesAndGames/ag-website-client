@@ -29,7 +29,7 @@
   @include clearfix ();
   @include viewport-under-nav ();
 
-  @media screen and (max-width: $tablet-break) {
+  @media screen and (max-width: $mobile-break) {
     height: auto;
   }
 
