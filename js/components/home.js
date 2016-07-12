@@ -102,5 +102,6 @@ m.route(document.body, "/", {
     "/privacy": privacy,
     "/updates": updates,
     "/support": support,
+    "/admin": admin,
   }
 );
