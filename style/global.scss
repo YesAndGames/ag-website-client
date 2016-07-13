@@ -63,6 +63,13 @@ button {
   color: $light;
 }
 
+button.small-btn {
+  font-size: 12pt;
+  font-family: $page-font;
+  height: 50px;
+  padding: 5px 10px;
+}
+
 button:hover {
   border-color: $button-highlight;
   color: $button-highlight;
@@ -94,6 +101,22 @@ input {
   &:-ms-input-placeholder {
     color: $dark-grey;
   }
+}
+
+select {
+  font-family: $page-font;
+  font-size: 14px;
+  background-color: $button-fill;
+  color: $light;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px $button-border;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .embed-container {
