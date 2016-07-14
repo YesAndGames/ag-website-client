@@ -8,6 +8,18 @@ function changePanel(newPanelId) {
   }
 }
 
+function validateUsageRequest() {
+  if ($("#start-date").val() !== "" &&
+     $("#end-date").val() !== "") {
+    adminGetLoginData($("#usage-interval").val(), $("#start-date").val(), $("end-date").val(), usageRequestCallback
+    )
+  }
+}
+
+function usageRequestCallback(results) {
+  console.log(results);
+}
+
 // Create the admin panel component
 var panel = {
   // Create the view.
@@ -34,18 +46,18 @@ var panel = {
       m("div", {id: "panel-usage-tracking", style: "display: none;", class: "row"}, [
         m("div", {class: "col offset_1_of_12 span_1_of_12"}, [
           m("label", {for: "stat-type"}, "Statistic"),
-          m("select", [
-            m("option", {id: "stat-type", value: "Logins"}, "Logins"),
-            m("option", {id: "stat-type", value: "Purchases"}, "Purchases")
+          m("select", {id: "stat-type"}, [
+            m("option", {value: "logins"}, "Logins"),
+            m("option", {value: "purchases"}, "Purchases")
           ])
         ]),
         m("div", {class: "col offset_1_of_12 span_2_of_12"}, [
-          m("label", {for: "time-interval"}, "Time Interval"),
-          m("select", [
-            m("option", {id: "time-interval", value: "0"}, "Per Hour"),
-            m("option", {id: "time-interval", value: "1"}, "Per Day"),
-            m("option", {id: "time-interval", value: "2"}, "Per Month"),
-            m("option", {id: "time-interval", value: "3"}, "Per Year"),
+          m("label", {for: "usage-interval"}, "Time Interval"),
+          m("select", {id: "usage-interval"}, [
+            m("option", {value: "0"}, "Per Hour"),
+            m("option", {value: "1"}, "Per Day"),
+            m("option", {value: "2"}, "Per Month"),
+            m("option", {value: "3"}, "Per Year"),
           ])
         ]),
         m("div", {class: "col span_2_of_12"}, [
