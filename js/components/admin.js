@@ -1,5 +1,17 @@
+// VARIABLES
+// ======================
+
 var graph_backgroundColor = 'rgba(54, 162, 235, 0.2)';
 var graph_borderColor = 'rgba(54, 162, 235, 1)';
+
+// FUNCTIONS
+// ======================
+
+/**
+ * Change the panel that's being displayed on the admin display.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {string} newPanelId The id of the new panel object to display.
+ */
 
 function changePanel(newPanelId) {
   if ($("#" + newPanelId).attr("style").indexOf("display: none") >= 0) {
@@ -8,16 +20,76 @@ function changePanel(newPanelId) {
   }
 }
 
+/**
+ * Validate the usage request by making sure that all the fields are properly filled out.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @returns {boolean} True if all the fields are filled out, false otherwise.
+ */
+
 function validateUsageRequest() {
-  if ($("#start-date").val() !== "" &&
-     $("#end-date").val() !== "") {
-    adminGetLoginData($("#usage-interval").val(), $("#start-date").val(), $("end-date").val(), usageRequestCallback
-    )
-  }
+  return ($("#start-date").val() !== "" &&
+     $("#end-date").val() !== "");
 }
 
+function usageRequest() {
+  adminGetLoginData($("#usage-interval").val(), $("#start-date").val(), $("#end-date").val(), usageRequestCallback);
+}
+
+/**
+ * The function to run with the results of the usage request.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {Array} results An array of mySQL data results from a query against the YAG database for usage data.
+ */
+
 function usageRequestCallback(results) {
+  initChart();
   console.log(results);
+}
+
+/**
+ * Inititalize a chart.js chart on the page.
+ * @author Nick Rabb <nrabb@outlook.com>
+ * @param {Array} labels Labels to label the chart with. This array should contain strings.
+ */
+
+function initChart(labels) {
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "# of votes",
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 }
 
 // Create the admin panel component
@@ -71,7 +143,10 @@ var panel = {
         m("div", {class: "col span_2_of_12 offset_2_of_12"}, [
           m("button", {type: "button", class: "small-btn", onclick: function(e){
             var labels = ['one', 'two', 'three', 'four', 'five'];
-            initChart(labels);
+            if (validateUsageRequest()) {
+              usageRequest();
+//              initChart(labels);
+            }
           }}, "Display Chart"),
         ]),
       ]),
@@ -83,46 +158,6 @@ var panel = {
       ])
     ]);
   }
-}
-
-function initChart(labels) {
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: "# of votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
 }
 
 // Create the admin component.
